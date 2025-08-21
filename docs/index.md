@@ -1,6 +1,6 @@
 # Home
 
-![Connor Cruz](../../images/ConnorPicture.JPG)
+![Connor Cruz](/docs/images/ConnorPicture.JPG)
 
 ## About Me
 
