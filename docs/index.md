@@ -1,14 +1,10 @@
 # Home
 
-![Connor Cruz](../images/ConnorPicture.JPG)
+![Connor Cruz](../../images/ConnorPicture.JPG)
 
 ## About Me
 
-I am **First Last**, a [grade level] student in the Honors
-Engineering/Computer Science program at [School Name]. I am especially
-interested in [academic interests]. Outside of class, I participate in
-[extracurricular activities]. My favorite hobbies are [hobbies]. In the
-future, I hope to [future aspirations].
+I am **Connor Cruz**, a senior student in the Honors Java Data Structures and AP Networking programs at Charlotte Latin School. I am especially interested in mathematics, computer science, and artificial intelligence. Outside of class, I participate in Cross Country, Track & Field, and am curerntly doing AI research. My favorite hobbies are running, programming, and learning higher mathematics. In the future, I hope to pursue a career in engineering or software management in medicine.
 
 ## Portfolio Navigation
 
