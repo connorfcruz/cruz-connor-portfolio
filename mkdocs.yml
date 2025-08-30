@@ -1,0 +1,12 @@
+site_name: Connor Cruz Portfolio
+
+theme:
+  name: material
+
+plugins:
+- mkdocs-audio
+
+markdown_extensions:
+- admonition
+- pymdownx.details
+- pymdownx.superfences
