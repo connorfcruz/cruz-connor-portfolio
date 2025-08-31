@@ -23,7 +23,7 @@ Be able to identify hardware/software given their definition or function, and al
 
 ![Silent Signals Diagram](../images/SilentSignalsDiagram.jpg)
 
-This is a diagram of the finalized process for Silent Signals. Specifically, this solves the problem of communicating
+This is a diagram of the finalized protocol for Silent Signals. Specifically, this solves the problem of communicating
 
 - Yes/No answers
 - Numbers
@@ -42,6 +42,7 @@ The first diagram shows how hardware components interact with each other step by
 ![Hardware Diagram](../images/HardwareDiagram.jpg)
 
 Here is my thought process behind this:
+
 - PSU: Powers the entire system
 - Motherboard: PSU connects to the motherboard to power and link the other components
 - Cooling system: Applies to everything controlled by the motherboard
@@ -62,6 +63,7 @@ This diagram shows how the software in a computer interacts to download a file a
 ![Software Diagram](../images/SoftwareDiagram.jpg)
 
 Here is my thought process:
+
 - Firmware/UEFI: Starts the computer and allows the OS to run
 - Virtual Machine/Runtime Environment: The base of the OS; also necessary for the OS to run
 - OS: manages other software applications
@@ -82,7 +84,9 @@ The interactions on this diagram can be generalized from the others. A notable p
 
 ## Technical Development
 
-**Components Song:**
+### Components Song:
+
+This song describes the function of computer hardware in a rap beat.
 
 ![type:audio](../audio/Cruz-TheTechInside.mp3)
 
@@ -172,7 +176,55 @@ The interactions on this diagram can be generalized from the others. A notable p
     Overclock dreams? You better know,
     Without that chill, your system won’t go.
 
+### Build-A-PC Challenge
+
+In this challenge, I was paired with Jake to optimize a computer for **gaming** with a $1000 budget.
+
+The given (non-upgraded) components are as follows:
+- CPU: mid-range 4-core processor
+- RAM: 8 GB
+- Storage: 256 GB SSD
+- GPU: basic integrated graphics
+- PSU: 500W basic model
+- Standard cooling
+- Basic NIC (network card)
+- Motherboard that supports most modern upgrades
+
+Here are the upgrades that were performed:
+
+| Component | Upgrade Chosen | Why It Matters |
+| :-------: | :------: | :-------: |
+| CPU | High-end 8-core processor ($300) | A good CPU is important for general computer function |
+| RAM | 16 GB total RAM ($150) | Good RAM allows more applications to be open which support the game |
+| Storage | 512 GB SSD ($150) | Not much storage is necessary unless there are many games; modern games can be up to 100 GB, if not more |
+| GPU | Mid-range graphics card ($250) | A good graphics card allows games to be more enjoyable and run more smoothly/cleanly |
+| NIC | 2.5 Gbps network card ($100) | Most games need a connection to the internet |
+| **Total Cost:** | $950 |
+
+The priority of each upgrade is shown below:
+
+1. CPU
+2. GPU
+3. RAM
+4. NIC
+5. Storage
+
 ## Testing and Evaluation
+
+Although there was not much testing of the ideas shown in the Design/Planning and Technical Development sections, Silent Signals required testing and evaluation when moving between partners.
+
+**Initial Run-Through:**
+
+With my first partner, we struggled very much to find a common form of communication with the blue and white cards, as we had no way to plan a strategy beforehand. We particularly struggled to represent distance (since it was unitless) and months.
+
+**Between Partners:**
+
+Between partners, I thought up a refined method for communication since my previous partner and I struggled to communicate. A modified version of this process is shown above in the Silent Signals diagram.
+
+**Second Run-Through:**
+
+My second parter had also come up with a refined protocol, so we spent the first couple of moments together merging our two protocols. From there, we were able to communicate information much more successfully, and there was less confusion overall. However, since some questions required relaying new types of information that our shared protocol didn't account for, we struggled with these questions.
 
 ## Reflection and Analysis
 
+Through the *Silent Signals* activity, I learned the definition of a protocol and how specific and shared protocols are necessary for computers to even convey a small amount of basic information. I refined my protocol to include different types of data to convey, which likely emulates how actual computer protocols are modified to support transfer of many types of information. In *Component Cards and Software Slips*, I learned many things about computer components, software, and their functions, which I had not known before. Most of the new information I learned in this lesson was about the computer software, as I have not had much experience with that in the past. In this activity, I had to carefully think through each process and the involved interactions, which was dificult even with my finished hardware/software diagrams. As a whole, this activity is very useful for understanding the foundation of a computer, which provides the basis of a more robust understanding of other Networking concepts to come (e.g. protocols, data packaging, etc.). While I do think that my diagrams could have some small adjustments and be refiend further, they convey the general flow of data well. As such, using them as reference is likely to help for the AP exam and to quickly review what each hardware and software component does.
