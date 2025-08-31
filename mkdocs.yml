@@ -2,11 +2,40 @@ site_name: Connor Cruz Portfolio
 
 theme:
   name: material
+  logo: assets/logo-light.svg
+  palette:
+    # Light
+    - scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Light Mode
+      primary: deep purple
+      accent: blue
+
+    #Dark
+    - scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Light Mode
+      primary: light blue
+      accent: green
 
 plugins:
+- search
 - mkdocs-audio
 
 markdown_extensions:
-- admonition
-- pymdownx.details
-- pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - attr_list
+  - pymdownx.emoji
+
+extra:
+  generator: false   # hide "Made with MkDocs"
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/connorfcruz
+    #- icon: fontawesome/brands/linkedin
+    #  link: https://linkedin.com/in/connorfcruz

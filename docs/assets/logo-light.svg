@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Outer circle -->
+  <circle cx="100" cy="100" r="100" fill="url(#outerGradient)" />
+
+  <!-- Inner circle -->
+  <circle cx="100" cy="100" r="70" fill="url(#innerGradient)" />
+
+  <!-- Text "CC" -->
+<text x="50%" y="50%" text-anchor="middle"
+      dy=".35em"
+      font-family="Poppins, sans-serif"
+      font-size="72" font-weight="700"
+      fill="url(#textGradient)">
+  CC
+</text>
+
+
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="outerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7B1FA2" /> <!-- Deep purple -->
+      <stop offset="100%" stop-color="#2196F3" /> <!-- Blue -->
+    </linearGradient>
+
+    <linearGradient id="innerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E1BEE7" /> <!-- Light purple -->
+      <stop offset="100%" stop-color="#BBDEFB" /> <!-- Light blue -->
+    </linearGradient>
+
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#311B92" /> <!-- Indigo -->
+      <stop offset="100%" stop-color="#1A237E" /> <!-- Dark blue -->
+    </linearGradient>
+  </defs>
+</svg>
