@@ -178,7 +178,7 @@ This song describes the function of computer hardware in a rap beat.
 
 ### Build-A-PC Challenge
 
-In this challenge, I was paired with Jake to optimize a computer for **gaming** with a $1000 budget.
+In this challenge, a computer was optimized for **gaming** with a $1000 budget. This was also done with a partner.
 
 The given (non-upgraded) components are as follows:
 - CPU: mid-range 4-core processor
@@ -215,11 +215,11 @@ Although there was not much testing of the ideas shown in the Design/Planning an
 
 **Initial Run-Through:**
 
-With my first partner, we struggled very much to find a common form of communication with the blue and white cards, as we had no way to plan a strategy beforehand. We particularly struggled to represent distance (since it was unitless) and months.
+With my first partner, we struggled very much to find a common form of communication with the blue and white cards, as there was no way to plan a strategy beforehand. We particularly struggled to represent distance (since it was unitless) and months.
 
 **Between Partners:**
 
-Between partners, I thought up a refined method for communication since my previous partner and I struggled to communicate. A modified version of this process is shown above in the Silent Signals diagram.
+Between partners, a refined method was established for communication since communication with the first partner was very difficult. A modified version of this process is shown above in the Silent Signals diagram.
 
 **Second Run-Through:**
 
@@ -227,4 +227,4 @@ My second parter had also come up with a refined protocol, so we spent the first
 
 ## Reflection and Analysis
 
-Through the *Silent Signals* activity, I learned the definition of a protocol and how specific and shared protocols are necessary for computers to even convey a small amount of basic information. I refined my protocol to include different types of data to convey, which likely emulates how actual computer protocols are modified to support transfer of many types of information. In *Component Cards and Software Slips*, I learned many things about computer components, software, and their functions, which I had not known before. Most of the new information I learned in this lesson was about the computer software, as I have not had much experience with that in the past. In this activity, I had to carefully think through each process and the involved interactions, which was dificult even with my finished hardware/software diagrams. As a whole, this activity is very useful for understanding the foundation of a computer, which provides the basis of a more robust understanding of other Networking concepts to come (e.g. protocols, data packaging, etc.). While I do think that my diagrams could have some small adjustments and be refiend further, they convey the general flow of data well. As such, using them as reference is likely to help for the AP exam and to quickly review what each hardware and software component does.
+Through the *Silent Signals* activity, I learned the definition of a protocol and how specific and shared protocols are necessary for computers to even convey a small amount of basic information. I refined my protocol to include different types of data to convey, which likely emulates how actual computer protocols are modified to support transfer of many types of information. In *Component Cards and Software Slips*, I learned many things about computer components, software, and their functions, which I had not known before. Most of the new information I learned in this lesson was about the computer software, as I have not had much experience with that in the past. In this activity, I had to carefully think through each process and the involved interactions, which was difficult even with my finished hardware/software diagrams. As a whole, this activity is very useful for understanding the foundation of a computer, which provides the basis of a more robust understanding of other Networking concepts to come (e.g. protocols, data packaging, etc.). While I do think that my diagrams could have some small adjustments and be refined further, they convey the general flow of data well. As such, using them as reference is likely to help for the AP exam and to quickly review what each hardware and software component does.
