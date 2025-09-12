@@ -119,39 +119,39 @@ This matched the path which was obtained through Finder, so it was confirmed tha
 
 ### Map The Maze (Part 2)
 
-Using the commands learned during *Map The Maze (Part 1)*, they were similarly applied to a Linux Virtual Machine running on Ubuntu. This activity also entailed linking a directory in the host system to the virtual machine and moving files between them.
+Using the commands learned during *Map The Maze (Part 1)*, they were similarly applied to the terminal of a Linux virtual machine running on Ubuntu. This activity also entailed linking a directory in the host system to the virtual machine and moving files between them.
 
-```console
+```bash
 ubuntu@ubuntu:~$ pwd
 /home/ubuntu
 ```
 
-```console
+```bash
 ubuntu@ubuntu:~$ cd Documents
 ubuntu@ubuntu:~/Documents$ pwd
 /home/ubuntu/Documents
 ```
 
-```console
+```bash
 ubuntu@ubuntu:~/Documents$ mkdir MazeGame
 ubuntu@ubuntu:~/Documents$ ls
 MazeGame
 ```
 
-```console
+```bash
 ubuntu@ubuntu:~/Documents$ cd MazeGame
 ubuntu@ubuntu:~/Documents/MazeGame$ touch clue1.txt clue2.txt clue3.txt
 ubuntu@ubuntu:~/Documents/MazeGame$ ls
 clue1.txt clue2.txt clue3.txt
 ```
 
-```console
+```bash
 ubuntu@ubuntu:~/Documents/MazeGame$ nano clue1.txt
 ```
 
 INSERT NANO OUTPUT
 
-```console
+```bash
 ubuntu@ubuntu:~/Documents/MazeGame$ sudo cp clue1.txt ~/hostshare
 [sudo] password for ubuntu:
 ubuntu@ubuntu:~/Documents/MazeGame$ ls ~/hostshare
@@ -162,13 +162,36 @@ To copy a file from the Mac to MazeGame, the 'Shared Directory' value in the UTM
 
 After restarting the VM, it was then required to link ~/hostshare and the shared directory (Desktop) via the following command:
 
-```console
+```bash
 ubuntu@ubuntu:~$ sudo mount -t davfs http://127.0.0.1:9843/ ~/hostshare/
 ```
 
-```console
-ubuntu@ubuntu:~/Documents/MazeGame$ ls
+```bash
+ubuntu@ubuntu:~$ cd hostshare
+ubuntu@ubuntu:~/hostshare$ ls
 'Screenshot 2025-09-05 at 2.23.11 PM.png'
+ubuntu@ubuntu:~/hostshare$ mv 'Screenshot 2025-09-05 at 2.23.11 PM.png' ~/Documents/MazeGame
+ubuntu@ubuntu:~/hostshare$ cd ~/Documents/MazeGame
+```
+
+```bash
+ubuntu@ubuntu:~/Documents/MazeGame$ ls
+'Screenshot 2025-09-05 at 2.23.11 PM.png'   clue2.txt
+clue1.txt                                   clue3.txt
+```
+
+```bash
+ubuntu@ubuntu:~/Documents/MazeGame$ ls -a
+.   'Screenshot 2025-09-05 at 2.23.11 PM.png'   clue2.txt
+..  clue1.txt                                   clue3.txt
+```
+
+```bash
+ubuntu@ubuntu:~/Documents/MazeGame$ ls -a
+.   .secret.txt                                 clue1.txt   clue3.txt
+..  'Screenshot 2025-09-05 at 2.23.11 PM.png'   clue2.txt    
+ubuntu@ubuntu:~/Documents/MazeGame$ cat .secret.txt
+This is secret :O
 ```
 
 ## Testing and Evaluation
