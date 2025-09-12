@@ -196,5 +196,62 @@ This is secret :O
 
 ## Testing and Evaluation
 
+### Map The Maze (Part 3)
+
+To evaluate students' knowledge of the command line interface, they used Linux commands to navigate and modify a pre-made 'House' directory. 
+
+The GitHub repository in which this directory can be found is linked [here](https://github.com/thewangclass/CK-Building-Content-Knowledge-Workshop).
+
+To start, the commands below perform the following:
+
+1. Navigate into the house directory using 'cd'
+2. Check possible places to navigate to using 'ls'
+
+```bash
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration$ ls
+README.md house
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration$ cd house
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house$ ls
+bedroom1    bedroom2    garage    kitchen   main_entrance
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+```
+
+The next segment completes the following:
+
+1. Navigate into the main entrance (using 'cd')
+2. Find and open a set of instructions in the main entrance (using 'ls' and 'open')
+3. Return to the house level (using 'cd')
+
+```bash
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house$ cd main_entrance
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/main_entrance$ ls
+instructions.txt    unopened_mail1.txt    unopened_mail3.txt
+shoerack            unopened_mail2.txt
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/main_entrance$ open instructions.txt
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/main_entrance$ cd ..
+```
+
+This segment checks the kitchen, "eats food" (deletes files), and checks for hidden files.
+
+```bash
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house$ cd kitchen
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/kitchen$ ls -a
+.   ..    .rotten_bananas   banana    cereal    crackers    donut   milk    orange
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/kitchen$ rm cereal .rotten_bananas
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/kitchen$ ls -a
+.   ..    banana    crackers    donut   milk    orange
+```
+
 ## Reflection and Analysis
 
