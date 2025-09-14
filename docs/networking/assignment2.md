@@ -19,9 +19,22 @@ Complete several activities, such as "House Sitting Adventure," to demonstrate m
 
 ## Design and Planning
 
-### Due Dates and Planning
+### Due Dates and Objectives
 
-INSERT
+**Map the Maze Part 1**
+
+- Due Date: September 2nd, 2025
+- Objective: Learn basic CLI commands
+
+**Map the Maze Part 2**
+
+- Due Date: Septemer 10th, 2025
+- Objective: Apply CLI commands in an Ubuntu Virtual Machine, and learn how to navigate a real file system
+
+**House Sitting Adventure**
+
+- Due Date: September 12th, 2025
+- Objective: Apply everything learned from the previous activities to navigate a given directory without guidance
 
 ### Map The Maze (Part 1)
 
@@ -121,39 +134,58 @@ This matched the path which was obtained through Finder, so it was confirmed tha
 
 Using the commands learned during *Map The Maze (Part 1)*, they were similarly applied to the terminal of a Linux virtual machine running on Ubuntu. This activity also entailed linking a directory in the host system to the virtual machine and moving files between them.
 
+This command was used to print the working directory, serving as a review of previously learned concepts:
+
 ```bash
 ubuntu@ubuntu:~$ pwd
 /home/ubuntu
 ```
 
+This segment changes the directory to 'Documents' and prints the working directory, which is confirmed to be Documents:
+
 ```bash
 ubuntu@ubuntu:~$ cd Documents
+
 ubuntu@ubuntu:~/Documents$ pwd
 /home/ubuntu/Documents
 ```
 
+In Documents, the MazeGame directory was made using 'mdir', and 'ls' confirms that it was made successfully:
+
 ```bash
 ubuntu@ubuntu:~/Documents$ mkdir MazeGame
+
 ubuntu@ubuntu:~/Documents$ ls
 MazeGame
 ```
 
+This segment moves the working directory to MazeGame and creates three txt files using the 'touch' command:
+
 ```bash
 ubuntu@ubuntu:~/Documents$ cd MazeGame
+
 ubuntu@ubuntu:~/Documents/MazeGame$ touch clue1.txt clue2.txt clue3.txt
+
 ubuntu@ubuntu:~/Documents/MazeGame$ ls
 clue1.txt clue2.txt clue3.txt
 ```
+
+Nano is used to edit clue1.txt:
 
 ```bash
 ubuntu@ubuntu:~/Documents/MazeGame$ nano clue1.txt
 ```
 
+Here is the nano UI, which allowed for clue1.txt to be written to and saved:
+
 INSERT NANO OUTPUT
+
+This segment copies clue1.txt to '~/hostshare', which required administrator priviliges. To obtain these privileges, 'sudo' was used:
 
 ```bash
 ubuntu@ubuntu:~/Documents/MazeGame$ sudo cp clue1.txt ~/hostshare
 [sudo] password for ubuntu:
+
 ubuntu@ubuntu:~/Documents/MazeGame$ ls ~/hostshare
 clue1.txt
 ```
@@ -166,13 +198,20 @@ After restarting the VM, it was then required to link ~/hostshare and the shared
 ubuntu@ubuntu:~$ sudo mount -t davfs http://127.0.0.1:9843/ ~/hostshare/
 ```
 
+The directory is changed to hostshare, and 'ls' confirms that th files from the host system's Desktop folder are shared. 'mv' is also used to move the screenshot in hostshare to MazeGame:
+
 ```bash
 ubuntu@ubuntu:~$ cd hostshare
+
 ubuntu@ubuntu:~/hostshare$ ls
 'Screenshot 2025-09-05 at 2.23.11 PM.png'
+
 ubuntu@ubuntu:~/hostshare$ mv 'Screenshot 2025-09-05 at 2.23.11 PM.png' ~/Documents/MazeGame
+
 ubuntu@ubuntu:~/hostshare$ cd ~/Documents/MazeGame
 ```
+
+This command confirms that the screenshot was successfully moved to MazeGame:
 
 ```bash
 ubuntu@ubuntu:~/Documents/MazeGame$ ls
@@ -180,16 +219,21 @@ ubuntu@ubuntu:~/Documents/MazeGame$ ls
 clue1.txt                                   clue3.txt
 ```
 
+Similarly to above, 'ls' is run, but with the '-a' flag added. This flag allows for all files/directories to be shown, including hidden files:
+
 ```bash
 ubuntu@ubuntu:~/Documents/MazeGame$ ls -a
 .   'Screenshot 2025-09-05 at 2.23.11 PM.png'   clue2.txt
 ..  clue1.txt                                   clue3.txt
 ```
 
+Another student created a sercet file on this VM. This file was found using 'ls -a' and printed using the 'cat' command:
+
 ```bash
 ubuntu@ubuntu:~/Documents/MazeGame$ ls -a
 .   .secret.txt                                 clue1.txt   clue3.txt
-..  'Screenshot 2025-09-05 at 2.23.11 PM.png'   clue2.txt    
+..  'Screenshot 2025-09-05 at 2.23.11 PM.png'   clue2.txt   
+
 ubuntu@ubuntu:~/Documents/MazeGame$ cat .secret.txt
 This is secret :O
 ```
@@ -211,11 +255,14 @@ To start, the commands below perform the following:
 ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
 - House Exploration$ ls
 README.md house
+
 ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
 - House Exploration$ cd house
+
 ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
 - House Exploration/house$ ls
 bedroom1    bedroom2    garage    kitchen   main_entrance
+
 ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
 ```
 
@@ -228,30 +275,164 @@ The next segment completes the following:
 ```bash
 ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
 - House Exploration/house$ cd main_entrance
+
 ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
 - House Exploration/house/main_entrance$ ls
 instructions.txt    unopened_mail1.txt    unopened_mail3.txt
 shoerack            unopened_mail2.txt
+
 ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
 - House Exploration/house/main_entrance$ open instructions.txt
+
 ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
 - House Exploration/house/main_entrance$ cd ..
 ```
 
-This segment checks the kitchen, "eats food" (deletes files), and checks for hidden files.
+This segment checks the kitchen, "eats food" (deletes files), and checks for hidden files. Using 'rm' successfully removed the two food items specified.
 
 ```bash
 ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
 - House Exploration/house$ cd kitchen
+
 ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
 - House Exploration/house/kitchen$ ls -a
 .   ..    .rotten_bananas   banana    cereal    crackers    donut   milk    orange
+
 ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
 - House Exploration/house/kitchen$ rm cereal .rotten_bananas
+
 ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
 - House Exploration/house/kitchen$ ls -a
 .   ..    banana    crackers    donut   milk    orange
 ```
+
+This next segment searches the bedrooms thoroughly and checks the current location in the house with 'pwd'. As shown below, a secret diary was found in Bedroom 1, and but Bedroom 2 did not contain any notable files.
+
+```bash
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/kitchen$ cd ../bedroom1
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/bedroom1$ ls -a
+.   ..    .secret_diary.txt
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/bedroom1$ cd ../bedroom2
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/bedroom2$ ls -a
+.   ..    chair   desk    messy_bed
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/bedroom2$ ls desk
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/bedroom2$ open desk/search_desk.txt
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/bedroom2$ pwd
+/home/ubuntu/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity -
+House Exploration/house/bedroom2
+```
+
+This segment searches the garage and does the following:
+
+1. Removes all garbage using rm g* (removing any file that starts with a 'g')
+2. Moves into each cardboard box directory using 'cd' and checks for trash using 'ls'
+3. Removes cardboard_box and cardboard_box 2, as well as their contents, using 'rm' with the '-r' flag
+4. Checks which files remain using 'ls -a' to confirm that all garbage and boxes with trash were removed
+
+```bash
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/bedroom2$ cd ../garage/
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage$ ls -a
+.   cardboard_box   cardboard_box3    garbage1    garbage3
+..  cardboard_box2  garbage           garbage2    hose
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage$ rm g*
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage$
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage$ cd cardboard_box
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage/cardboard_box$ ls -a
+.   ..    cardboard_box
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage/cardboard_box$ cd cardboard_box/cardboard_box
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage/cardboard_box/cardboard_box/cardboard_box$ ls
+trash
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage/cardboard_box/cardboard_box/cardboard_box$ cd 
+../../../cardboard_box2
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage/cardboard_box2$ ls
+trash
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage/cardboard_box2$ cd ../cardboard_box3
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage/cardboard_box3$ ls
+family_pictures
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage/cardboard_box3$ cd ..
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage$ rm -r cardboard_box cardboard_box2
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage$ ls -a
+.   ..    cardboard_box3    hose
+```
+
+These commands move the user to the house directory then create and edit a txt file called 'note.txt' using nano:
+
+```bash
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/garage$ cd ..
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house$ touch note.txt
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house$ nano note.txt
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house$ cat note.txt
+Hello!! Your house is wonderful
+```
+
+As shown above, after using the Nano editor, 'cat' was used to verify that note.txt was successfully changed.
+
+As an optional addition to the activity, this segment navigates to a hidden directory into the house and reveals the contents of a hidden message:
+
+```bash
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house$ cd .hidden_basement
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/.hidden_basement$ ls -a
+.   ..    .hidden_stash
+
+ubuntu@ubuntu:~/Documents/CK-Building-Content-Knowledge-Workshop/Unit 1 Activity
+- House Exploration/house/.hidden_basement$ cat .hidden_stash
+Congratulations! Put 'I won the game!' in chat to confirm how much of a winner
+you are!
+```
+
+As the hidden message says: I won the game!
 
 ## Reflection and Analysis
 
