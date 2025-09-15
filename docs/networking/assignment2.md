@@ -54,6 +54,7 @@ Complete several activities, such as "House Sitting Adventure," to demonstrate m
 In this activity, students created an example diagram displaying how directories and files are organized and interact with each other by making a file system tree.
 
 Initially, students were tasked to create a top-down diagram starting from the root directory with:
+
 - A home directory
 - Three subfolders
 - At least two sample files
@@ -131,6 +132,8 @@ This matched the path which was obtained through Finder, so it was confirmed tha
 ### The Linux Command Line For Beginners (Tutorial)
 
 This activity allowed for students to learn basic Ubuntu (or othe Linux version) terminal commands and the general layout of Ubuntu's CLI.
+
+The tutorial used can be found [here](https://ubuntu.com/tutorials/command-line-for-beginners#1-overview).
 
 **Opening a Teminal**
 
@@ -505,3 +508,4 @@ As the hidden message says: I won the game!
 
 ## Reflection and Analysis
 
+Through the Command Line Interface activity, basic navigation through a command line interface, specifically on a Linux Ubuntu virtual machine, was learned. Specifically, students learned how to create, modify, and remove files, as well as navigate through directories via absolute and relative pathing. The knowledge of navigation was also applied to multiple activities, providing a simpler version of real-world navigation through directories. This activity was quite difficult compared to file navigation with a GUI since the only means that could be used to navigate and look were commands and their respective outputs. However, training to use a command line fo navigation can especially help in the business world, as a user interface may provide security issues in a company or be too resource-heavy for systems with large amounts of files. Navigating using commands also solidified the ideas learned through diagramming file system trees, allowing them to be applied in more general contexts. Knowledge of the command line interface, can branch out into many different areas, even those outside of Networking. However, the command line interface will be especially useful when learning about protocols and IP addresses in order to obtain information about a system, packets, and other concepts.
