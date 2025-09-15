@@ -60,7 +60,7 @@ Initially, students were tasked to create a top-down diagram starting from the r
 
 Here is the diagram:
 
-INSERT DIAGRAM AAAAAAA
+![Folder Diagram](../images/Assignment2/FolderDiagram.jpg)
 
 Afterwards, that diagram was used to create a text version of the file system tree made previously.
 
@@ -128,6 +128,75 @@ When printing the working directory via 'pwd', this path was obtained: `/Users/2
 
 This matched the path which was obtained through Finder, so it was confirmed that 'pwd' returned the correct working directory.
 
+### The Linux Command Line For Beginners (Tutorial)
+
+This activity allowed for students to learn basic Ubuntu (or othe Linux version) terminal commands and the general layout of Ubuntu's CLI.
+
+**Opening a Teminal**
+
+This section allowed users to become familiar with these commands learned previously: 'cd' and 'pwd'.
+
+For 'cd', some useful concepts learned were that '~' represents the home directory, and that '..' represents the parent directory.
+
+A new command was also learned: 'whoami', which returns the username of the person running the command.
+
+![Terminal Navigation](../images/Assignment2/OpeningATerminal.jpg)
+
+**Creating Folders and Files**
+
+Note that many of the commands run are not shown due to the computer running the VM being reset. However, the part shown summarizes the concepts learned.
+
+In summary, this part of the activity taught the following:
+
+- Linux's CLI makes it such that 'mkdir word1 word2' makes two separate directories 'word1' and 'word2' rather than 'word1 word2'
+- Spaces (and other special characters in Linux CLI) can be escaped using the '\' character
+- The '>' command writes the output of a command to a file
+- 'echo' returns its argument
+- 'cat' with more than one argument concatenates the contents of files as a single block of text
+- '>>' appends an output to a file
+
+![Creating Files](../images/Assignment2/CreatingFiles.jpg)
+
+**Moving and Manipulating Files**
+
+This section goes over commands to move, copy, and remove files, which were mostly dealt with in *Map the Maze Part 1*:
+
+- 'mv' moves the first arguments into the final argument
+- If 'mv' is run with two file/directory arguments of the same type, it will rename the first argument to the second
+- 'cp' copies its first arguments into its last argument (which can be either a file or directory)
+- 'rm' can remove a file but cannot remove a directory
+- 'rmdir' is used to remove directories
+- 'rm -r' remoevs a directory and all of its contents, which can be dangerous
+
+![Moving Files](../images/Assignment2/MovingFiles.jpg)
+
+**A Bit of Plumbing**
+
+Although this section was not required, it is useful to know for general use. It primarily introduced the **pipe command**:
+
+- The output of the left side of the pipe command '|' is input as an argument to the right side of the pipe command
+- Multiple pipes can be used in succession, going from left to right
+- 'sort' sorts the contents of a file alphabetically
+- 'wc' gets the word count of a file, and 'wc -l' gets the line count
+
+![Pipe Command](../images/Assignment2/PipeCommand.jpg)
+
+**The Command Line and Superuser**
+
+This section goes over permissions:
+
+- The 'su' command allows the user to change to the root user without logging out and logging back in
+- 'sudo' is a prefix to a command which is to be run with administrator privileges
+
+While there was some code written for this segment, it does not pertain much to the concepts taught.
+
+**Hidden Files**
+
+This section briefly taught about how to denote hidden files:
+
+- Hidden files/directories always start with a '.'
+- To reveal hidden files/directories when using a command, add the '-a' switch
+
 ## Technical Development
 
 ### Map The Maze (Part 2)
@@ -178,7 +247,7 @@ ubuntu@ubuntu:~/Documents/MazeGame$ nano clue1.txt
 
 Here is the nano UI, which allowed for clue1.txt to be written to and saved:
 
-INSERT NANO OUTPUT
+![Nano Output](../images/Assignment2/NanoUI.jpg)
 
 This segment copies clue1.txt to '~/hostshare', which required administrator priviliges. To obtain these privileges, 'sudo' was used:
 
@@ -219,7 +288,7 @@ ubuntu@ubuntu:~/Documents/MazeGame$ ls
 clue1.txt                                   clue3.txt
 ```
 
-Similarly to above, 'ls' is run, but with the '-a' flag added. This flag allows for all files/directories to be shown, including hidden files:
+Similarly to above, 'ls' is run, but with the '-a' switch added. This switch allows for all files/directories to be shown, including hidden files:
 
 ```bash
 ubuntu@ubuntu:~/Documents/MazeGame$ ls -a
@@ -339,7 +408,7 @@ This segment searches the garage and does the following:
 
 1. Removes all garbage using rm g* (removing any file that starts with a 'g')
 2. Moves into each cardboard box directory using 'cd' and checks for trash using 'ls'
-3. Removes cardboard_box and cardboard_box 2, as well as their contents, using 'rm' with the '-r' flag
+3. Removes cardboard_box and cardboard_box 2, as well as their contents, using 'rm' with the '-r' switch
 4. Checks which files remain using 'ls -a' to confirm that all garbage and boxes with trash were removed
 
 ```bash
