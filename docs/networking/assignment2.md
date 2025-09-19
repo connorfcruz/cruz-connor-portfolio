@@ -200,6 +200,35 @@ This section briefly taught about how to denote hidden files:
 - Hidden files/directories always start with a '.'
 - To reveal hidden files/directories when using a command, add the '-a' switch
 
+### Troubleshooting Network Issues
+
+This assignment explained the **fundamental troubleshooting process:**
+
+1. Determine if the device is connected.
+2. Check if the device is assigned an IP address.
+3. Check if the device can reach the internet.
+4. Check if DNS is functional (i.e. it can look up names).
+
+**Device Connection/IP Address**
+
+To check for a device's IP address (on a Mac), one must use the `ifconfig` command. If the Mac is connected to the router via ethernet, an active IP address should be displayed on *en0*. However, if it is connected to the router via Wi-Fi, *en1* should be active instead.
+
+Here is the output when `ifconfig` was run:
+
+INSERT OUTPUT
+
+Note that the Mac connected to the router via Wi-Fi, so *en1* being active makes sense.
+
+To see what happens when the device is not connected, the Wi-Fi was turned off on the Mac by toggling the Wi-Fi switch. As a result, both *en0* and *en1* became inactive:
+
+INSERT OUTPUT
+
+When reconnecting to Wi-Fi, the same results as the initial run  of `ifconfig` were output.
+
+**Reachability**
+
+
+
 ## Technical Development
 
 ### Map The Maze (Part 2)
