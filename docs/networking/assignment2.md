@@ -222,13 +222,13 @@ To check for a device's IP address (on a Mac), one must use the `ifconfig` comma
 
 Here is the output when `ifconfig` was run:
 
-INSERT OUTPUT
+![ifconfig Output](../images/Assignment2/Troubleshooting/MacIP.jpg)
 
 Note that the Mac connected to the router via Wi-Fi, so *en1* being active makes sense.
 
 To see what happens when the device is not connected, the Wi-Fi was turned off on the Mac by toggling the Wi-Fi switch. As a result, both *en0* and *en1* became inactive:
 
-INSERT OUTPUT
+![No Wifi Output](../images/Assignment2/Troubleshooting/MacNoWifi.jpg)
 
 When reconnecting to Wi-Fi, the same results as the initial run  of `ifconfig` were output.
 
@@ -240,7 +240,7 @@ The ping command essentially sends a signal to a desired server (designated by t
 
 This is the output when `ping` was run:
 
-INSERT OUTPUT
+![Mac Ping](../images/Assignment2/Troubleshooting/MacPing.jpg)
 
 When comparing the ping times between Google DNS and Cloudflare DNS, Google's server obtained a faster response time (18.664 ms compared to 20.725 ms). Two possible reasons for this disparity are:
 
@@ -261,15 +261,21 @@ The default gateway of a device is generally its router. To obtain its IP addres
 - `ip route`
 - `netstat -rn`
 
+Here is the output when accessing the default gateway on both Mac and Linux:
+
+![Mac Default Gateway](../images/Assignment2/Troubleshooting/MacDefault.jpg)
+
+![Linux Default Gateway](../images/Assignment2/Troubleshooting/LinuxDefault.jpg)
+
 When pinging the default gateway, the response time is also expected to be faster because the router must be accessed before going to external servers. The router is also much closer physically.
 
 **DNS**
 
 To check if DNS works, one must first determine that accessing servers by IP address works. Then, the `ping` command must be run again with a text-based argument. For example, the command `ping -c 4 google.com` can be performed.
 
-INSERT GOOGLE DNS PING
+![Mac DNS](../images/Assignment2/Troubleshooting/MacDNS.jpg)
 
-INSERT FACEBOOK AND STUFF DNS PING
+![DNS Other Websites](../images/Assignment2/Troubleshooting/MacFacebook.jpg)
 
 ### Troubleshooting Network Issues (Ubuntu)
 
@@ -285,7 +291,7 @@ In shared mode, the IP address of the virtual machine is assigned by the host de
 
 This is the output of `ip addr` when in Shared Mode:
 
-INSERT OUTPUT
+![Shared Mode IP](../images/Assignment2/Troubleshooting/LinuxSharedIP.jpg)
 
 As shown in the image, the Mac address is **1a:63:23:39:a4:2c**, which can be found next to *link/ether*. 
 
@@ -297,11 +303,13 @@ In bridged mode, the virtual machine acts as its own separate machine. The VM is
 
 Here is the output when `ip addr` is run in Bridged Mode:
 
-INSERT OUTPUT
+![Bridged Mode IP](../images/Assignment2/Troubleshooting/LinuxBridgedIP.jpg)
 
 As shown in the image, the Mac address is **1a:63:23:39:a4:2c**, which is the same as in Shared Mode.
 
 However, the VM's address is **10.12.24.209/20**, which is different than in Shared Mode.
+
+Despite being in Bridged Mode, the Virtual Machine can still ping the Mac. This is because the VM can access the Mac via the router's connection.
 
 **Reachability**
 
@@ -311,13 +319,11 @@ Note that the *ping* package may have to be installed prior to running this comm
 
 Here is the output when *ping* is run:
 
-INSERT OUTPUT
+![Linux Ping](../images/Assignment2/Troubleshooting/LinuxPing.jpg)
 
 **DNS**
 
-Testing DNS is also the same as in Mac, using the command `ping -c 4 google.com`. Here is the output:
-
-INSERT OUTPUT
+Testing DNS is also the same as in Mac, using the command `ping -c 4 google.com`.
 
 ## Technical Development
 
