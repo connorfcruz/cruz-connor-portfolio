@@ -13,6 +13,13 @@ In some cases, as well as in the past, having a graphical user interface to inte
 - Learn basic commands (e.g. pwd and cd) to move through directories and understand absolute vs. relative paths
 - Learn how to make, delete, move, copy, and edit files via terminal commands
 
+**Objectives (Troubleshooting Network Issues):**
+
+- Identify and interpret different IP addresses and their significance in network troubleshooting.
+- Execute terminal commands to diagnose network connectivity issues on both Mac and Ubuntu systems.
+- Compare and analyze network configurations in different VM networking models (Shared and Bridged).
+- Apply a systematic troubleshooting methodology to diagnose network connectivity problems.
+
 **Success Criteria:**
 
 Complete several activities, such as "House Sitting Adventure," to demonstrate mastery of command line navigation in the Ubuntu virtual machine.
@@ -200,7 +207,7 @@ This section briefly taught about how to denote hidden files:
 - Hidden files/directories always start with a '.'
 - To reveal hidden files/directories when using a command, add the '-a' switch
 
-### Troubleshooting Network Issues
+### Troubleshooting Network Issues (Mac)
 
 This assignment explained the **fundamental troubleshooting process:**
 
@@ -227,7 +234,90 @@ When reconnecting to Wi-Fi, the same results as the initial run  of `ifconfig` w
 
 **Reachability**
 
+To determine reachability of websites, the `ping` command was used with the desired IP address. Two common addresses for using this command are `8.8.8.8` (Google) and `1.1.1.1` (Cloudflare). Note that with these pings, the `-c` switch was appended with the argument '4' to signify that it was to retrieve 4 packets.
 
+The ping command essentially sends a signal to a desired server (designated by the desired IP address), and the server sends packets back to the host device. The time in milliseconds for the host device to receive these packets is also noted.
+
+This is the output when `ping` was run:
+
+INSERT OUTPUT
+
+When comparing the ping times between Google DNS and Cloudflare DNS, Google's server obtained a faster response time (18.664 ms compared to 20.725 ms). Two possible reasons for this disparity are:
+
+- Cloudflare's host server's location might be farther.
+- Cloudflare requires more intermediary steps to access.
+
+**Finding the Default Gateway**
+
+The default gateway of a device is generally its router. To obtain its IP address, one of the following commands can be used:
+
+*Mac*
+
+- `netstat -nr | grep default`
+- `route -n get default`
+
+*Linux:*
+
+- `ip route`
+- `netstat -rn`
+
+When pinging the default gateway, the response time is also expected to be faster because the router must be accessed before going to external servers. The router is also much closer physically.
+
+**DNS**
+
+To check if DNS works, one must first determine that accessing servers by IP address works. Then, the `ping` command must be run again with a text-based argument. For example, the command `ping -c 4 google.com` can be performed.
+
+INSERT GOOGLE DNS PING
+
+INSERT FACEBOOK AND STUFF DNS PING
+
+### Troubleshooting Network Issues (Ubuntu)
+
+**Device Connection/IP Address**
+
+To obtain the IP address of an Ubuntu virtual machine, the command `ip addr` is run. In the case of the Ubuntu VM, the IP address is found under *enp0s1*.
+
+There are two primary modes to assign an IP address to a Virtual Machine: **Shared** and **Bridged** Mode.
+
+**Shared Mode:**
+
+In shared mode, the IP address of the virtual machine is assigned by the host device. It is assigned a private IP address, so it is not able to interact with any other devices connected to the router. Furthermore, any traffic going in our out of the virtual machine must go through the host device first.
+
+This is the output of `ip addr` when in Shared Mode:
+
+INSERT OUTPUT
+
+As shown in the image, the Mac address is **1a:63:23:39:a4:2c**, which can be found next to *link/ether*. 
+
+The VM's address is displayed next to *inet*: **192.168.64.2/24**.
+
+**Bridged Mode:**
+
+In bridged mode, the virtual machine acts as its own separate machine. The VM is usually assigned its own IP address by the router, and it can be accessed independently of the host machine. However, Bridged Mode may pose security risks since it is unmonitored by the host system and has direct access to the local network.
+
+Here is the output when `ip addr` is run in Bridged Mode:
+
+INSERT OUTPUT
+
+As shown in the image, the Mac address is **1a:63:23:39:a4:2c**, which is the same as in Shared Mode.
+
+However, the VM's address is **10.12.24.209/20**, which is different than in Shared Mode.
+
+**Reachability**
+
+To test reachability on Ubuntu, the same command as Mac is used: `ping -c 4 8.8.8.8`.
+
+Note that the *ping* package may have to be installed prior to running this command.
+
+Here is the output when *ping* is run:
+
+INSERT OUTPUT
+
+**DNS**
+
+Testing DNS is also the same as in Mac, using the command `ping -c 4 google.com`. Here is the output:
+
+INSERT OUTPUT
 
 ## Technical Development
 
