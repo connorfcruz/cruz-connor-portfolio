@@ -22,7 +22,7 @@ Fill out a guided note document to retain the knowledge of cyberattacks and defe
 
 ### Cybersecurity Basics for Devices (Guided Notes)
 
-These notes primarily cover four topics: the CIA triad, common device vulnerabilities, social engineering attacks, and defenses.
+These notes primarily cover three topics: the CIA triad, common device vulnerabilities, and social engineering attacks.
 
 **The CIA Triad**
 
@@ -42,7 +42,39 @@ CIA is very important for assessing the security of a device or network, and it 
 
 **Common Device Vulnerabilities**
 
+These are some examples of common device vulnerabilities and why they matter:
 
+- Outdated Operating System: If a vulnerability or incompatibility is discovered in an operating system, people may try to take advantage of that vulnerability and access one's device
+- Unencrypted Data: If data is accessed, it is able to be interpreted without any trouble by those who shouldn't see it
+- Weak Passwords: Easy-to-guess or leaked passwords allow for malicious parties to obtain access to one's data without many boundaries
+- Open Ports: Ports allow a device to access the internet, so an open port can allow for someone to remotely access one's operating system
+- Unpatched Software: Similarly to an outdated OS, pplications often release patches for security flaws, and failing to update them could result in a security breach
+
+Overall, the specific vulnerabilities which fall into these categories can be accessed via the public database known as **CVE** (Common Vulnerabilities and Exposures). This database is very useful for ensuring that vulnerabilities are assigned a unique identifier and are able to be tracked and fixed in an orderly fashion.
+
+**Social Engineering Attacks**
+
+Social engineering attacks are mostly a result of user error, and they can often be avoided by being careful of one's data and taking proper measures to check an unverified party's authentication.
+
+There are five primary social engineering attacks:
+
+- Phishing: Targeting a large and general group of people by attempting to get them to click a malicious link or perform a malicious action
+- Spear Phishing: A subset of phishing which targets a specific set of people (often businesses)
+- Pretexting: Using communication with a user to create an image and gain trust, with the intended purpose of getting the user to allow access
+- Baiting: Offering a reward, either physical or virtual, to a specific person but instead performing another action
+- Tailgating: Entering an open door or insecure location to access a user's device (physical or virtual)
+
+Phishing and Spear Phishing can mostly be prevented by validating the identity of the party who is sending the link/attachment to be opened.
+
+Pretexting and tailgating are most effectively prevented by ensuring the identity and authoriztaion given to a person before trusting them with information.
+
+Baiting is best prevented by being aware of suspicious or unknown devices and avoiding allowing them to connect to one's own devices.
+
+Here is an activity done with a partner in which scenarios of brecahed security (red slips) must be paired with remedies to the respective problems (the green slips).
+
+INSERT CARDS IMAGE
+
+After reviewing the slips once again after learning about specific social engineering attacks, the obtained answers were exactly the same as previously.
 
 ## Technical Development
 
