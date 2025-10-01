@@ -70,14 +70,66 @@ Pretexting and tailgating are most effectively prevented by ensuring the identit
 
 Baiting is best prevented by being aware of suspicious or unknown devices and avoiding allowing them to connect to one's own devices.
 
-Here is an activity done with a partner in which scenarios of brecahed security (red slips) must be paired with remedies to the respective problems (the green slips).
+## Technical Development
+
+### Outdated Software
+
+In this activity, students checked software in an Ubuntu VM to determine whether they were: up to date, outdated, or not installed. Since outdated software can often provide vulnerabilities, it is best to update it to the latest available version.
+
+Before checking the versions of the various software, the following commands had to be run to allow the latest versions to be installed if they were not already:
+
+```shell
+sudo apt update -y
+sudo apt upgrade -y
+```
+
+To actually check the versions of software, the name of the software followed by `--version` or some variant is usually used:
+
+INSERT VERSION CHECKS
+
+Below are the results obtained for different software, as well as the possible risks of leaving that software outdated:
+
+| Software | Status | Risk |
+| ------ | ------ | ------ |
+| OpenSSL | Outdated | OpenSSL controls encryption, which hides sensitive data |
+| Firefox | Up To Date | The browser's cookies could be accessed, which store user information and passwords |
+| LibreOffice | Outdated | Documents can become corrupted or made public if vulnerable |
+| Python | Outdated | Someone could execute remote commands to perform unwanted actions |
+| Apache HTTP Server | Not Installed | Content accessed on the internet could be redirected maliciously |
+| GIMP | Not Installed | Images could become corrupted or deleted |
+| Java | Not Installed | Remote Java scripts could be executed to perform unwanted actions |
+| OpenSSH | Outdated | An unauthorized party could connect to the device remotely via SSH |
+
+Note that a piece of software not being installed is more safe than installing it and leaving it out of date because the software's point of contact with the internet is not made until it is installed. Thus, too much unnecessary and unmanaged software could pose the risk of exposing one's device to the broader internet.
+
+As shown above, most of the software was outdated. Although this does not have much of an impact on a VM with in-school use, if these software were downloaded on a more important operating system, then these outdated versions could post various risks. Personal data could possibly be compromised, or the system could be corrupted and manipulated such that it could not be restored to a previous available version.
+
+To actually update this software, running the software's install command once again usually updates it.
+
+For example, Raaj found a method to install the latest version of Java on the virtual machines despite Ubuntu only natively supporting an earlier outdated version. This command is as follows:
+
+`sudo apt install openjdk-21-jdk`
+
+After updating, here is the displayed version, which correlates to the latest available version of the JDK:
+
+INSERT JAVA LATEST VERSION
+
+### Cybersecurity Basics got Devices
+
+### Social Engineering Attacks/Defenses
+
+This is an activity done with a partner in which scenarios of breached security (red slips) must be paired with remedies to the respective problems (the green slips).
 
 INSERT CARDS IMAGE
 
-After reviewing the slips once again after learning about specific social engineering attacks, the obtained answers were exactly the same as previously.
+After reviewing the slips once again after learning about specific social engineering attacks, the obtained answers were exactly the same as those obtained previously.
 
-## Technical Development
+Interestingly, some attacks did not fall into social engineering, but were rather device vulnerabilities.
 
 ## Testing & Evaluation
+
+### Outdated Software
+
+### Cybersecurity Basics for Devices
 
 ## Reflection & Analysis
