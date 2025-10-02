@@ -85,7 +85,9 @@ sudo apt upgrade -y
 
 To actually check the versions of software, the name of the software followed by `--version` or some variant is usually used:
 
-INSERT VERSION CHECKS
+![Version Checks 1](../images/Assignment3/Versions1.jpg)
+
+![Version Checks 2](../images/Assignment3/Versions2.jpg)
 
 Below are the results obtained for different software, as well as the possible risks of leaving that software outdated:
 
@@ -112,15 +114,39 @@ For example, Raaj found a method to install the latest version of Java on the vi
 
 After updating, here is the displayed version, which correlates to the latest available version of the JDK:
 
-INSERT JAVA LATEST VERSION
+![Java Updated](../images/Assignment3/UpdatedVersion.jpg)
 
-### Cybersecurity Basics got Devices
+### Cybersecurity Basics for Devices (Defenses)
+
+**Firewalls (UFW)**
+
+To protect against possible attacks and secure the device, multiple methods can be used. Two defense methods in particular will be shown below: firewalls and encryption (via LUKS).
+
+One prominent firewall available on Linux is the UFW (Uncomplicated Firewall), which automatically locks ports deemed unnecessary and allows transportation through open ports.
+
+To enable UFW, it must first be installed using `sudo apt install ufw -y`.
+
+Checking the status can be done with `sudo ufw status`, and the firewall can be enabled via `sudo ufw enable`.
+
+As shown below, the initial status of the firewall is inactive:
+
+![Inactive UFW](../images/Assignment3/FirewallInactive.jpg)
+
+However, after enabling it, the firewall is shown as active.
+
+![Active UFW](../images/Assignment3/FirewallActive.jpg)
+
+The user can then set up rules to block or open certain ports. In this case, the **telnet** port (23) is very insecure due to lack of encryption, so a rule is created to block it. This can be done using the `deny` command:
+
+![Blocking Rule](../images/Assignment3/FirewallDeny.jpg)
+
+Another defense, encryption, is covered in the **Testing and Evaluation** section for this task.
 
 ### Social Engineering Attacks/Defenses
 
 This is an activity done with a partner in which scenarios of breached security (red slips) must be paired with remedies to the respective problems (the green slips).
 
-INSERT CARDS IMAGE
+![Defense Cards](../images/Assignment3/Cards.jpg)
 
 After reviewing the slips once again after learning about specific social engineering attacks, the obtained answers were exactly the same as those obtained previously.
 
@@ -130,6 +156,66 @@ Interestingly, some attacks did not fall into social engineering, but were rathe
 
 ### Outdated Software
 
-### Cybersecurity Basics for Devices
+While this section was contained in the technical development section, here is a summary of the evaluation of possible vulnerabilities in the virtual machine.
+
+| Software | Status | Risk |
+| ------ | ------ | ------ |
+| OpenSSL | Outdated | OpenSSL controls encryption, which hides sensitive data |
+| Firefox | Up To Date | The browser's cookies could be accessed, which store user information and passwords |
+| LibreOffice | Outdated | Documents can become corrupted or made public if vulnerable |
+| Python | Outdated | Someone could execute remote commands to perform unwanted actions |
+| Apache HTTP Server | Not Installed | Content accessed on the internet could be redirected maliciously |
+| GIMP | Not Installed | Images could become corrupted or deleted |
+| Java | Not Installed | Remote Java scripts could be executed to perform unwanted actions |
+| OpenSSH | Outdated | An unauthorized party could connect to the device remotely via SSH |
+
+More specific information about dealing with outdated software can be found in **Technical Development**.
+
+### Cybersecurity Basics for Devices (Interfaces/Ports)
+
+**Network Interfaces**
+
+It is important to know that Linux has a predictable naming scheme in later versions, which specifies the type of connection, PCI bus, and slot of each interface. An **interface** is defined as a type of connection that the device makes.
+
+For example. `enp0s1` denotes an ethernet connection of PCI bus 0 at slot 1.
+
+The commands shown below obtain the interfaces of the Ubuntu VM and their specific informations:
+
+![Ubuntu VM Interfaces](../images/Assignment3/Interfaces.jpg)
+
+Knowing these connections can help the user understand the type of connection to the internet and offers certain solutions for if a vulnerability or problem arises.
+
+**Examining Ports**
+
+In bridged mode, the command `netstat -tuln` or `ss -tuln` is run to obtain the assigned ports of the Ubuntu virtual machine and their status. Here is the output of running `ss -tuln`:
+
+![Active Ports](../images/Assignment3/PortShow.jpg)
+
+Here are some important takeaways to note about these ports:
+
+- Ports set to **LISTEN** are constantly open to receive and send outside traffic, while ports on **UNCONN** have a connection but are only opened when time-sensitive information is pushed.
+- The assigning of **LISTEN** to tcp and **UNCONN** to udp is natural since tcp always listens for and is available to send data while udp is for quick communications.
+- Certain port numbers are conventionally assigned to particular protocols, as listed below.
+
+Here are some protocols with conventional port numbers present in the VM:
+
+- DNS (Port 53) - assigns text names to IP addresses
+- DHCP (68) - obtains an IP from the router/network
+- SSH (22) - allows secure remote connection
+- CUPS (631) - allows printing
+
+Note that of these ports, SSH and CUPS are not entirely necessary for direct use of the VM (usually unused), as they control interactions with remote devices. Thus, they can lead to vulnerabilities if not managed correctly since they allow outside access to the contents of the virtual machine.
+
+**Encryption (LUKS)**
+
+Encryption ensures that even if a device is compromised or stolen, its data remains secure.
+
+In Linux, a type of encryption called **LUKS Encryption** is used. To check if it is enabled, the command `lsblk -f` can be run:
+
+![Encryption Status](../images/Assignment3/Encryption.jpg)
+
+In the output, the column to keep in mind is **FSTYPE**, as it shows the type of filesystem used for each disk. It is important to note that the **vfat** and **ext4** filesystems are ***NOT encrypted***, so they leave the device unsecure in the case of it being compromised. For LUKS encryption, the filesystem is denoted **crypto_LUKS**, which is **encrypted**. However, as seen above, this filesystem is not present at all in the Ubuntu VM, implying that the disks are not encrypted.
+
+This does not pose much of a risk, especially on this classroom VM, since it does not store personal data. However, if one were to use their main computer, then encrypted filesystems like LUKS are essentially necessary, as personal computers often contain sensitive and private information.
 
 ## Reflection & Analysis
