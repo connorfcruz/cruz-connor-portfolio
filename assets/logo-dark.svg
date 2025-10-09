@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="100" fill="url(#outerGradient)" />
+  <circle cx="100" cy="100" r="70" fill="url(#innerGradient)" />
+  <text x="50%" y="50%" text-anchor="middle"
+      dy=".35em"
+      font-family="Poppins, sans-serif"
+      font-size="72" font-weight="700"
+      fill="url(#textGradient)">
+    CC
+  </text>
+
+
+  <defs>
+    <linearGradient id="outerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0D47A1" />
+      <stop offset="100%" stop-color="#1B5E20" />
+    </linearGradient>
+    <linearGradient id="innerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#263238" />
+      <stop offset="100%" stop-color="#37474F" />
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E0F7FA" />
+      <stop offset="100%" stop-color="#B2DFDB" />
+    </linearGradient>
+  </defs>
+</svg>
