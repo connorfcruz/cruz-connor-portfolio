@@ -76,7 +76,7 @@ INSERT PASSWORD SUCCESS WITH LS ROOT
 
 To create the new account on the VM, the command `sudo adduser \[USERNAME\]` was run.
 
-Afterwards, the command `sudo usermod -aG sudo \[USERNAME\]` was run to allow administrator privileges to the newly created account.
+Afterwards, the command `sudo usermod -aG sudo [USERNAME]` was run to allow administrator privileges to the newly created account.
 
 Here is the result of running both commands:
 
@@ -116,7 +116,7 @@ When running `google-authenticator` once again, the 6 digit code was inserted, a
 
 INSERT WORKING CODE
 
-### Enabling MFA for SSH
+**Enabling MFA for SSH**
 
 To enable MFA in establishing SSH connections, `sudo nano /etc/ssh/sshd_config` was run, and *KbdInteractiveAuthentication* was enabled. Note that for additional password verification, *PasswordAuthentication* must also be enabled.
 
@@ -128,9 +128,33 @@ INSERT OTHER NANO THING
 
 Note that SSH has to be reset after this using `sudo systemctl restart ssh`.
 
-Finally, to test the password and authenticator MFA when using ssh, `ssh yourusername@localhost` was used to establish a remote connection. As shown below, this first required a verification code, then the user's password, so the MFA was successful.
+Finally, to test the password and authenticator MFA when using ssh, `ssh [USERNAME]@localhost` was used to establish a remote connection. As shown below, this first required a verification code, then the user's password, so the MFA was successful.
 
 INSERT SSH MFA TEST
+
+### Patching Ubuntu
+
+This section details the process of patching software in the Ubuntu VM.
+
+To check for available software updates, it is recommended to run `sudo apt update` every time a Linux operating system is used.
+
+Next, to see what software has available updates, `sudo apt list --upgradable` is used. As shown below, there were very many packages (37) which could be updated.
+
+INSERT UPGRADABLE SOFTWARE
+
+To actually perform the upgrades on the desired software, the command `sudo apt upgrade` is executed. Note that after performing the *upgrade* command, a record of the upgrade is appended to the **history.log** file, whch can be found under `/var/log/apt/history.log`. However, this file has much content and is thus hard to navigate, so it is useful to search for important keywords using the *grep* command.
+
+This most recent upgrade was executed on October 13th, so it can be confirmed that an upgrade did happen on that day by using `grep "2025-10-13" /var/log/apt/history.log`:
+
+INSERT GREP OUTPUT
+
+Displayed above, the upgrade took approximately 1 minute.
+
+Similarly, updates on other dates can also be viewed:
+
+INSERT OTHER GREP OUTPUT
+
+Every package which is newly installed or updated is listed in lines starting with "Install:". Hence, `grep "Install:" /var/log/apt/history.log` is used to list all of the installs.
 
 ## Testing & Evaluation
 
