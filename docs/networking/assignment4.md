@@ -1,4 +1,4 @@
-# Implementing Seurity for Devices
+# Implementing Security for Devices
 
 ## Project Overview
 
@@ -55,7 +55,7 @@ NIST (National Institute of Standards and Technology):
 - Reasonable limits (usually 64 characters)
 - MFA
 
-OWASP (Open Worldwide Applicatiosn Security Projects):
+OWASP (Open Worldwide Applications Security Projects):
 
 - Authentication cheat sheet
 - Password storage cheat sheet
@@ -79,9 +79,9 @@ Patches are updates in software to fix bugs, which are very useful because they 
 
 Below is some useful terminology when dealing with patches:
 
-- Vulnerability - weaknes in software/hardware
+- Vulnerability - weakness in software/hardware
 - Exploit - code/action that takes advantage of a vulnerability
-- Zero-Day - a flaw which hckers discoer before developers are aware of it
+- Zero-Day - a flaw which hackers discover before developers are aware of it
 - In the Wild - an exploit actively being used by hackers in real life
 
 There are two major ways to update software, those being *automatic* and *manual*.
@@ -157,7 +157,7 @@ To change the password for *ubuntu*, the `passwd` command was used.
 
 After entering the current password, a new password was then set successfully (note that it cannot be seen for security reasons).
 
-INSERT UBUNTU PASSWORD CHANGE SCREENSHOT
+![Password Change](../images/Assignment4/PasswordChange.jpg)
 
 **Configuring a New User**
 
@@ -167,37 +167,37 @@ Afterwards, the command `sudo usermod -aG sudo [USERNAME]` was run to allow admi
 
 Here is the result of running both commands:
 
-INSERT CREATED USER
+![Created User](../images/Assignment4/CreatedUser.jpg)
 
 **Locking Ubuntu for Security**
 
 It is helpful to lock the *ubuntu* account since its credentials are often predictable. Most of the time, when the administrator account is still accessible, it has a predictable password such as *ubuntu* or *admin*. To do so on Ubuntu, `sudo passwd -l ubuntu` is used:
 
-INSERT PASSWORD LOCKING
+![Password Locking](../images/Assignment4/PasswordLocking.jpg)
 
 ### Enabling MFA in the Ubuntu VM
 
 To confirm that the created user (connor) has superuser permissions, `sudo ls /` was run:
 
-INSERT SUDO LS /
+![Superuser Permissions](../images/Assignment4/SuperuserPermissions.jpg)
 
 To download the tools for authentication (specifically Google), `sudo apt update` and `sudo apt install libpam-google-authenticator -y` were run.
 
-Then, to use the uathenticator, the command `google-authenticator` was used, ultimately resulting in the generation of a secret key, as well as a QR code storing that secret key for the system.
+Then, to use the authenticator, the command `google-authenticator` was used, ultimately resulting in the generation of a secret key, as well as a QR code storing that secret key for the system.
 
-INSERT QR PICTURE
+![QR Code](../images/Assignment4/QRCode.jpg)
 
 Note that the secret key is used to generate a 6-digit code which changes every 30 seconds, known as a **time-based one-time password** (TOTP). These are very difficult to guess because of rate limiting and the password resetting every 30 seconds.
 
 To simulate the TOTP, [this website](https://totp.danhersam.com) was used. As shown below, a 6 digit code was generated:
 
-INSERT TOTP PICTURE
+![TOTP](../images/Assignment4/TOTP.jpg)
 
-***NOTE: IN PRACTICE, DO NOT SHOW THE SECRET KEY TO ANYONE. THIS IS A CLASSROOM SIMULATION.***
+***NOTE: IN PRACTICE, DO NOT SHOW THE SECRET KEY TO ANYONE. THIS IS A CLASSROOM SIMULATION, AND THIS IS PURELY SHOWN FOR DOCUMENTATION PURPOSES.***
 
 When running `google-authenticator` once again, the 6 digit code was inserted, and MFA was successfully established:
 
-INSERT WORKING CODE
+![Working Code](../images/Assignment4/WorkingCode.jpg)
 
 The authenticator's use in verifying user identity for SSH can be found in **Testing & Evaluation**.
 
@@ -209,19 +209,19 @@ To check for available software updates, it is recommended to run `sudo apt upda
 
 Next, to see what software has available updates, `sudo apt list --upgradable` is used. As shown below, there were very many packages (37) which could be updated.
 
-INSERT UPGRADABLE SOFTWARE
+![Upgradable Software](../images/Assignment4/UpgradableSoftware.jpg)
 
-To actually perform the upgrades on the desired software, the command `sudo apt upgrade` is executed. Note that after performing the *upgrade* command, a record of the upgrade is appended to the **history.log** file, whch can be found under `/var/log/apt/history.log`. However, this file has much content and is thus hard to navigate, so it is useful to search for important keywords using the *grep* command.
+To actually perform the upgrades on the desired software, the command `sudo apt upgrade` is executed. Note that after performing the *upgrade* command, a record of the upgrade is appended to the **history.log** file, which can be found under `/var/log/apt/history.log`. However, this file has much content and is thus hard to navigate, so it is useful to search for important keywords using the *grep* command.
 
 This most recent upgrade was executed on October 13th, so it can be confirmed that an upgrade did happen on that day by using `grep "2025-10-13" /var/log/apt/history.log`:
 
-INSERT GREP OUTPUT
+![Grep Output](../images/Assignment4/GrepOutput.jpg)
 
 Displayed above, the upgrade took approximately 1 minute.
 
 Similarly, updates on other dates can also be viewed:
 
-INSERT OTHER GREP OUTPUT
+![Other Dates](../images/Assignment4/GrepOutput2.jpg)
 
 To interpret the data in the *history.log* file, see the respective section in **Testing & Evaluation**.
 
@@ -229,7 +229,7 @@ To interpret the data in the *history.log* file, see the respective section in *
 
 To see the last couple of automatic updates performed, `ls -l /var/lib/apt/periodic` can be executed:
 
-INSERT AUTOMATIC UPDATE
+![Automatic Updates](../images/Assignment4/AutomaticUpdates.jpg)
 
 It is generally nice to have automatic system updates in the background, but also allow the user to update them whenever they want. Specific packages that may function differently can be scheduled to be updated purely manually, while others can be on an automatic update schedule, with the user being allowed to perform additional updates.
 
@@ -239,13 +239,13 @@ It is generally nice to have automatic system updates in the background, but als
 
 To test if the user's password was actually changed, a command requiring admin privileges (using `sudo`) was run. The new password worked successfully.
 
-INSERT PASSWORD SUCCESS WITH LS ROOT
+![Password Success](../images/Assignment4/PasswordSuccess.jpg)
 
 Furthermore, to confirm that the *ubuntu* account was actually locked after the new user account was created, the user account simply had to be logged out.
 
 As shown below, the *ubuntu* account cannot be accessed:
 
-INSERT LOCKED UBUNTU
+![Locked Ubuntu](../images/Assignment4/LockedUbuntu.jpg)
 
 ### Enabling MFA in the Ubuntu VM
 
@@ -253,17 +253,17 @@ INSERT LOCKED UBUNTU
 
 To enable MFA in establishing SSH connections, `sudo nano /etc/ssh/sshd_config` was run, and *KbdInteractiveAuthentication* was enabled. Note that for additional password verification, *PasswordAuthentication* must also be enabled.
 
-INSERT NANO THING
+![sshd_config Change](../images/Assignment4/Nano1.jpg)
 
 Next, to add the authenticator to SSH verification, `sudo nano/etc/pam.d/sshd` was run, and authenticator verification was required by inserting `auth required pam_google_authenticator.so`.
 
-INSERT OTHER NANO THING
+![sshd Change](../images/Assignment4/Nano2.jpg)
 
 Note that SSH has to be reset after this using `sudo systemctl restart ssh`.
 
 Finally, to test the password and authenticator MFA when using ssh, `ssh [USERNAME]@localhost` was used to establish a remote connection. As shown below, this first required a verification code, then the user's password, so the MFA was successful.
 
-INSERT SSH MFA TEST
+![SSH MFA Test](../images/Assignment4/SSH-MFA.jpg)
 
 ### Patching Ubuntu
 
@@ -275,31 +275,31 @@ Every package which is newly installed or updated is listed in lines starting wi
 
 Shown below are a couple of the updates performed, including package name and version:
 
-INSERT PACKAGE INSTALLS
+![Package Installs](../images/Assignment4/PackageInstalls.jpg)
 
-Using knowldge of the command line interface, adding `| wc -l` to the previous command finds how many installation events occurred (not necessary individual installs since there are dependencies as well).
+Using knowledge of the command line interface, adding `| wc -l` to the previous command finds how many installation events occurred (not necessary individual installs since there are dependencies as well).
 
-INSERT LINE COUNT
+![Line Count](../images/Assignment4/LineCount.jpg)
 
 Another method to summarize the information is to view the most recent change and its contents. This can be done via `grep -A 2 "Start-Date" /var/log/apt/history.log | tail -n 10`.
 
 As shown below, the start date and command which was run are listed:
 
-INSERT TAIL
+![Tail Summary](../images/Assignment4/TailSummary.jpg)
 
 To summarize updates centered around a specific package, the `grep` command with the package as an argument is used.
 
 Here is the output when looking for *nano* and *firefox* respectively:
 
-INSERT NANO SCREENSHOT
+![Nano Install](../images/Assignment4/NanoInstall.jpg)
 
-INSERT FIREFOX SCREENSHOT
+![Firefox Install](../images/Assignment4/FirefoxInstall.jpg)
 
 Note that firefox was very hard to find, as it was updated along with multiple other dependencies.
 
 Here is another example with the `google-authenticator` package, which was installed for the MFA activity:
 
-INSERT GOOGLE AUTHENTICATOR
+![Google Authenticator Install](../images/Assignment4/GoogleAuthInstall.jpg)
 
 **Checking the Latest Update Activity**
 
@@ -307,7 +307,7 @@ Since the latest update activity usually appears in the last lines, the `tail` c
 
 This command displayed the start date, command run, end date, and all of the packages which were installed or upgraded.
 
-INSERT MOST RECENT LOG
+![Most Recent Log](../images/Assignment4/MostRecentLog.jpg)
 
 **Importance of Patching and Understanding Patches**
 
@@ -327,8 +327,8 @@ Thus, if *curl* is compromised, then a hacker could easily send dangerous files 
 
 Considering the scenario where an Ubuntu VM is connected to the internet and used as a real computer for a small business/hospital:
 
-If the VM is never patched or updated, then vulnerabilities document to have been fixed in later patches could be used as vantage points for hackers to gain access to the Ubuntu OS. Thus, the sensitive business data (in the case of a business) or patient information (in the case of a hospital) can be obtained and possibly usd as blackmail against the company, which is very problematic. Hackers can often use exploits in the wild to deal major harm to the company as a whole. Note that even if software is up-to-date, there is always the risk of a zero-day vulnerability, as the developers of the software themselves do not know the vulnerability exists while it is being utilized in the wild. To ensure maximum security, automatic updates are very useful, since people often forget to update packages manually. These often resolve known vulnerabilities.
+If the VM is never patched or updated, then vulnerabilities documented to have been fixed in later patches could be used as vantage points for hackers to gain access to the Ubuntu OS. Thus, the sensitive business data (in the case of a business) or patient information (in the case of a hospital) can be obtained and possibly used as blackmail against the company, which is very problematic. Hackers can often use exploits in the wild to deal major harm to the company as a whole. Note that even if software is up-to-date, there is always the risk of a zero-day vulnerability, as the developers of the software themselves do not know the vulnerability exists while it is being utilized in the wild. To ensure maximum security, automatic updates are very useful, since people often forget to update packages manually. These often resolve known vulnerabilities.
 
 ## Reflection & Analysis
 
-INSERT
+Through the *Implementing Security for Devices* activity, students learned the basics of authentication, how to develop effective passwords, the importance of MFA, how to patch, and applied those skills in an Ubuntu virtual machine. Starting with knowledge of password strength, primarily the tenets of length, complexity, and unpredictability, allowed for acquaintance with single-factor authentication. NIST's and OWASP's differing interpretations on password length also helped for a more specific understanding of what constitutes a good password. Extending this to multi-factor authentication using an authenticator and a respective secret key allowed for the security of a strong password to be further built upon, as a new layer of security was added. Strong password development and MFA are very useful to have in the real world, as so often, users have only one means of verification (password), and passwords are often weak and vulnerable to common exploits. In the context of large businesses, strong authentication procedures are especially necessary. The activity in which Ubuntu packages were patched highlights just how many packages can become outdated within a very short span of time, thus emphasizing the importance of regular updates to avoid vulnerabilities. Similarly to strong authentication, regular patches are also a necessity for both common users and businesses in the real world. Vulnerabilities in patches, especially those connecting to the internet, can provide easy access to a user's personal and sensitive data. A reasonable next step after implementing security controls is testing in a lab scenario how weak security can be compromised. Although claiming to be a false identity (through bypassing authentication) is unethical, it is still useful to understand how people may do this in order to fight against those who perform these exploits in the wild. Password and authentication standards are necessary to educate people on in any setting, and wide-spread means to secure users would be very effective at combatting exploits as a whole.
