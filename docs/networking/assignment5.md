@@ -79,12 +79,49 @@ Hexadecimal:
 | 15 | 1111 | F |
 | 16 | 10000 | 10 |
 
+Note that binary was given, and decimal and hex were found:
+
 | Binary | Decimal | Hex |
 | ----- | ----- | ----- |
 | 11001000 | 200 | C8 |
 | 101101 | 45 | 2D |
 | 00001100 | 12 | C |
 | 10101111 | 175 | AF |
+
+The entries highlighted in **bold** were given:
+
+| Denary | Binary | Hex |
+| ----- | ----- | ----- |
+| **597** | 1001010101 | 255 |
+| 603 | **1001011011** | 25B |
+| 255 | 0011111111 | **FF** |
+
+**OSI Model**
+
+OSI - Open Systems Interconnection
+
+- Conceptual framework
+- Each layer has its own job
+- Understanding layers helps troubleshoot
+- Helps understand how computesr talk to each other
+
+| Layer | Name | Description | Details |
+| -- | ----- | ----- | ----- |
+| 7 | Application | Email or browser |
+| 6 | Presentation | Translates data (encryption and compression) | Ensures that data is in a usable form |
+| 5 | Session | Manages connection | Maintains connections; responsible for controlling parts and sessions |
+| 4 | Transport | Breaks data into segments | Transmits data using transmission protocols (e.g. TCP, UDP) |
+| 3 | Network | Routes packages using IP | Decides which physical path the data will take |
+| 2 | Data Link | Transfers frames via MAC | Defines the format of the data on the network |
+| 1 | Physical | Any hardware (e.g. wires, signals, routers) and Wi-Fi | Transmits to raw bit streams over a physical medium |
+
+| Step | What Happens | OSI Layer |
+| ----- | ----- | ----- |
+| Write and address message | IP address gets formatted for communication | Presentation/Application |
+| Package is prepared and boxed | Data is broken into segments | Transport/Network |
+| Person at post office sorts it | ? | Session |
+| Delivery truck figures out the best route | Routers and switches address routing | Network / Data Link |
+| Truk drives it down the road | Data traveks through the cable fiber or Wi-Fi | Physical |
 
 ## Technical Development
 
