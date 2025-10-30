@@ -121,7 +121,14 @@ OSI - Open Systems Interconnection
 | Package is prepared and boxed | Data is broken into segments | Transport/Network |
 | Person at post office sorts it | ? | Session |
 | Delivery truck figures out the best route | Routers and switches address routing | Network / Data Link |
-| Truk drives it down the road | Data traveks through the cable fiber or Wi-Fi | Physical |
+| Truck drives it down the road | Data traveks through the cable fiber or Wi-Fi | Physical |
+
+| TCP/IP | OSI | Functions |
+| ----- | ----- | ------- |
+| Application | 5-7 | Apps, HTTP, FTP |
+| Transport | 4 | TCP/UDP, Segmentation |
+| Internet | 3 | IP Addressing, Routing |
+| Network Access | 1-2 | Physical & Data Link |
 
 ## Technical Development
 
