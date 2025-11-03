@@ -130,9 +130,37 @@ OSI - Open Systems Interconnection
 | Internet | 3 | IP Addressing, Routing |
 | Network Access | 1-2 | Physical & Data Link |
 
+**MAC Addresses**
+
+MAC Address - an address assigned to each physical device
+
+- 6 pairs of hex digits
+- 12 hex digits in total
+- Each pair is separated by colons
+- Unique to each device
+
 ## Technical Development
 
-INSERT
+### LAN Components
+
+**Addresses**
+
+After net-tools is installed, *ifconfig* can be run on an Ubuntu VM to display information about the VM's network interfaces.
+
+INSERT IFCONFIG SCREENSHOT
+
+Some important components displayed in this are under **inet, netmask, and broadcast**.
+
+inet: The IPv4 address assigned to that specific device which allows the router to identify it
+
+netmask: Determines which parts of the inet/IPv4 address identify the network and which identify the host
+
+- Note that there are 2 possible states: 255 denotes that it identifies the network, and 0 denotse that it identifies the device
+- e.g. 255.255.255.0 means that the first 3 divisions define the network
+
+broadcast: allows messages to be sent among devices on the same network
+
+
 
 ## Testing and Evaluation
 
