@@ -1,0 +1,60 @@
+# Types of Networks & Connections and Devices
+
+### Exploring IP Addresses in Shared and Bridged Mode
+
+**Shared Mode**
+
+This is the output when running `ip a` in shared mode:
+
+INSERT IP A
+
+As shown above, the IP address in shared mode is **192.168.64.2/24**. 
+
+Note that since this command was run in shared mode, a virtual subnet defines the network. It is also important to note that this is the **internal** IP address, which defines a device relative to the home network.
+
+This differs from what is displayed when going to [this website](https://whatismyipaddress.com).
+
+INSERT EXTERNAL IP
+
+This displays the external IP address, **173.95.44.210**, which defines a network with respect to the internet as a whole.
+
+Shared Mode Reflection:
+
+When comparing the two IP addresses, they are completely different. The IP address **192.168.64.2/24** thus belongs to the local network, while the address **173.95.44.210** belongs to the internet. Overall, a virtual machine may use NAT/Network Address Translation if it wants to connect to the internet if the VM should be contained and managed by the host system. NAT is necessary in this case because the virual subnet containing the VM must route data to the Mac's network and out to the internet. Shared mode in general makes it easier to connect multiple virtual machines on one computer because they are all centralized under the Mac. This allows for permissions to be managed and artificially defined using the virtual subnet created by the host system.
+
+**Bridged Mode**
+
+Note that when switching to Bridged mode, the *Bridged Interface* must match that of the Mac's active connection the the router (WiFi/Ethernet).
+
+This is the output after running `ip a` in bridged mode:
+
+INSERT BRIDGED INTERNAL IP
+
+Thus, the internal IP address when on bridged mode is **127.0.0.1/8**.
+
+Bridged mode allows the VM to act as a device on the same LAN as the host system. However, it is classified as a separate device to the host.
+
+When checking the external IP address, it turned out to be the same as in shared mode:
+
+INSERT EXTERNAL IP
+
+The IP address is exactly the same as the external address in shared mode, that being **173.95.44.210**. Thus, it is likely that the external IP address is defined based on the closest layer to the internet, which is the router of the host system in both cases.
+
+Bridged Mode Reflection:
+
+The internal IP address greatly changed when switching to bridged mode. In bridged mode, the device is defined relative to the Mac's network rather than a virtual network created by the Mac, so it is expected to be different. However, the external IP address remained the same regardless of which mode was used. In bridged mode, a VM ultimately acts more like a separate computer because it directly connects to the same router as the Mac, rather than acting as part of the Mac. Overall, Bridged mode may be chosen by corporations and users in general to allocate a computer's resources to VMs acting as individual devices, using time and cost efficiently. However, bridged mode carries a risk because it is not able to be managed by the host system. As such, actions can be performed which may make the host system's network vulnerable because no virtual subnet exists to contain these vulnerabilities.
+
+**Overall Comparison**
+
+| **Mode** | **Internal (Private) IP** | **External (Public) IP** | Notes |
+| ---- | ---- | ---- | ---- |
+| Shared (NAT) | 192.168.64.2/24 | 173.95.44.210 | Internal IP is defined independent of the host's network; External IP is defined by the host's network |
+| Bridged (NAT) | 127.0.0.1/8 | 173.95.44.210 | Internal IP is defined by the host's network; External IP is defined by the host's network |
+
+Bridged mode made the VM appear as its own device on the local network, while Shared mode provided a safer and more controlled environment. Overall, NAT helps to manage limited IPv4 addresses because it centralizes them under a virtual subnet and allows for the configuration of that subnet through the host device. This configuration and management also creates a more secure environment. In shared mode, data travels from the virtual machine to the host system's virtual subnet, then to the host system's LAN, then to the internet. Meanwhile, in bridged mode, data travels from the virtual machine directly to the host system's LAN, then to the internet. In both of these cases, the host system's LAN must be passed through, so this is what defines the external IP address of the VM in both cases.
+
+**Reflection**
+
+To summarize the information above:
+
+The internal IP address differed while the external IP address remained the same between Shared and Bridged mode. Ultimately, this activity revealed that local networks may be created inside of other networks, creating a chain of data movement between an endpoint device (such as a VM) and the internet. The internal IP address is defined with respect to the lowest layer (that of the endpoint device), while the external IP address is defined with respect to the highest layer (usually a router). IT professionals may use different network configurations depending on the situation to manage efficiency vs. security. In a home or lab, it may be better to use a shared environment since endpoints are contained within a more secure network. This is in general useful for dealing with secure information. However, in business and tasks that require heavy use of resources, a bridged environment may be better. However, this has the downside of possibly introducing new vulnerabilities to the host's network. In the classroom, bridged mode is likely better to use since it better simulates a real computer, thus replicating real-world scenarios better. Since a classroom environment likely does not store any sensitive data, then the risks associated with bridged mode are not significant.
