@@ -58,3 +58,44 @@ Bridged mode made the VM appear as its own device on the local network, while Sh
 To summarize the information above:
 
 The internal IP address differed while the external IP address remained the same between Shared and Bridged mode. Ultimately, this activity revealed that local networks may be created inside of other networks, creating a chain of data movement between an endpoint device (such as a VM) and the internet. The internal IP address is defined with respect to the lowest layer (that of the endpoint device), while the external IP address is defined with respect to the highest layer (usually a router). IT professionals may use different network configurations depending on the situation to manage efficiency vs. security. In a home or lab, it may be better to use a shared environment since endpoints are contained within a more secure network. This is in general useful for dealing with secure information. However, in business and tasks that require heavy use of resources, a bridged environment may be better. However, this has the downside of possibly introducing new vulnerabilities to the host's network. In the classroom, bridged mode is likely better to use since it better simulates a real computer, thus replicating real-world scenarios better. Since a classroom environment likely does not store any sensitive data, then the risks associated with bridged mode are not significant.
+
+### Network Topologies
+
+Network topology - a configuration of how devices are arranged and connected in a network which shows how data travels among devices
+
+There are two ways to interpret a topology:
+
+- Physical topology - shows the physical layout of devices (cables, devices, routers, switches)
+- Logical topology - models data movement through the network, which could differ from the physical topology
+
+Topologies are made up of:
+
+- End devices - tools that people use
+- Networking devices - devices that control the transfer of data between devices
+- Cables/wireless connections - what data actually travels through
+
+Here are the primary topologies of networks and an example diagram for each:
+
+Star Topology - a central networking device with each end device connected to the central device
+
+Bus Topology - a backbone cable with each device branching off of it
+
+Ring Topology - the devices form a circle with their neighbors, with data travelling one way only
+
+Mesh Topology - every device has connections to multiple others, creating redundancy and reliability
+
+Hybrid Topology - combines two or more types of topology
+
+INSERT TOPOLOGY SCREENSHOTS
+
+**Reflection**
+
+For a small business, a **star topology** would likely be **easier** to implement. This is because connections only have to be made between each end device and the respective networking device (usually a router/switch). Thus, a relatively small amount of connections have to be made, and data can still travel indirectly among all devices in the network.
+
+However, to handle the case where **one connection fails**, a **mesh topology** would work best. This is because if a connection between two devices happens to fail, there will likely be a backup connection (usually indirect) between the devices which need to communicate.
+
+The most **expensive** topology to implement would likely be a **mesh topology** since for the same amount of devices, it requires many more cables. Depending on how many connections are desired (a partial vs. full mesh), the amount of cables can increase much.
+
+A **school** would likely use a **hybrid topology**, made up of a star topology of switches with a star of devices with respect to each switch. This allows for centralized control of groups of devices, while also allowing management of each switch individually via the primary router.
+
+The physical layout of a topology greatly affects speed because wires can be very long, and indirect connections could require going through several of these wires, increasing the time for data to be transferred through these wires (or through WiFi). Also, if a wire is faulty or disconnected, then depending on the layout, devices could become inaccessible.
