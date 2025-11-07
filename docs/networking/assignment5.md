@@ -149,7 +149,7 @@ MAC Address - an address assigned to each physical device
 
 ### Roadmap Planning
 
-INSERT ROADMAP
+To be inserted once project is finished
 
 ## Technical Development
 
@@ -252,7 +252,7 @@ Similarly to netstat, an explanation for this can be found in **Testing and Eval
 
 ### Roadmap Development
 
-INSERT ROADMAP
+To be inserted once project is finished
 
 ## Testing and Evaluation
 
@@ -298,18 +298,24 @@ As shown in the output, some ports are used to listen while others have an estab
 
 This is the output when *netcat* was used to transfer a message between two VMs:
 
-INSERT BOTH NETCAT OUTPUTS
+![Netcat Sender](../images/Assignment5/SenderNC.jpg)
+
+![Netcat Receiver](../images/Assignment5/ReceiverNC.jpg)
 
 Similarly to netstat, netcat involves Layer 4 of the OSI, but it actually uses this layer to transfer information. Specifically, it uses the TCP protocol to deliver messages between the two endpoint devices, sending and receiving packets.
 
-**Networking Between VMs Reflection**
-
-*ifconfig* helped to get general information about the host device, including its internal IP address, MAC address, and network and broadcast addresses. *ping* was very useful in getting information about network connection, such as the average transfer rate of packages to the second VM (~0.8 ms), which implies that the two VMs were relatively close together. When actually transferring information through netcat, TCP allowed the information to be transmitted as packets between the two devices, facilitated the interaction, and ensured that the packets were sent completely. Note that in this activity, all of the OSI layers were used, as the user used the netcat application to send a message, and it was transferred to the receiving device through physical wires.
-
 ### Roadmap Explanation and Evaluation
 
-INSERT ROADMAP
+To be inserted once project is finished
 
 ## Reflection
 
-INSERT
+Through the *Data Movement and Types of Networks* activity, students learned the process by which data travels in a network and in what form that data is transferred. Students began to explore data travel by first examining the structure of a LAN (local area network), and how data is transferred within it. Next, The OSI layers were learned about to both contextualize data travel and generalize it to the internet as a whole. Learning the four TCP/IP layers allowed protocols to be applied to the different OSI layers, and using this broadened understanding of data transfer, data was actually transferred and received between two local devices. To see how this type of data was transferred, base conversions were also covered, showing how any data which is transferred over the internet is interpreted as bits. Knowledge of data transfer, especially the OSI layers, can help in real world networking drastically, as all problems in sending or receiving data can be traced back to specific layers of the OSI model, and problems can be dealt with on that level, narrowing them down. Knowledge of data transfer can also help common people to better set up networks, including options such as failsafe connections (connections to multiple devices to ensure that if one fails, a connection can still be made). A reasonable next step to take is examining protocols in further depth or exploring more how the internet outside of a LAN functions. Citations for this page include the various assignments assigned in AP Networking, as well as the Ubuntu VM.
+
+**VM Lab Reflection**
+
+*ifconfig* helped to get general information about the host device, including its internal IP address, MAC address, and network and broadcast addresses. *ping* was very useful in getting information about network connection, such as the average transfer rate of packages to the second VM (~0.8 ms), which implies that the two VMs were relatively close together. When actually transferring information through netcat, TCP allowed the information to be transmitted as packets between the two devices, facilitated the interaction, and ensured that the packets were sent completely. Note that in this activity, all of the OSI layers were used, as the user used the netcat application to send a message, and it was transferred to the receiving device through physical wires. 
+
+**Roadmap Reflection**
+
+To be inserted once project is finished
