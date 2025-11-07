@@ -35,7 +35,7 @@ In Ubuntu, be able to analyze the movement of data in various ways, and send dat
 
 Here is an example configuration of a LAN, with arrows depicting the transfer of data:
 
-INSERT DATA MOVEMENT DIAGRAM
+![Data Movement Diagram](../images/Assignment5/NetworkDiagram.jpg)
 
 **Number Bases and Applications**
 
@@ -159,7 +159,7 @@ INSERT ROADMAP
 
 After net-tools is installed, *ifconfig* can be run on an Ubuntu VM to display information about the VM's network interfaces.
 
-INSERT IFCONFIG SCREENSHOT
+![Ifconfig Run](../images/Assignment5/Ifconfig1.jpg)
 
 Some important components displayed in this are under **inet, netmask, and broadcast**.
 
@@ -178,13 +178,13 @@ As examined before, the *ping* command sends several packets of data to a receiv
 
 Here are two uses of *ping*, one with DNS and one with the numerical IP address:
 
-INSERT PING DNS
+![Ping with DNS](../images/Assignment5/PingGoogle.jpg)
 
-INSERT PING IP
+![Ping with IP](../images/Assignment5/PingIP.jpg)
 
 One important command which can be used to see the path that data travels is `traceroute`. Here is the command being used with *google.com*:
 
-INSERT TRACEROUTE SCREENSHOT
+![Traceroute Command](../images/Assignment5/Traceroute.jpg)
 
 For interpretation of these results, see the respective section in **Testing and Evaluation**.
 
@@ -194,7 +194,7 @@ While base conversions can be calculated by hand, they can also be done using a 
 
 Here are some examples:
 
-INSERT UBUNTU BINARY CONVERSION
+![Binary Conversion](../images/Assignment5/Conversion.jpg)
 
 Consider the address *192.168.64.2/24*, that of the Ubuntu VM used in previous activities. This IP address is converted to decimal for humans to read, but the computer actually processes it in binary.
 
@@ -202,7 +202,7 @@ Note that the */24* represents the **subnet mask**, which determines how many bi
 
 To see more specific information about the VM's IP address, the command `ipcalc 192.168.64.2/24` was also run:
 
-INSERT IPCALC
+![Ipcalc Command](../images/Assignment5/Ipcalc.jpg)
 
 This shows various information about the VM's IP address, most importantly both the decimal and binary forms of the address and netmask.
 
@@ -216,7 +216,7 @@ Note that each pair of hex digits corresponds to one section of the IP address.
 
 MAC addresses also use hexadecimal, as discussed in the **Data Movement Notes** section. To actually find the MAC address, the command `ip addr show` can be run, and the MAC address will be written in hex labeled **link/ether**:
 
-INSERT MAC ADDRESS IP ADDR
+![MAC Address](../images/Assignment5/MACAddress.jpg)
 
 ### Networking Between VMs
 
@@ -224,19 +224,19 @@ This activity involved working with a partner on two separate VMs to transfer da
 
 To start, the IP address of both devices was obtained by using *ifconfig*:
 
-INSERT IFCONFIG
+![Ifconfig Run](../images/Assignment5/Ifconfig2.jpg)
 
 This is the output of the sender's VM (VM2), which has an IP address of **10.12.24.255**. Meanwhile, the receiver VM (VM1) has an IP address of **10.32.1.47**, which is not shown above.
 
 To check if the VMs are able to connect, the *ping* command was used in VM2 to ping VM1:
 
-INSERT PING VM1
+![Pinging Other VM](../images/Assignment5/PingReceiver.jpg)
 
 As shown above, all of the packets (7) were successfully transmitted, and the average latency was approximately 0.75 ms, which is fairly short.
 
 Next, the `netstat` command was used to communicate with other devices. To view the active connections which can be made through TCP and UDP, the command `netstat -a` was run:
 
-INSERT NETSTAT
+![Netstat Run](../images/Assignment5/Netstat.jpg)
 
 An explanation for what is displayed can be found in the respective **Testing and Evaluation** section.
 
@@ -244,9 +244,9 @@ Finally, to transmit readable information, **netcat** was used. The command `nc 
 
 Once both were connected, the message "Hello from VM2!" was transmitted to the receiver. As shown below, the message was successfully sent and received:
 
-INSERT SENDER
+![Netcat Sender](../images/Assignment5/SenderNC.jpg)
 
-INSERT RECEIVER
+![Netcat Receiver](../images/Assignment5/ReceiverNC.jpg)
 
 Similarly to netstat, an explanation for this can be found in **Testing and Evaluation**.
 
@@ -260,7 +260,7 @@ INSERT ROADMAP
 
 For reference, here is the result obtained by the *traceroute* command:
 
-INSERT TRACEROUTE SCREENSHOT
+![Traceroute](../images/Assignment5/Traceroute.jpg)
 
 Each row of output labeled 1-24 represents a hop, which is a singular stop which data makes in its path to the destination.
 
@@ -280,7 +280,7 @@ While the decimal form of an IP address is readable to humans and only requires 
 
 This next section will analyze the details of network and broadcast:
 
-INSERT IPCALC
+![Ipcalc Output](../images/Assignment5/Ipcalc.jpg)
 
 The network address denotes the start of a network, while the broadcast address denotes the end of that network. Thus, the addresses contained between these values are able to be allocated to endpoint devices in the network.
 
@@ -290,7 +290,7 @@ As shown above, the network address is *192.168.64.0*, so the **first usable IP 
 
 As shown in **Technical Development**, this is the output when *netstat* was used:
 
-INSERT NETSTAT
+![Netstat Output](../images/Assignment5/Netstat.jpg)
 
 It is important to know that netstat displays information relating to the Transport layer of OS (layer 4). In other words, it displays information about the transmission protocols. These protocols primarily include TCP and UDP, and they are used to communicate between devices.
 
