@@ -62,7 +62,7 @@ IP addresses:
 Hexadecimal:
 
 - Base 16
-- Each hex digit = 4 bits, so you can split a binary string into sets of 4 to easily convert
+- Each hex digit = 4 bits, so one can split a binary string into sets of 4 to easily convert
 - Shorthand way to read a long binary string
 
 **Practice Conversions**
@@ -149,7 +149,18 @@ MAC Address - an address assigned to each physical device
 
 ### Roadmap Planning
 
-To be inserted once project is finished
+The roadmap project was designed to represent OSI layers in an analogy, preferably that of a road. To plan for this, the OSI layers were described, and possible connections to real-life concepts were made based on these descriptions.
+
+Descriptions:
+
+7. Application: Human end-user interacts with software, which accesses the internet (HTTP, FTP, DNS, software) - represented by a house or a city
+6. Presentation: Translates data between application and network formats (SSL) - represented by a gas station or packages
+5. Session: Connection is made and maintained between sender and receiver applications - represented by traffic lights
+4. Transport: Data segments are transmitted using transmission protocols and ensures reliable data transfer (TCP, UDP) - represented by a map or GPS
+3. Network: Packets are routed using the receiver’s and sender’s IP addresses (IP address, ICMP) - represented by directional signs
+2. Data Link: Packages data into frames, which are sent to the receiver using its MAC address (Wi-Fi, Ethernet, MAC address) - represented by traffic cops
+1. Physical: Data is transmitted physically as bit streams (cables, Wi-Fi) - represented by a tunnel or the road as a whole
+
 
 ## Technical Development
 
@@ -252,7 +263,9 @@ Similarly to netstat, an explanation for this can be found in **Testing and Eval
 
 ### Roadmap Development
 
-To be inserted once project is finished
+Shown below is the final roadmap, which was developed using Canva. This contains an analogy for how data travels from a sender to receiver through the OSI layers, as well as a key to explain what each component means:
+
+![Roadmap](../images/Assignment5/Cruz-Roadmap.png)
 
 ## Testing and Evaluation
 
@@ -304,10 +317,6 @@ This is the output when *netcat* was used to transfer a message between two VMs:
 
 Similarly to netstat, netcat involves Layer 4 of the OSI, but it actually uses this layer to transfer information. Specifically, it uses the TCP protocol to deliver messages between the two endpoint devices, sending and receiving packets.
 
-### Roadmap Explanation and Evaluation
-
-To be inserted once project is finished
-
 ## Reflection
 
 Through the *Data Movement and Types of Networks* activity, students learned the process by which data travels in a network and in what form that data is transferred. Students began to explore data travel by first examining the structure of a LAN (local area network), and how data is transferred within it. Next, The OSI layers were learned about to both contextualize data travel and generalize it to the internet as a whole. Learning the four TCP/IP layers allowed protocols to be applied to the different OSI layers, and using this broadened understanding of data transfer, data was actually transferred and received between two local devices. To see how this type of data was transferred, base conversions were also covered, showing how any data which is transferred over the internet is interpreted as bits. Knowledge of data transfer, especially the OSI layers, can help in real world networking drastically, as all problems in sending or receiving data can be traced back to specific layers of the OSI model, and problems can be dealt with on that level, narrowing them down. Knowledge of data transfer can also help common people to better set up networks, including options such as failsafe connections (connections to multiple devices to ensure that if one fails, a connection can still be made). A reasonable next step to take is examining protocols in further depth or exploring more how the internet outside of a LAN functions. Citations for this page include the various assignments assigned in AP Networking, as well as the Ubuntu VM.
@@ -318,4 +327,4 @@ Through the *Data Movement and Types of Networks* activity, students learned the
 
 **Roadmap Reflection**
 
-To be inserted once project is finished
+Ultimately, the roadmap shows that data must through each layer sequentially, initially from top to bottom for the sender, then bottom to top for the receiver. This is because data must be converted into a network format, move through the internet to the receiver, then be converted back into a readable format. While all layers of the OSI model are important, the **Network** layer is likely the most important because it ensures that data knows how to move to its designated receiver using its IP address, facilitating the complete transfer of data. Overall, this project helps to understand the connection between OSI and TCP/IP because it shows how the TCP/IP protocols are inherently built into each step of the OSI layers. While the OSI layers describe how data transfers as a whole, TCP/IP protocols are the means through which this transfer actually happens.
