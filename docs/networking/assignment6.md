@@ -59,6 +59,25 @@ To summarize the information above:
 
 The internal IP address differed while the external IP address remained the same between Shared and Bridged mode. Ultimately, this activity revealed that local networks may be created inside of other networks, creating a chain of data movement between an endpoint device (such as a VM) and the internet. The internal IP address is defined with respect to the lowest layer (that of the endpoint device), while the external IP address is defined with respect to the highest layer (usually a router). IT professionals may use different network configurations depending on the situation to manage efficiency vs. security. In a home or lab, it may be better to use a shared environment since endpoints are contained within a more secure network. This is in general useful for dealing with secure information. However, in business and tasks that require heavy use of resources, a bridged environment may be better. However, this has the downside of possibly introducing new vulnerabilities to the host's network. In the classroom, bridged mode is likely better to use since it better simulates a real computer, thus replicating real-world scenarios better. Since a classroom environment likely does not store any sensitive data, then the risks associated with bridged mode are not significant.
 
+### Connections That Share Data and Resources
+
+For this activity, it is useful to know what a PAN, LAN, MAN, and WAN are.
+
+| Term | Definition|
+| ---- | ---- |
+| PAN | Devices communicate within a very small range of a person (a couple of meters) |
+| LAN | Devices communicate within a small area, usually a building or a couple of buildings |
+| MAN | Covers larger areas than a LAN (usually cities or larger areas) |
+| WAN | Spans a very large area (e.g. a country) |
+
+Below is a diagram which represents how devices interact between PAN, LAN, MAN, and WAN:
+
+INSERT CONNECTIONS DIAGRAM
+
+**Reflection**
+
+On a day to day basis, all of these networks are used. A PAN is used for interaction between, for example, a cell phone and smartwatch, while a LAN is used on a home Wi-Fi network. A MAN is used to provide cellular data to a phone, and a WAN is used to gather information from the internet as a whole when performing actions such as browsing. A PAN usually connects to a LAN or MAN, mostly through Bluetooth or Wi-Fi, and a LAN, MAN, and WAN connect to each other through satellites, fiber cables, and other means. SCALE AFFECTS INSERT INSERT
+
 ### Network Topologies
 
 Network topology - a configuration of how devices are arranged and connected in a network which shows how data travels among devices
@@ -99,3 +118,6 @@ The most **expensive** topology to implement would likely be a **mesh topology**
 A **school** would likely use a **hybrid topology**, made up of a star topology of switches with a star of devices with respect to each switch. This allows for centralized control of groups of devices, while also allowing management of each switch individually via the primary router.
 
 The physical layout of a topology greatly affects speed because wires can be very long, and indirect connections could require going through several of these wires, increasing the time for data to be transferred through these wires (or through WiFi). Also, if a wire is faulty or disconnected, then depending on the layout, devices could become inaccessible.
+
+### OSI and TCP/IP - Layers 1 and 2
+
