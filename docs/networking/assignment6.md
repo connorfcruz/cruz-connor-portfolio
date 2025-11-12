@@ -76,7 +76,7 @@ INSERT CONNECTIONS DIAGRAM
 
 **Reflection**
 
-On a day to day basis, all of these networks are used. A PAN is used for interaction between, for example, a cell phone and smartwatch, while a LAN is used on a home Wi-Fi network. A MAN is used to provide cellular data to a phone, and a WAN is used to gather information from the internet as a whole when performing actions such as browsing. A PAN usually connects to a LAN or MAN, mostly through Bluetooth or Wi-Fi, and a LAN, MAN, and WAN connect to each other through satellites, fiber cables, and other means. SCALE AFFECTS INSERT INSERT
+On a day to day basis, all of these networks are used. A PAN is used for interaction between, for example, a cell phone and smartwatch, while a LAN is used on a home Wi-Fi network. A MAN is used to provide cellular data to a phone, and a WAN is used to gather information from the internet as a whole when performing actions such as browsing. A PAN usually connects to a LAN or MAN, mostly through Bluetooth or Wi-Fi, and a LAN, MAN, and WAN connect to each other through satellites, fiber cables, and other means. This activity ultimately displays that as the scale of a network increases, although it can handle more devices, the cost also increases because there must be many more connections between devices, while speed might also decrease because of this increased amount of connections.
 
 ### Network Topologies
 
@@ -119,5 +119,25 @@ A **school** would likely use a **hybrid topology**, made up of a star topology 
 
 The physical layout of a topology greatly affects speed because wires can be very long, and indirect connections could require going through several of these wires, increasing the time for data to be transferred through these wires (or through WiFi). Also, if a wire is faulty or disconnected, then depending on the layout, devices could become inaccessible.
 
+### Ethernet Cable
+
+INSERT THIS
+
 ### OSI and TCP/IP - Layers 1 and 2
+
+This activity involves an exploration of layers 1 and 2 (Physical and Data Link) of the OSI layers. To begin this, an Ubuntu VM was connected to the internet, and a network connection was confirmed via `ping -c 3 google.com`.
+
+To start, the active interface was found, and its information was displayed using `ip link show`:
+
+INSERT IP LINK SHOW
+
+The following information was obtained:
+
+**Interface Name:** enp0s1
+**MAC Address:** 1a:63:23:39:a4:2c
+**Broadcast Address:** ff:ff:ff:ff:ff:ff
+
+EXPLAIN WHAT THESE MEAN
+
+### Building and Testing a Small Office/Home Office (SOHO) Network
 
