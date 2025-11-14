@@ -127,6 +127,8 @@ INSERT THIS
 
 This activity involves an exploration of layers 1 and 2 (Physical and Data Link) of the OSI layers. To begin this, an Ubuntu VM was connected to the internet, and a network connection was confirmed via `ping -c 3 google.com`.
 
+**Data Link Layer**
+
 To start, the active interface was found, and its information was displayed using `ip link show`:
 
 INSERT IP LINK SHOW
@@ -137,7 +139,54 @@ The following information was obtained:
 **MAC Address:** 1a:63:23:39:a4:2c
 **Broadcast Address:** ff:ff:ff:ff:ff:ff
 
-EXPLAIN WHAT THESE MEAN
+Note that the interface references the virtual network card of the VM, and the MAC address uniquely identifies the computer on the LAN. The broadcast address is used to send messages.
+
+Next, the command `arp -n` was used:
+
+INSERT ARP N
+
+As displayed above, the IP address, MAC address, and interface of devices on the same LAN are shown.
+
+
+Next, the `ip -s link` command was run to show data transmitted and received by the VM's interfaces:
+
+INSERT IP -S LINK
+
+For the active interface enp0s1:
+
+**RX/Received Packets:** 6671
+**TX/Transmitted Packets:** 1287
+**Errors:** None
+
+**Physical Layer**
+
+To check details about the physical layer (actual hardware), `sudo ethtool enp0s1` was run:
+
+INSERT ETHTOOL
+
+The following stats were found:
+
+**Speed (Mb/s):** 1000
+**Duplex:** Full
+**Link Detected:** Yes
+
+The speed details how fast the link is. Duplex showed that data travels in both directions in this case, and the detection of a link shows that the VM is connected.
+
+Finally, to analyze network traffic, `sudo tcpdump -c 5` was used to get 5 live packets:
+
+INSERT TCPDUMP
+
+The following information can be inferred from the output:
+
+**Source MAC Address:** b6:b5:c3:cf:91:e6
+**Destination MAC Address:** ff:ff:ff:ff:ff:ff
+**Protocols Used:** Ethernet, BOOTP/DHCP, UDP, IPv4
+
+To summarize the above, the source MAC address is **b6:b5:c3:cf:91:e6** while the destination MAC adddress is **ff:ff:ff:ff:ff:ff** (the broadcast address). The packets transferred are likely packets which are required for the maintaining of certain protocols or connections to the internet. This data is important for troubleshooting and network monitoring because it ensures that a stable connection is being maintained, and it shows each step of data transmission. Thus, problems can be pinpointed to certain IP and MAC addresses.
+
+**Reflection**
+
+INSERT REFLECTION PARAGRAPH
 
 ### Building and Testing a Small Office/Home Office (SOHO) Network
 
