@@ -23,6 +23,7 @@ theme:
 plugins:
 - search
 - mkdocs-audio
+- mkdocs-video
 
 markdown_extensions:
   - admonition

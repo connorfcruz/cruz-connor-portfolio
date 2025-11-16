@@ -122,7 +122,7 @@ This displays the external IP address, **173.95.44.210**, which defines a networ
 
 **Bridged Mode**
 
-Note that when switching to Bridged mode, the *Bridged Interface* must match that of the Mac's active connection the the router (WiFi/Ethernet).
+Note that when switching to Bridged mode, the *Bridged Interface* must match that of the Mac's active connection to the the router (WiFi/Ethernet).
 
 This is the output after running `ip a` in bridged mode:
 
@@ -168,7 +168,12 @@ The above process was repeated for the other end of the wire, thus creating a fi
 
 Here is a video of stripping and preparing the wires:
 
-INSERT STRIPPING DEMONSTRATION
+<iframe width="560" height="315"
+    src="https://www.youtube.com/embed/LdAS6CniLtw"
+    title="Stripping Demonstration"
+    frameborder="0"
+    allowfullscreen>
+</iframe>
 
 Note that other checkpoints and a reflection can be found in **Testing and Evaluation**.
 
@@ -231,7 +236,7 @@ The following information can be inferred from the output:
 **Destination MAC Address:** ff:ff:ff:ff:ff:ff
 **Protocols Used:** Ethernet, BOOTP/DHCP, UDP, IPv4
 
-To summarize the above, the source MAC address is **b6:b5:c3:cf:91:e6** while the destination MAC adddress is **ff:ff:ff:ff:ff:ff** (the broadcast address). The packets transferred are likely packets which are required for the maintaining of certain protocols or connections to the internet. This data is important for troubleshooting and network monitoring because it ensures that a stable connection is being maintained, and it shows each step of data transmission. Thus, problems can be pinpointed to certain IP and MAC addresses.
+To summarize the above, the source MAC address is **b6:b5:c3:cf:91:e6** while the destination MAC address is **ff:ff:ff:ff:ff:ff** (the broadcast address). The packets transferred are likely packets which are required for the maintenance of certain protocols or connections to the internet. This data is important for troubleshooting and network monitoring because it ensures that a stable connection is being maintained, and it shows each step of data transmission. Thus, problems can be pinpointed to certain IP and MAC addresses.
 
 Note that reflections and comparisons can be found in **Testing and Evaluation**.
 
@@ -255,7 +260,7 @@ Next, to prevent unwanted connections, a firewall was enabled for the SOHO. To d
 
 A firewall is necessary in a SOHO because it is able to filter any packets which are deemed malicious or unnecessary, preventing many hacks and speeding up data transfer due to the filtering of connections.
 
-Another VM was then created (Ubuntu 25.10) to ensure that every VM has a unique IP address and can commmunicate with others.
+Another VM was then created (Ubuntu 25.10) to ensure that every VM has a unique IP address and can communicate with others.
 
 To check connectivity between VMs, another VM was pinged:
 
@@ -289,7 +294,7 @@ Note that more detailed testing and reflection can be found in **Testing and Eva
 
 Shared Mode Reflection:
 
-When comparing the two IP addresses, they are completely different. The IP address **192.168.64.2/24** thus belongs to the local network, while the address **173.95.44.210** belongs to the internet. Overall, a virtual machine may use NAT/Network Address Translation if it wants to connect to the internet if the VM should be contained and managed by the host system. NAT is necessary in this case because the virual subnet containing the VM must route data to the Mac's network and out to the internet. Shared mode in general makes it easier to connect multiple virtual machines on one computer because they are all centralized under the Mac. This allows for permissions to be managed and artificially defined using the virtual subnet created by the host system.
+When comparing the two IP addresses, they are completely different. The IP address **192.168.64.2/24** thus belongs to the local network, while the address **173.95.44.210** belongs to the internet. Overall, a virtual machine may use NAT/Network Address Translation if it wants to connect to the internet if the VM should be contained and managed by the host system. NAT is necessary in this case because the virtual subnet containing the VM must route data to the Mac's network and out to the internet. Shared mode in general makes it easier to connect multiple virtual machines on one computer because they are all centralized under the Mac. This allows for permissions to be managed and artificially defined using the virtual subnet created by the host system.
 
 Bridged Mode Reflection:
 
@@ -314,7 +319,12 @@ The internal IP address differed while the external IP address remained the same
 
 The cable created in **Technical Development** was tested in a cable tester by placing one end into its main unit and the other end into its remote unit:
 
-INSERT CABLE TESTER VIDEO
+<iframe width="560" height="315"
+    src="https://www.youtube.com/embed/ccsbUQ-gMhc"
+    title="Stripping Demonstration"
+    frameborder="0"
+    allowfullscreen>
+</iframe>
 
 As shown above, the indicator lights successfully cycled in order from 1 to 8, thus showing that the cable passed the test. This result heavily matters because if the lights were out of order, then data could be incorrectly transmitted to the wrong location across that cable.
 
@@ -332,7 +342,7 @@ This activity revealed that a network interface is able to uniquely identify its
 
 **What Was Learned about OSI Layers 1 & 2**
 
-Layer 1 is different from Layer 2 of OSI because layer 1 deals with the physical transmission of packets while layer 2 deals with their routing to the correct device. However, layer 2 is necessary to show where physical data (as bit streams) must actually be transported. The `arp -n` command helped to understand the data link layer (Layer 2) much better because it showed each interface and their respective MAC and IP addresses, showing how each device is uniquely identified. `ethtool` broaden the understanding of the physical layer (Layer 1) the most because it showed statistics of the physical transmission of packets, such as speed and whether they could move in both directions. Understanding these two layers is very important for anyone working with networks because it can help the user configure networks in optimal ways for data transmission, and this knowledge helps with debugging when packets fail to transmit between devices.
+Layer 1 is different from Layer 2 of OSI because layer 1 deals with the physical transmission of packets while layer 2 deals with their routing to the correct device. However, layer 2 is necessary to show where physical data (as bit streams) must actually be transported. The `arp -n` command helped to understand the data link layer (Layer 2) much better because it showed each interface and their respective MAC and IP addresses, showing how each device is uniquely identified. `ethtool` broadens the understanding of the physical layer (Layer 1) the most because it showed statistics of the physical transmission of packets, such as speed and whether they could move in both directions. Understanding these two layers is very important for anyone working with networks because it can help the user configure networks in optimal ways for data transmission, and this knowledge helps with debugging when packets fail to transmit between devices.
 
 ### Building and Testing a Small Office/Home Office (SOHO) Network
 
@@ -354,6 +364,8 @@ Computer B:
 
 **Reflection**
 
-The creation of a SOHO demonstrates that devices communicate on a network by passing through the router, which either sends that data to the cloud or to another device on the network. When using `ping` and `traceroute`, Layer 3 of the OSI Model was active, while both Layers 2 and 3 were active when using `arp -a` and `netstat -r`. When activating the `ufw` firewall, Layers 3 and 4 were active since packets were filtered. Finally, the hosting of a server acted mainly on Layer 7 since an application (Firefox) was able to display transmitted data. In general, enabling a firewall protects a SOHO network because it is able to filter incoming packets based on a set of user-defined rules. The amount of hops required during `traceroute` (21) was very surprising, as the amount of devices used was expected to be much lower. Simple web server activity display how real-world websites work because they show the file structure backbone of those websites, which simply use web-formatting tools to display that data in a desired format. If this were an actual home network, more devices would have to be added, and actual computers (rather than VMs) should be tested with the network. Also, a switch and access point may have to be set up due to the existence of many wired devices and several wireless devices on a real SOHO.
+The creation of a SOHO demonstrates that devices communicate on a network by passing through the router, which either sends that data to the cloud or to another device on the network. When using `ping` and `traceroute`, Layer 3 of the OSI Model was active, while both Layers 2 and 3 were active when using `arp -a` and `netstat -r`. When activating the `ufw` firewall, Layers 3 and 4 were active since packets were filtered. Finally, the hosting of a server acted mainly on Layer 7 since an application (Firefox) was able to display transmitted data. In general, enabling a firewall protects a SOHO network because it is able to filter incoming packets based on a set of user-defined rules. The amount of hops required during `traceroute` (21) was very surprising, as the amount of devices used was expected to be much lower. Simple web server activity displays how real-world websites work because they show the file structure backbone of those websites, which simply use web-formatting tools to display that data in a desired format. If this were an actual home network, more devices would have to be added, and actual computers (rather than VMs) should be tested with the network. Also, a switch and access point may have to be set up due to the existence of many wired devices and several wireless devices on a real SOHO.
 
 ## Reflection
+
+Through the *Types of Networks & Connections and Devices* activity, students learned in detail how networks transfer data. The first topic learned was the difference between an internal and external IP address, which displayed that a router uniquely assigns each device in a LAN a unique internal IP address, while the external IP address is the same for all devices under the same router. This was further bolstered by learning the primary types of network topology, which provided the framework for multiple activities, such as closely examining Layers 1 and 2 of the OSI Model in Ubuntu and simulating a SOHO network over multiple virtual machines. Adding even more to knowledge of the physical transmission of data (Layer 1), students also created T568B Ethernet cables which could successfully transmit raw bit streams. The most major challenge faced during this unit was the creation of the Ethernet cable, since every wire needed to be precisely inserted in the correct order. Furthermore, another major obstacle faced was that all students' VMs had the same bridged IP address since they were clones of the same root virtual machine. Ultimately, the troubleshooting and analysis required by this lesson proves useful in the real world, whether in a business or in a household. When creating a LAN for a household, it is necessary to consider which network topology would work best for cost and speed, as well as how to actually set up a SOHO. For both IT professionals and casual internet users, it is also important to know details about the OSI layers so that problems can be found and eliminated. As such, the information learned in this unit is applicable in any field which requires access to the internet. A reasonable next step would be to examine more closely the presentation layer of the OSI Model (Layer 6), learning types of compression and encryption. Citations for this assignment include **whatismyipaddress.com**, assignments in the AP Networking class at Charlotte Latin School, and the Linux Ubuntu VM environment.
