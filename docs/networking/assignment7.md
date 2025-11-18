@@ -1,5 +1,17 @@
 # Why Can't These Two Computers Talk to Each Other?
 
+## Planning and Design
+
+This activity involves two virtual machines connected via an Ethernet cable which cannot communicate with each other. The ultimate goal of this activity is to determine the cause(s) of this failure, focusing on OSI Layers 1-3.
+
+Layer 1 will likely work in this activity because the Ethernet cable allows for data to be transmitted into and out of both VMs.
+
+Layer 2 will most likely not work since the virtual machines were set up using the same model VM. Thus, the MAC address of each individual VM should not be able to be resolved due to them having the same virtual NIC.
+
+Layer 3 will also likely not work since one of the virtual machines is one shared mode, which will create a virtual subnet in which it resides. Thus, attempting to send data via reference to an internal IP address should not work because internal IP addresses are assigned by the respective router.
+
+## Technical Development
+
 **Physical Layer Check (Layer 1)**
 
 To start, an Ethernet cable was plugged into both Mac desktop devices.
@@ -48,4 +60,14 @@ Next, ping was tested again, confirming failed communication on one VM and succe
 
 ![Ping Computer 2](../images/Assignment7/PingToComp2-2.jpg)
 
-Thus, this is confirmed to be a failure in OSI layers 2 and 3. This is because the physical connection was found to have **state UP**. Meanwhile, the MAC addresses were shown to be the same, which means that the VMs used duplicated NICs, causing communication failure. Furthermore, the devices are also on different virtual subnets, preventing communication via internal IP addresses.
+Note: The explanation for this part is in **Testing and Evaluation**.
+
+## Testing and Evaluation
+
+The issue is confirmed to be a failure in OSI layers 2 and 3. The physical connection was found to have **state UP**, so both VMs were open for network interaction, confirming that Layer 1 worked correctly. Meanwhile, the MAC addresses were shown to be the same, which means that the VMs used duplicated NICs, causing communication failure. Therefore, there is also a problem in the Data Link layer (Layer 2) since data will route to the incorrect place when attempting to be transmitted.Furthermore, the devices are also on different virtual subnets, preventing communication via internal IP addresses. This communication is not expected to work because the internal IP address of a device is only defined with reference to other devices in the same network (in this case a virtual subnet). Thus, Layer 3 was also expected to fail, which is supported by the **ping** command failing.
+
+Ultimately, the *ping* command fails because the two virtual machines are in different networks, and to access the other virtual machine, its **external** IP address would have to be used (rather than the internal IP address assigned by the respective virtual router). To fix this, both VMs would have to be in Bridged mode, thus allowing them to connect to the same network and access each other via internal IPs. If they were to be in Shared mode, then the VMs would have to exist under the same host operating system. Pinging the external IP address provided by the respective virtual router is expected to work as well.
+
+## Reflection
+
+The two computers couldn't communicate even though they were connected with a working Ethernet cable because they were not on the same network. This prevents the other VM from being accessed using the internal IP address obtained from `ip a`. Furthermore, Layer 2 also caused issues with data transmission because both VMs had the same MAC address (on account of being copies of the same VM), causing them to have the same virtual NIC. Layer 2 (Data Link) contributed to the failure because this layer deals with MAC addresses, so the destination could not be found. Layer 3 (Network) also contributed to the failure because the IP address of one device could not be found on the same network, preventing data from being routed correctly. UTM prevents two VMs from communicating directly in host-only/shared mode because this mode creates a virtual network for the respective VMs, thus disassociating them from the same network and preventing communication via internal IP address. Changing to bridged mode would ultimately allow communication between the two computers because they would then be on the same network, and devices on the same network can access each other by internal IP addresses. In a real SOHO network, routers and switches prevent similar issues by assigning different naming conventions to respective devices in the network, preventing confusion on which network a device is connected to. Switches in general are also designed to connect devices on the same network, so using them can allow connection via internal IP addresses, further preventing these issues.
