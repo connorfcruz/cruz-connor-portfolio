@@ -74,6 +74,29 @@ Ultimately, MAC addresses are involved in Layer 2 (Data Link) of the OSI Model. 
 
 Every NIC, whether physical or virtual, must have a globally unique MAC address to ensure that there frames are always transmitted to the correct location on a LAN, as a MAC address specifies a certain physical location.
 
+### Understanding Logical Addressing
+
+`ip addr show` was used to obtain both the IPv4 and IPv6 address of the Ubuntu VM. Note that the IPv4 address is in decimal, and the IPv6 address is in hexadecimal:
+
+INSERT ADDRESSES
+
+[This website](https://www.cisco.com/c/en/us/support/docs/ip/ip-version-6-ipv6/113328-ipv6-lla.html) was used to obtain information regarding IPv6.
+
+An IPv6 link-local address is an IPv6 address which is only used for communication on a local network. Specifically, these addresses only apply to physical connections. IPv6 link-local addresses always start with 'fe80::' since the prefix 'fe80::' is specifically reserved for local addressing, ensuring that these addresses are not confused for other IP addresses. Link-local addresses only support local communication, and they do not require a DHCP server or external configuration because they are only assigned relative to a local network, and they are not accessible outside of the local network. Every IPv6-enabled device automatically generates a link-local address to allow for communication solely on the local network. Link-local addresses ultimately facilitate communication between devices connected to the same router or in the same network.
+
+IPv4 is no longer sufficient because the amount of devices in the world is increasing heavily. Since IPv4 can hold up to approximately 4.3 billion IP addresses, which will not be enough in the near future, an addressing system with more bits is necessary. IPv6 solves the address shortage because, rather than each address having 32 bits like IPv4, each address instead has 128 bits, which heavily increases the amount of available IP addresses to assign. IPv6 also includes various benefits, such as enhanced built-in security features and increased efficiency in routing. Furthermore, IPv6 addresses are also more compatible with different types of devices. Modern networks must support both IPv4 and IPv6 during the transition because many devices still reference IPv4 addresses when transmitting data, but the benefits of IPv6 can also be obtained by these devices.
+
+IPv4 vs. IPv6 Comparison Table:
+
+| **Feature** | **IPv4** | **IPv6** |
+| Address Length | 32 bits | 128  bits |
+| Notation | Dotted Decimal | Hexadecimal w/ Colons |
+| Approximate Capacity | 4.3 Billion Addresses | Essentially Unlimited (for the next few decades) |
+| Example | 192.168.64.2 | fe80::ac0d:6dff:fea1:47ab |
+| Where it is used | The majority of the internet and older devices | Mobile devices and recently created devices |
+
+Logical/IP addresses are necessary in addition to physical MAC addresses because, MAC addresses are only useful for local communication, as the physical identification of a device is necessary when communicating in a local network. However, physical addresses do not work for global communication since it requires the general location of a device, As such, an IP address is able to identify the broad location of a device, allowing communication in the internet as a whole. IP addresses allow communication beyond the local network because each router has a designated external IP address. Since the global internet cannot identify an individual device with respect to its physical MAC addresses, IP addresses assigned to routers provide general locations where data must be moved and facilitate data transfer. For example, when playing an online video game, data must be transferred between two different general locations using IP addressing: the local network of the player and the server in which the game is being hosted.
+
 ## Planning and Design
 
 ## Technical Development
