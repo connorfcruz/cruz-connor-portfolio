@@ -97,6 +97,65 @@ IPv4 vs. IPv6 Comparison Table:
 
 Logical/IP addresses are necessary in addition to physical MAC addresses because, MAC addresses are only useful for local communication, as the physical identification of a device is necessary when communicating in a local network. However, physical addresses do not work for global communication since it requires the general location of a device, As such, an IP address is able to identify the broad location of a device, allowing communication in the internet as a whole. IP addresses allow communication beyond the local network because each router has a designated external IP address. Since the global internet cannot identify an individual device with respect to its physical MAC addresses, IP addresses assigned to routers provide general locations where data must be moved and facilitate data transfer. For example, when playing an online video game, data must be transferred between two different general locations using IP addressing: the local network of the player and the server in which the game is being hosted.
 
+### Dynamic vs Static Addressing and When to Use Each
+
+This activity will examine whether each virtual machine (Ubuntu and general Linux) uses DHCP.
+
+When using `ip addr show` on the **Ubuntu** VM, these addresses were obtained:
+
+**IPv4:** 192.168.64.2/24
+**IPv6:** fe80::ac0d:6dff:fea1:47ab/64
+
+These are the results from the **Linux** VM:
+
+**IPv4:** 192.168.64.3/24
+**IPv6:** fe80::c47e::63ff::fe56::1b5e/64
+
+Next, each of the VM's config files were analyzed.
+
+On the **Ubuntu** VM, here is the config file:
+
+INSERT CONFIG FILE PICTURE 1
+
+As shown above, the exact filename of the config file is *00-installer-config.yaml*.
+
+The line `dhcp4: true` is also contained, thus implying that the Ubuntu VM **uses DHCP**, so an IP address is assigned automatically.
+
+Next, on the **Linux** VM, here is the config file:
+
+INSERT CONFIG FILE PICTURE 2
+
+Here is the output of `nmcli device show`:
+
+INSERT NMCLI DEVICE SHOW
+
+The Netplan yaml file does exist, and **NetworkManager** manages the virtual machine. Thus, both Netplan and NetworkManager are used. Moreover, when using `nmcli device show`, it is shown that Netplan and NetworkManager are both used, confirming the results.
+
+As shown above, both the lines `dhcp4: true` and `dhcp6: true` are listed. Thus, DHCP is enabled, so the IP address of the Linux VM is assigned dynamically. The use of NetworkManager shown before in nmcli also supports this.
+
+**Comparison**
+
+The Ubuntu VM uses the Netplan configuration tool, while the second Linux VM uses both Netplan and NetworkManager. The Ubuntu VM is only using DHCP for IPv4, but the Linux VM is using DHCP for both IPv4 and IPv6. The configuration syntaxes are very similar for both VMs (colons and name fields), but the second Linux VM config file has much more information listed. Two different Linux systems may configure networking differently based on their needs, because a VM that manages something that must be reliable (i.e. a piece of hardware) should preferably have a static address, rather than a casual -se VM which would usually use a dynamic IP address.
+
+**Static vs. Dynamic Addressing**
+
+Dynamic addressing is when an IP address is assigned automatically to a device using DHCP. The DHCP protocol specifically the DORA method to find a server to assign an IP address and request one. Static addressing is when an IP address is manually assigned to a deice by an administrator, and it is usually used for permanent fixtures or very important devices. Networks need both static and dynamic addressing because important devices should usually have static addresses, and if the network manages a large amount of smaller devices, they should use dynamic addressing for efficiency. In general, dynamic addressing should be used in large networks for less important devices (clients or individual people). On the other hand, static addresses should be used for permanently installed devices and important devices for management and administration.
+
+**Real-World Analysis**
+
+This activity determines whether a real-world scenario should use static or dynamic addressing and why.
+
+| **Device** | **Static or Dynamic** | **Justification** |
+| School web server | Static | A school web server must be reliable since it is accessed by many devices and often hosts its own websites. Thus, since this is a critical system, static addressing would be best. |
+| Classroom Printer | Static | A printer is a critical piece of hardware and is generally a permanent installment. A consistent address is best, so static addressing makes sense. |
+| Student Laptops | Dynamic | Student laptops are only used by students for a certain amount of  years, so they do not need the same IP addresses for a long time. Moreover, since they are widely distributed, dynamic addressing is much easier to implement. |
+| Security Cameras | Static | Security cameras must always be functional, and it would be problematic if its IP address expires. They are also generally a permanent installment |
+| Teacher Workstation | Dynamic | A teacher's workstation may have to change devices and is often temporary. There are also a large amount of teachers in a school, so dynamic addressing would allow for easier management. |
+
+### Configuring and Verifying IP Addresses on a Linux VM
+
+
+
 ## Planning and Design
 
 ## Technical Development
