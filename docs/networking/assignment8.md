@@ -154,7 +154,48 @@ This activity determines whether a real-world scenario should use static or dyna
 
 ### Configuring and Verifying IP Addresses on a Linux VM
 
+This assignment explored how the Netplan utility works. It is important to note these things about Netplan:
 
+- Use spaces only
+- Indentation matters, and it must be kept consistent
+- List items should be properly aligned
+- The YAML structure must match Netplan's format
+
+First, the active interface of the SECOND Linux VM was identified via `ip link show` to be **enp0s1**.
+
+Next, the respective YAML file was found via `ls /etc/netplan` and opened via `sudo nano /etc/netplan/50-cloud-init.yaml`:
+
+INSERT NANO INITIAL OUTPUT
+
+This was changed to have static rather than dynamic addressing:
+
+INSERT CHANGED NANO
+
+To apply the Netplan, `sudo netplan apply was run`:
+
+INSERT NETPLAN SCREENSHOT
+
+This change was confirmed with `ip addr show`:
+
+INSERT IP ADDR SHOW
+
+As seen above, the static IP address assigned in the changed YAML file (192.168.1.56/24) was shown by the interface.
+
+Next, `ip route show` was run:
+
+INSERT IP ROUTE SHOW
+
+The default gateway (gateway4) is shown to be 192.168.1.1, which was assigned in the YAML file. The active network interface was also confirmed to be enp0s1.
+
+Finally, to confirm successful connection to the network, Google (8.8.8.8) was pinged:
+
+INSERT PING SUCCESS
+
+100% of the packets were received, so the connection was confirmed to be successful.
+
+**Differences Between Addressing Methods**
+
+Physical addressing (MAC) purely works on a local level within a network. A MAC address uniquely identifies each individual device such that when data is sent through the router to that device, the correct physical location is reached. Meanwhile, logical addressing (IP) works on a wider, usually global, level to define a general network relative to other networks. This allows for the correct global location of a device to be found when transmitting data over different networks. While logical addressing identifies networks, IP addresses can also refer to local devices, either dynamically or statically. Dynamic addressing is when the network automatically assigns an IP address to a device, usually for large networks. On the other hand, static addressing is when the administrator specifically assigns an IP address to a certain device, which is not changed regardless of network.
 
 ## Planning and Design
 
