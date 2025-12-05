@@ -189,6 +189,10 @@ The default gateway (gateway4) is shown to be 192.168.1.1, which was assigned in
 
 Finally, to confirm successful connection to the network, Google (8.8.8.8) was pinged:
 
+INSERT PING FAIL
+
+Ping failed here because the virtual machine was in bridged mode. To actually host a gateway was changed to the actual router's address, **192.168.64.1**. 
+
 INSERT PING SUCCESS
 
 100% of the packets were received, so the connection was confirmed to be successful.
@@ -196,6 +200,10 @@ INSERT PING SUCCESS
 **Differences Between Addressing Methods**
 
 Physical addressing (MAC) purely works on a local level within a network. A MAC address uniquely identifies each individual device such that when data is sent through the router to that device, the correct physical location is reached. Meanwhile, logical addressing (IP) works on a wider, usually global, level to define a general network relative to other networks. This allows for the correct global location of a device to be found when transmitting data over different networks. While logical addressing identifies networks, IP addresses can also refer to local devices, either dynamically or statically. Dynamic addressing is when the network automatically assigns an IP address to a device, usually for large networks. On the other hand, static addressing is when the administrator specifically assigns an IP address to a certain device, which is not changed regardless of network.
+
+**Reflection**
+
+In this activity, the most challenging part of IP configuration was trying to get the broadcast address to work. While the other steps worked correctly, this step happened to fail because the virtual machine was in bridged mode, requiring the broadcast address of the network's router to be found and inserted. This activity especially highlighted that YAML files are extremely sensitive, as tabs are not allowed, and a single space can completely invalidate a YAML file.
 
 ## Planning and Design
 
