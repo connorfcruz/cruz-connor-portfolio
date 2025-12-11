@@ -8,8 +8,43 @@
 | A | A device suddenly receives the wrong gateway | The switch which the device is connected to changes its broadcast address | If the broadcast address of a switch is changed, then a device connected to it would connect to the switch, and this data would be diverted to another router |
 | B | The switch CPU spikes; many MAC addresses appear on one port | An attacker requests IP addresses on many devices from the same router | The device cannot accept any more devices, and devices on the network cannot communicate |
 | C | Clients receive IPs from an unexpected source | The network settings may not be secure, so the device is easier to attack | The source is unknown, so settings might not be very secure |
-| D | A new unknown device appears inside the broadcast domain |  | |
-| E | A host begins reaching other internal hosts it should never reach | | |
+| D | A new unknown device appears inside the broadcast domain | The security for letting devices join the network is weak | Someone would be able to connect more easily without valid credentials, causing risk to data |
+| E | A host begins reaching other internal hosts it should never reach | The host is accidentally connected to an internal router | This allows access to internal devices since it is under the same DHCP |
+
+INSERT REFLECTION AND STUFF
+
+**Task A - LAN Observation**
+
+Note that this activity was performed on the Ubuntu Desktop VM.
+
+The following outputs show, in order, the network interfaces and subnet, the ARP cache, a neighbor table, and routing information.
+
+INSERT MULTIPLE OUTPUTS
+
+From these outputs, the following are found:
+
+**Subnet:** 192.168.64
+**Default Gateway:** 192.168.64.1
+**Visible Hosts:** 16:98:77:f6:04:64 (gateway), fe80::1498:77ff:fef6:464, 16:98:77:f6:04:64
+**ARP/Neighbor Table Entries:** 16:98:77:f6:04:64 (gateway), fe80::1498:77ff:fef6:464, 16:98:77:f6:04:64
+
+The ARP table and the neighbor table have very similar entries, which is a pattern suggesting that neighboring devices are likely communicated with recently. The interface of each device also shows in several of the outputs, suggesting that the interface is an important part of device identification.
+
+An attacker could misuse the information gained from an ARP table because they would be able to find the MAC addresses of valuable devices, which could be found and manipulated. They could impersonate a device by statically assigning their IP address to the same IP address, or by changing their device's virtual MAC address. Thus, any traffic to the targeted device could be redirected to their device since a LAN cannot distinguish between two devices with the same MAC address.
+
+**Task B - Match Observations to Possible Threats**
+
+Two of the outputs above were chosen: the ARP table entries (`arp -n`) and the gateway information (`ip route show`).
+
+Below is an explanation of the threats provided by gaining access to these:
+
+| **Evidence from your VM** | **Possible Threat Enabled** | **Why?** |
+| ARP Table Entries | ARP Spoofing | ARP spoofing involves associating an attacker's MAC address with one in the network (which is located in the ARP table), so an attacker could obtain a MAC address to copy |
+| Gateway Information | Unauthorized Plug-In Device | Knowing gateway information could allow a device to connect directly to a network, bypassing security controls. This could also allow for administrator privileges |
+
+**Task C - Threat Mini-Simulation**
+
+
 
 ## Project Development
 
