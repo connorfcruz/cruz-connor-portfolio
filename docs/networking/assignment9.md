@@ -4,6 +4,8 @@
 
 **LAN Threat Scenarios**
 
+Note that these interpretations may be incorrect, as this was the part of the introduction to these topics.
+
 | **Scenario Letter** | **Symptoms Summary** | **Hypothesis** | **Justification** |
 | A | A device suddenly receives the wrong gateway | The switch which the device is connected to changes its broadcast address | If the broadcast address of a switch is changed, then a device connected to it would connect to the switch, and this data would be diverted to another router |
 | B | The switch CPU spikes; many MAC addresses appear on one port | An attacker requests IP addresses on many devices from the same router | The device cannot accept any more devices, and devices on the network cannot communicate |
@@ -44,7 +46,19 @@ Below is an explanation of the threats provided by gaining access to these:
 
 **Task C - Threat Mini-Simulation**
 
+This task involves choosing a threat to analyze in-depth. The chosen threat was **MAC Flooding**.
 
+The following information was found:
+
+1. To successfully execute a MAC flooding attack, an attacker would first need to know how to gain access to open ports in the target network. Open ports allow packets with false MAC addresses to be sent to a switch, overflowing the MAC table.
+
+2. MAC flooding primarily targets switches, as a switch stores a MAC address table of the devices under it. Overflowing this table forces data to be sent to all devices in the MAC table, thus letting the attacker gain access to data which is intended for specific devices under that switch.
+
+3. One prominent change a user might notice in MAC flooding would be the worsening of device performance. Since this attack requires overflowing a MAC address table, all devices on the network will receive the data sent to any single device, which can also cause much more data to be received than expected.
+
+4. Between the Ubuntu Desktop VM and the Linux Server VM, the Linux Server VM most resembles a device which would be targeted by MAC flooding. MAC flooding does not target individual devices, but rather switches and other controlling devices, since these devices decide where to send data and device permissions.
+
+MAC flooding takes advantage of a key part of every LAN: the MAC address table contained in switches. Since a MAC address table must have limited capacity, MAC flooding exploits this by sending frames with false MAC addresses to the network, thus filling up the table. When a MAC address table overflows, it ensures that all data is still received by sending all network traffic to every device. Thus, an attacker could gain access to private data intended for specific devices, compromising their confidentiality.
 
 ## Project Development
 
