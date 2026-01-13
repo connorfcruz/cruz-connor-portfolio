@@ -13,7 +13,7 @@ Note that these interpretations may be incorrect, as this was the part of the in
 | D | A new unknown device appears inside the broadcast domain | The security for letting devices join the network is weak | Someone would be able to connect more easily without valid credentials, causing risk to data |
 | E | A host begins reaching other internal hosts it should never reach | The host is accidentally connected to an internal router | This allows access to internal devices since it is under the same DHCP |
 
-INSERT REFLECTION AND STUFF
+The most likely explanation to be correct is explanation D. While this may not be the entire explanation, weak security controls are likely at the core of this problem. The hardest scenario to interpret would be many MAC addresses appearing on the same port. This is because nothing discussed before has covered multiple MAC addresses on the same port, and the understanding of ports in general is weak. Talking with another pair strengthened these hypotheses because they were able to be combined and refined to create more empirical hypotheses. Across all of these scenarios, the overarching cause could be attributed to weak security configurations, specifically on the router or switch.
 
 **Task A - LAN Observation**
 
@@ -42,7 +42,7 @@ Below is an explanation of the threats provided by gaining access to these:
 
 | **Evidence from your VM** | **Possible Threat Enabled** | **Why?** |
 | ARP Table Entries | ARP Spoofing | ARP spoofing involves associating an attacker's MAC address with one in the network (which is located in the ARP table), so an attacker could obtain a MAC address to copy |
-| Gateway Information | Unauthorized Plug-In Device | Knowing gateway information could allow a device to connect directly to a network, bypassing security controls. This could also allow for administrator privileges |
+| Gateway Information | Unauthorized Plug-In Device | Knowing gateway information could allow a device to connect directly to a network, bypassing security controls. This could also allow for administrator privileges to be gained without permission |
 
 **Task C - Threat Mini-Simulation**
 
