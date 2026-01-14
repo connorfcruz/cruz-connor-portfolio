@@ -60,6 +60,28 @@ The following information was found:
 
 MAC flooding takes advantage of a key part of every LAN: the MAC address table contained in switches. Since a MAC address table must have limited capacity, MAC flooding exploits this by sending frames with false MAC addresses to the network, thus filling up the table. When a MAC address table overflows, it ensures that all data is still received by sending all network traffic to every device. Thus, an attacker could gain access to private data intended for specific devices, compromising their confidentiality.
 
+INSERT OTHER STUFF
+
+### Physical Security Controls for Network Devices and Physical Spaces
+
+This activity considers the security of a large medical pharmaceutical research company.
+
+**Enterprise Physical Security Threat Analysis**
+
+A pharmaceutical research environment may have the vulnerability of unauthorized access to the buildings themselves, as well as to certain areas in those buildings. This vulnerability specifically exists in the perimeter and primary entrances of the pharmaceutical research facility. Allowing access to buildings without permission could lead to tampering with equipment and the potential destruction and theft of property.
+
+Access to the facilities may also not have the ability to be monitored, causing uncertainty on who is present on-site. This vulnerability affects the entirety of the facilities, as it is important to log who enters and leaves at what times. Failure to monitor access could lead to parties entering and tampering with equipment without being noticed.
+
+Given the storage of medical substances and network control systems, temperature and humidity also pose a major vulnerability to this environment. This vulnerability applies to the research laboratories on account of the storage of chemicals, the on-site ata center, network closets, and controlled lab spaces. This presents much risk because incorrect environmental conditions could damage server devices or render certain drugs or chemicals ineffective.
+
+With the existence of server devices and network closets, a lack of access controls to these systems is a major vulnearbility. This vulnerability affects any device which has elevated permission in the research center's network. If one were to gain access to the network closet or the ports of one of these elevated devices, they could cause harm to the network and gain access to other devices, which may hold sensitive information.
+
+If employees are not verified or adequately trained, then they could internally pose risk to the facility, especially with elevated permissions. This vulnerability applies to all parts of the company, as any staff member could cause harm. A staff member could potentially leak company information to competitors or the personal information of test subjects.
+
+Visitors from other companies or manufacturers to the company are a vulnerability if not vetted properly. This vulnerability could affect areas where visitors may go and anywhere where materials from outside manufacturers might be implemented. Non-vetted manufacturers could lead to the development of faulty equipment or unauthorized information being gained inside the facility, and unmonitored visitors could reveal confidential company information.
+
+**Physical Security Plan - Pharmaceutical Research Facility**
+
 ## Project Development
 
 ## Planning and Design
