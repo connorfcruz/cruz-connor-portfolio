@@ -60,7 +60,17 @@ The following information was found:
 
 MAC flooding takes advantage of a key part of every LAN: the MAC address table contained in switches. Since a MAC address table must have limited capacity, MAC flooding exploits this by sending frames with false MAC addresses to the network, thus filling up the table. When a MAC address table overflows, it ensures that all data is still received by sending all network traffic to every device. Thus, an attacker could gain access to private data intended for specific devices, compromising their confidentiality.
 
-INSERT OTHER STUFF
+**Final Reflection: Analysis of Both VMs**
+
+INSERT NEIGH SCREENSHOTS OF BOTH VMS
+
+Both of these screenshots display the ARP table entries for the respective virtual machine (Ubuntu Desktop and Linux Server). This information would be valuable to an attacker because having ARP table entries could allow for false ARP packets to be sent based on that table, creating false IP to MAC address pairings.
+
+**Final Reflection: Five Common Internal LAN Threats**
+
+- ARP Spoofing: sending fake ARP messages to associate the attacker's MAC address with a valid IP address; ARP spoofing takes advantage of the assumption that ARP table entries are all valid.
+
+- MAC Flooding: 
 
 ### Physical Security Controls for Network Devices and Physical Spaces
 
@@ -79,6 +89,8 @@ With the existence of server devices and network closets, a lack of access contr
 If employees are not verified or adequately trained, then they could internally pose risk to the facility, especially with elevated permissions. This vulnerability applies to all parts of the company, as any staff member could cause harm. A staff member could potentially leak company information to competitors or the personal information of test subjects.
 
 Visitors from other companies or manufacturers to the company are a vulnerability if not vetted properly. This vulnerability could affect areas where visitors may go and anywhere where materials from outside manufacturers might be implemented. Non-vetted manufacturers could lead to the development of faulty equipment or unauthorized information being gained inside the facility, and unmonitored visitors could reveal confidential company information.
+
+
 
 **Physical Security Plan - Pharmaceutical Research Facility**
 
