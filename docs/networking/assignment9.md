@@ -31,6 +31,7 @@ Through several assessment reports and analysis of ARP information, understand a
 Note that these interpretations may be incorrect, as this was the part of the introduction to these topics.
 
 | **Scenario Letter** | **Symptoms Summary** | **Hypothesis** | **Justification** |
+| -- | -- | -- | -- |
 | A | A device suddenly receives the wrong gateway | The switch which the device is connected to changes its broadcast address | If the broadcast address of a switch is changed, then a device connected to it would connect to the switch, and this data would be diverted to another router |
 | B | The switch CPU spikes; many MAC addresses appear on one port | An attacker requests IP addresses on many devices from the same router | The device cannot accept any more devices, and devices on the network cannot communicate |
 | C | Clients receive IPs from an unexpected source | The network settings may not be secure, so the device is easier to attack | The source is unknown, so settings might not be very secure |
@@ -62,8 +63,11 @@ The following outputs show, in order, the network interfaces and subnet, the ARP
 From these outputs, the following are found:
 
 **Subnet:** 192.168.64
+
 **Default Gateway:** 192.168.64.1
+
 **Visible Hosts:** 16:98:77:f6:04:64 (gateway), fe80::1498:77ff:fef6:464, 16:98:77:f6:04:64
+
 **ARP/Neighbor Table Entries:** 16:98:77:f6:04:64 (gateway), fe80::1498:77ff:fef6:464, 16:98:77:f6:04:64
 
 The ARP table and the neighbor table have very similar entries, which is a pattern suggesting that neighboring devices are likely communicated with recently. The interface of each device also shows in several of the outputs, suggesting that the interface is an important part of device identification.
@@ -77,6 +81,7 @@ Two of the outputs above were chosen: the ARP table entries (`arp -n`) and the g
 Below is an explanation of the threats provided by gaining access to these:
 
 | **Evidence from your VM** | **Possible Threat Enabled** | **Why?** |
+| -- | -- | -- |
 | ARP Table Entries | ARP Spoofing | ARP spoofing involves associating an attacker's MAC address with one in the network (which is located in the ARP table), so an attacker could obtain a MAC address to copy |
 | Gateway Information | Unauthorized Plug-In Device | Knowing gateway information could allow a device to connect directly to a network, bypassing security controls. This could also allow for administrator privileges to be gained without permission |
 
@@ -97,7 +102,9 @@ The interface information of the server VM was obtained via `ip addr` and `ip ro
 The following information can be determined:
 
 **Interface Name:** enp0s1
+
 **IPv4 Address:** 10.12.18.128
+
 **Default Gateway:** 10.12.16.1
 
 On the server VM, `sudo tcpdump -i enp0s1 arp` was run to start listening for ARP traffic, and this terminal was left running.
