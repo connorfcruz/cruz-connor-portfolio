@@ -48,6 +48,22 @@ The most likely explanation to be correct is explanation D. While this may not b
 - Unauthorized Plug-In Device: an attacker's device is connected to a network port without permission; Unauthorized plug-in devices take advantage of a switch/router trusting that connected devices are verified.
 - Lateral Movement: an attacker gains access to one device in the network and moves across the network to gain access to data and permissions; Lateral movement takes advantage of the switch trusting that verified devices will remain uncompromised.
 
+### Physical Security Controls for Network Devices and Physical Spaces
+
+**Enterprise Physical Security Threat Analysis**
+
+A pharmaceutical research environment may have the vulnerability of unauthorized access to the buildings themselves, as well as to certain areas in those buildings. This vulnerability specifically exists in the perimeter and primary entrances of the pharmaceutical research facility. Allowing access to buildings without permission could lead to tampering with equipment and the potential destruction and theft of property.
+
+Access to the facilities may also not have the ability to be monitored, causing uncertainty on who is present on-site. This vulnerability affects the entirety of the facilities, as it is important to log who enters and leaves at what times. Failure to monitor access could lead to parties entering and tampering with equipment without being noticed.
+
+Given the storage of medical substances and network control systems, temperature and humidity also pose a major vulnerability to this environment. This vulnerability applies to the research laboratories on account of the storage of chemicals, the on-site ata center, network closets, and controlled lab spaces. This presents much risk because incorrect environmental conditions could damage server devices or render certain drugs or chemicals ineffective.
+
+With the existence of server devices and network closets, a lack of access controls to these systems is a major vulnearbility. This vulnerability affects any device which has elevated permission in the research center's network. If one were to gain access to the network closet or the ports of one of these elevated devices, they could cause harm to the network and gain access to other devices, which may hold sensitive information.
+
+If employees are not verified or adequately trained, then they could internally pose risk to the facility, especially with elevated permissions. This vulnerability applies to all parts of the company, as any staff member could cause harm. A staff member could potentially leak company information to competitors or the personal information of test subjects.
+
+Visitors from other companies or manufacturers to the company are a vulnerability if not vetted properly. This vulnerability could affect areas where visitors may go and anywhere where materials from outside manufacturers might be implemented. Non-vetted manufacturers could lead to the development of faulty equipment or unauthorized information being gained inside the facility, and unmonitored visitors could reveal confidential company information.
+
 ## Technical Development
 
 ### Common Security Controls in a LAN
@@ -133,25 +149,27 @@ The means through which ARP spoofing infiltrates an unsecure LAN and possible co
 
 This activity considers the security of a large medical pharmaceutical research company.
 
-**Enterprise Physical Security Threat Analysis**
-
-A pharmaceutical research environment may have the vulnerability of unauthorized access to the buildings themselves, as well as to certain areas in those buildings. This vulnerability specifically exists in the perimeter and primary entrances of the pharmaceutical research facility. Allowing access to buildings without permission could lead to tampering with equipment and the potential destruction and theft of property.
-
-Access to the facilities may also not have the ability to be monitored, causing uncertainty on who is present on-site. This vulnerability affects the entirety of the facilities, as it is important to log who enters and leaves at what times. Failure to monitor access could lead to parties entering and tampering with equipment without being noticed.
-
-Given the storage of medical substances and network control systems, temperature and humidity also pose a major vulnerability to this environment. This vulnerability applies to the research laboratories on account of the storage of chemicals, the on-site ata center, network closets, and controlled lab spaces. This presents much risk because incorrect environmental conditions could damage server devices or render certain drugs or chemicals ineffective.
-
-With the existence of server devices and network closets, a lack of access controls to these systems is a major vulnearbility. This vulnerability affects any device which has elevated permission in the research center's network. If one were to gain access to the network closet or the ports of one of these elevated devices, they could cause harm to the network and gain access to other devices, which may hold sensitive information.
-
-If employees are not verified or adequately trained, then they could internally pose risk to the facility, especially with elevated permissions. This vulnerability applies to all parts of the company, as any staff member could cause harm. A staff member could potentially leak company information to competitors or the personal information of test subjects.
-
-Visitors from other companies or manufacturers to the company are a vulnerability if not vetted properly. This vulnerability could affect areas where visitors may go and anywhere where materials from outside manufacturers might be implemented. Non-vetted manufacturers could lead to the development of faulty equipment or unauthorized information being gained inside the facility, and unmonitored visitors could reveal confidential company information.
+Note that a threat analysis can be found in the respective section of **Planning and Design**.
 
 **Physical Security Plan - Pharmaceutical Research Facility**
 
 To address the vulnerability of susceptibility to environmental pressures, environmental controls must be implemented. Moisture indicators can ensure that there is minimal moisture damage from humidity or other factors to equipment, and temperature readers can ensure that server equipment does not overheat. Fire extinguishers and automatic sprinkler systems will ensure that fire damage is minimal.
 
-INSERT FINISHED ASSIGNMENT
+To address the risk of unverified access to the facility, a card access control system is proposed. Each verified individual will have a unique identifier and a card with their respective permissions, ensuring that even staff cannot access unpermitted areas. This card access control system will also keep a log of swipes in and out of restricted areas.
+
+Surveillance systems are primarily implemented through CCTV cameras placed in all parts of the facility, as well as around the perimeter. While these may not directly protect against unauthorized access, they allow for threats to be neutralized or monitored before gaining access to highly restricted areas.
+
+In the data center/network area, as well as any areas with device connected to the server, locked racks are implemented to ensure that undesired connections are not made. Surveillance is also much heavier in the data storage room, protecting the foundation of all of the technology present in the facility.
+
+To ensure that visitors and anyone who enters the facility are accounted for and vetted, a security fence is established around the facility, and a guard checkpoint is present at the entrance. The lobby also has implemented security guards as a failsafe. Employee permissions are also heavily monitored, and employee background is checked to ensure that they will not be a possible threat to the company. 
+
+**Physical Security Diagram**
+
+Below is the diagram demonstrating an implementation of the physical security plan:
+
+![Security Diagram](../images/Assignment9/PharmaceuticalSecurityDiagram.png)
+
+The risk-based justification can be found in the respective section in **Testing and Evaluation**.
 
 ## Security Controls to Mitigate Vulnerabilities in a Switched LAN
 
@@ -187,6 +205,14 @@ ARP reveals the corresponding MAC address paired to each IP address in a LAN, as
 
 ARP spoofing succeeds when no internal security controls are present because there is no verification of whether a MAC address is an authorized device on a network before assigning it a valid IP address. Dynamic ARP Inspection (DAI) would best mitigate this attack because DAI checks every ARP message, ensuring that the MAC address to IP address pairing is valid. Thus, the pairing would be found to be invalid since the MAC address of the workstation should connect to the respective IP address, preventing the attacker from being supplied a valid IP address.
 
+### Physical Security Controls for Network Devices and Physical Spaces
+
+**Risk-Based Justification**
+
+The physical control of the highest priority would be the card access control system. Card access is required to even enter the facility and also secures very important rooms, so this protects against attacks both from the outside and the inside. The logging of people who use this card system also solidifies the surveillance of the facility. These controls reduce the likelihood of theft, as well as sabotage, because people are vetted and access is heavily limited. Data compromise is protected by locked racks, ensuring that unauthorized devices will have a harder time connecting to the network and that sensitive data stays safe. To mitigate regulatory violations by staff members, the background checks and regular employee monitoring help to detect unusual signs as soon as possible.
+
+Physical security supports network segmentation because network segmentation acts under the assumption that other devices cannot be compromised physically, so the various physical controls help to mitigate this risk. Access control lists also only apply if users are using their own devices and are given access to only their permitted areas, which is enforced by unique identifiers and card access. Monitoring systems are also amplified by physical monitoring to ensure that people both on the network and interacting with network equipment are fully tracked for suspicious activity.
+
 ## Reflection
 
-INSERT THIS LATER
+Through the *Determining Security Controls in a LAN* activity, students learned in detail different types of vulnerabilities and possible controls, both abstract and physical. The first activity allowed students to explore possible vulnerabilities and suggest controls or causes for threats, building intuition. Activities in Linux virtual machines fortified the understanding of how a flat network allows device information to be visible to everyone, and school and pharmaceutical research scenarios were analyzed, with students suggesting possible controls. These skills are very applicable in the world of IT, especially the assessment report, as similar inspections are performed in real-life networks by security organizations. The exploration of physical security is also very relevant to the real world because no abstract controls will be truly effective without the foundation of the network being secured as well. A reasonable next step would be actually performing the implementation of controls such as dynamic ARP inspection and DHCP snooping. Citations for this assignment include the assignments provided by the Charlotte Latin School AP Networking Fundamentals class.
