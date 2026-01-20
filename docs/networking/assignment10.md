@@ -30,7 +30,7 @@ The threat scenario with a previously unseen device connecting to a wall jack se
 
 It was also surprising that, inside of a switched LAN with no segmentation, a normal device can see all other device activity and communicate with other devices. This was especially surprising because these are the default settings for a network, rather than an altered state.
 
-## Switch Security Controls - From Observations to Decisions
+### Switch Security Controls - From Observations to Decisions
 
 **Basic Vocabulary**
 
@@ -47,3 +47,34 @@ This activity involves the creation of a small LAN using Cisco Packet Tracer and
 | -- | -- | -- | -- |
 
 INSERT LATER
+
+### Explain, Design, and Defend a Secure Switched LAN
+
+
+**Mini-Threat Simulation**
+
+The "Compromised Teacher Laptop" scenario was chosen arbitrarily, where a teacher's laptop is infected with malware after opening a phishing email while connected to the school network.
+
+Analysis:
+
+To execute this attack, the attacker must have the teacher's contact information and software that can infect one's system from the browser.
+
+The most directly targeted devices of this attack are the device being compromised and devices on the same subnet, since devices on unconfigured subnets can see all other devices on that subnet.
+
+The only user who would likely notice this attack is the user whose device is compromised, whether that be through increased CPU usage or unfamiliar software.
+
+The Ubuntu Desktop VM best resembles the attacker's perspective because the device being attacked is a common user device. A teacher probably does not have elevated permissions on a school network, so the Ubuntu Desktop VM is mores suitable due to its function as a common device.
+
+**Scenario: School LAN**
+
+The following is a sketch of the proposed network:
+
+INSERT NETWORK SKETCH
+
+**Trust and Restrictions**
+
+- Students -> Servers: Denied; Student should not be able to obtain server information and modify the servers
+- Students -> Teacher: Restricted; Students should not have access to teacher information, such as grades, but communication should be allowed
+- Students -> Administration: Denied; Students should not have access to administration since it manages other devices
+- Teachers -> Servers: Denied; Nothing should be able to communiacte with servers except administration
+- Administration -> Servers: Restricted; Server access should be allowed to administration but limited for safety
