@@ -8,5 +8,5 @@ I am **Connor Cruz**, a senior student at Charlotte Latin School. I am especiall
 
 ## Portfolio Navigation
 
-- [Projects](personalprojects.md)
+- [Projects](personal-projects.md)
 - [AP Networking](ap-networking.md)

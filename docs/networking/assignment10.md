@@ -38,3 +38,12 @@ It was also surprising that, inside of a switched LAN with no segmentation, a no
 - Vulnerability - a weakness in the security of a network
 - Control - a means to combat threats or decrease vulnerability
 - Prevent vs. Mitigate - preventing is to completely remove a vulnerability, while mitigating is to lessen a vulnerability
+
+**Visualizing Switch Security With Packet Tracer**
+
+This activity involves the creation of a small LAN using Cisco Packet Tracer and the enabling and monitoring of security controls on its respective switch.
+
+| VM Evidence | Vulnerability | Control | Why This Control Mitigates Risk |
+| -- | -- | -- | -- |
+
+INSERT LATER
