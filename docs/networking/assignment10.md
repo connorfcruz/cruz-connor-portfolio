@@ -18,3 +18,23 @@ The easiest device for an attacker to compromise in a LAN would likely be the sw
 
 **LAN Observation**
 
+The following output displays the ARP table for the devices on the LAN via `ip neigh`:
+
+INSERT IP NEIGH
+
+An attacker could misuse this information by keeping in mind the IP address paired to the MAC address of a device with elevated privileges. An attacker could use this to their advantage by responding to requests for the device's IP address, thus pairing the attacker's unverified MAC address with the verified IP address.
+
+**Wrap-Up**
+
+The threat scenario with a previously unseen device connecting to a wall jack seems the most realistic. If a school's network is not properly configured, then this could happen unintentionally by connecting a student or other device to the respective wall jack, possibly for charging.
+
+It was also surprising that, inside of a switched LAN with no segmentation, a normal device can see all other device activity and communicate with other devices. This was especially surprising because these are the default settings for a network, rather than an altered state.
+
+## Switch Security Controls - From Observations to Decisions
+
+**Basic Vocabulary**
+
+- Threat - an attack on a network which takes advantage of a vulnerability
+- Vulnerability - a weakness in the security of a network
+- Control - a means to combat threats or decrease vulnerability
+- Prevent vs. Mitigate - preventing is to completely remove a vulnerability, while mitigating is to lessen a vulnerability
