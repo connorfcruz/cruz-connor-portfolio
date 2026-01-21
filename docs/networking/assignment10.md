@@ -71,10 +71,21 @@ The following is a sketch of the proposed network:
 
 INSERT NETWORK SKETCH
 
-**Trust and Restrictions**
+Trust and Restrictions:
 
 - Students -> Servers: Denied; Student should not be able to obtain server information and modify the servers
 - Students -> Teacher: Restricted; Students should not have access to teacher information, such as grades, but communication should be allowed
 - Students -> Administration: Denied; Students should not have access to administration since it manages other devices
 - Teachers -> Servers: Denied; Nothing should be able to communiacte with servers except administration
 - Administration -> Servers: Restricted; Server access should be allowed to administration but limited for safety
+
+**Trust Enforcement**
+
+The VLAN which should be least trusted is the student VLAN since students should not have the authority and do not have the experience to deal with devices other than their own. The VLANs which require the most protection are VLANs 30 and 40 (Administration and Servers) since they have the most sensitive information and control other devices. The switch should also be the most strict on the Administration and Server VLANs due to the possibility of tampering with other devices.
+
+**Control Layering**
+
+VLANs alone do not fully secure a design because devices can still communicate with each other within each VLAN, and their permissions are not managed at all. Thus, attackers are still able to compromise a device in one VLAN and easily compromise the other devices in the same VLAN. This statement is supported by the mini-task simulation, as neighboring devices in the same VLAN could be easily affected if one device is compromised in the scenario. DHCP snooping is necessary in addition to VLANs because it protects Layer 3 of the OSI layers, mitigating the risk of false IP address assignments and the bypassing of the restrictions set by VLAN segmentation. Dynamic ARP inspection also relies on DHCP snooping because DAI trusts that the ARP table is correctly assigned, and DHCP snooping ensures that IP to MAC address mappins are correct. ACLs are still needed after segmentation to control the permissions of devices within each VLAN since a VLAN simply changes the available broadcast range for each device, while ACLs can manage permissions and more specifically manage device permissions.
+
+**Professional Security Rationale**
+
