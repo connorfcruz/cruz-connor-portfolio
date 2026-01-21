@@ -1,0 +1,1396 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../assignment07/">
+      
+      
+        <link rel="next" href="../assignment09/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Physical Addressing and Logical Addressing - Connor Cruz Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#physical-addressing-and-logical-addressing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Connor Cruz Portfolio" class="md-header__button md-logo" aria-label="Connor Cruz Portfolio" data-md-component="logo">
+      
+  <img src="../../assets/logo-light.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Connor Cruz Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Physical Addressing and Logical Addressing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="green"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Connor Cruz Portfolio" class="md-nav__button md-logo" aria-label="Connor Cruz Portfolio" data-md-component="logo">
+      
+  <img src="../../assets/logo-light.svg" alt="logo">
+
+    </a>
+    Connor Cruz Portfolio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ap-networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../personal-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Personal Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Personal Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Personal-Projects/emi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E.M.I. - A Memorization App for Those with Dementia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component Cards and Software Slips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Determining Security Controls for Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementing Security for Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Movement and Types of Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types of Networks &amp; Connections and Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Can't These Two Computers Talk to Each Other?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physical Addressing and Logical Addressing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physical Addressing and Logical Addressing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-and-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning and Design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning and Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-physical-addressing-mac-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Physical Addressing (MAC Addresses)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-logical-addressing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Logical Addressing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-physical-addressing-mac-addresses_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Physical Addressing (MAC Addresses)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-logical-addressing_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Logical Addressing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-vs-static-addressing-and-when-to-use-each" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamic vs Static Addressing and When to Use Each
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-and-verifying-ip-addresses-on-a-linux-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring and Verifying IP Addresses on a Linux VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-and-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing and Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing and Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-physical-addressing-mac-addresses_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Physical Addressing (MAC Addresses)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-logical-addressing_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Logical Addressing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-vs-static-addressing-and-when-to-use-each_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamic vs Static Addressing and When to Use Each
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-and-verifying-ip-addresses-on-a-linux-vm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring and Verifying IP Addresses on a Linux VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Determining Security Controls in a LAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-and-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning and Design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning and Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-physical-addressing-mac-addresses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Physical Addressing (MAC Addresses)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-logical-addressing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Logical Addressing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-physical-addressing-mac-addresses_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Physical Addressing (MAC Addresses)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-logical-addressing_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Logical Addressing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-vs-static-addressing-and-when-to-use-each" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamic vs Static Addressing and When to Use Each
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-and-verifying-ip-addresses-on-a-linux-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring and Verifying IP Addresses on a Linux VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-and-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing and Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing and Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#understanding-physical-addressing-mac-addresses_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Physical Addressing (MAC Addresses)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#understanding-logical-addressing_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Understanding Logical Addressing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-vs-static-addressing-and-when-to-use-each_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dynamic vs Static Addressing and When to Use Each
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-and-verifying-ip-addresses-on-a-linux-vm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring and Verifying IP Addresses on a Linux VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><h1 id="physical-addressing-and-logical-addressing">Physical Addressing and Logical Addressing</h1>
+<h2 id="project-overview">Project Overview</h2>
+<p><strong>Problem Statement:</strong></p>
+<p>Devices must be identified both globally and locally to ensure that information is routed to the correct destination and is able to physically transmit to that location correctly. This activity goes into depth on addressing, through MAC and IP addresses, to identify any device and network.</p>
+<p><strong>Objectives:</strong></p>
+<ul>
+<li>Understand MAC addresses and be able to determine vendor information</li>
+<li>For logical addressing, know the difference between IPv4 and IPv6, and when each is applied</li>
+<li>Know the difference between static and dynamic addressing and their use cases</li>
+<li>Analyze a config file or network plan and statically assign an IP address</li>
+</ul>
+<p><strong>Success Criteria:</strong></p>
+<p>Through various Ubuntu and real-world activities, explore both MAC and IP addresses, and configure their information.</p>
+<h2 id="planning-and-design">Planning and Design</h2>
+<h3 id="understanding-physical-addressing-mac-addresses">Understanding Physical Addressing (MAC Addresses)</h3>
+<p>A NIC is the card which sends and receives data over a network, which has a unique physical address tied to the hardware. MAC addresses are assigned at creation of the NIC, and they do not usually change. This is why MAC addresses are generally considered to be physical addresses.</p>
+<p>Here are the labeled components of a NIC, as well as where a MAC address would be located on the NIC:</p>
+<p><img alt="NIC 1" src="../../images/Assignment8/NIC1.jpg"></p>
+<p><img alt="NIC 2" src="../../images/Assignment8/NIC2.jpg"></p>
+<p>The MAC address on NIC 2 is exactly: <strong>04:92:26:8A:BD:4C</strong></p>
+<p>On a local network, a MAC address uniquely identifies each device, allowing data to be routed to the correct location.</p>
+<p>The Ethernet port is used to plug in a network cable, which allows for a physical connection to be made to the NIC (Layer 1 OSI).</p>
+<p>The PCIe connector allows for the NIC to connect to the computer's motherboard, powering it and allowing it to interact with the computer.</p>
+<p>The NIC needs a main chip in order to process data and perform its intended function, sending and receiving frames.</p>
+<p>The MAC address <strong>belongs to the NIC</strong> because MAC addresses are assigned at production, and they are unique to each device.</p>
+<p>A MAC address is considered a physical address because it is usually hard-coded into a NIC at production. This address is not assigned by the network, but rather part of the NIC itself. Seeing a real NIC helps to understand this because its MAC address is actually printed on the NIC, meaning that the MAC address is paired to the NIC's hardware.</p>
+<h3 id="understanding-logical-addressing">Understanding Logical Addressing</h3>
+<p>IPv4 is no longer sufficient because the amount of devices in the world is increasing heavily. Since IPv4 can hold up to approximately 4.3 billion IP addresses, which will not be enough in the near future, an addressing system with more bits is necessary. IPv6 solves the address shortage because, rather than each address having 32 bits like IPv4, each address instead has 128 bits, which heavily increases the amount of available IP addresses to assign. IPv6 also includes various benefits, such as enhanced built-in security features and increased efficiency in routing. Furthermore, IPv6 addresses are also more compatible with different types of devices. Modern networks must support both IPv4 and IPv6 during the transition because many devices still reference IPv4 addresses when transmitting data, but the benefits of IPv6 can also be obtained by these devices.</p>
+<h2 id="technical-development">Technical Development</h2>
+<h3 id="understanding-physical-addressing-mac-addresses_1">Understanding Physical Addressing (MAC Addresses)</h3>
+<p>Here are the labeled components of a NIC, as well as where a MAC address would be located on the NIC:</p>
+<p><img alt="NIC 1" src="../../images/Assignment8/NIC1.jpg"></p>
+<p><img alt="NIC 2" src="../../images/Assignment8/NIC2.jpg"></p>
+<p><strong>Applying Knowledge</strong></p>
+<p>To get the IP address of the Mac Mini being used, <code>ifconfig</code> was used:</p>
+<p><img alt="Ifconfig" src="../../images/Assignment8/Ifconfig.jpg"></p>
+<p>Full MAC Address: <strong>14:98:77:6F:8D:DC</strong></p>
+<p>OUI: <strong>14:98:77</strong></p>
+<p>This OUI was searched up on <a href="https://maclookup.app">this website</a>:</p>
+<p><img alt="Mac Lookup 1" src="../../images/Assignment8/WebsiteVendor.jpg"></p>
+<p><img alt="Mac Lookup 2" src="../../images/Assignment8/WebsiteDetails.jpg"></p>
+<p>Vendor: Apple, Inc.</p>
+<p>This appears to be physical hardware. This MAC address is also specified to have Unicast transmission and to have been intialized on November 25th, 2020.</p>
+<p><strong>Comparison</strong></p>
+<p>On the physical NIC images, the MAC address came directly from the manufacturer, listed on a sticker attached to the NIC. On the VM, the MAC address came from a virtual NIC, which simulates the function of a real NIC. Between physical and virtual MAC addresses, both store 48 bits of data and are in the form of hex digits. However, they differ in that the virtual MAC address does not have any listed manufacturer information, and it can be changed. A virtual NIC still requires a MAC address because that MAC address can uniquely identify the virtual machine on its virtual subnet.</p>
+<p>Using <em>maclookup.app</em>, the information for various MAC addresses was found:</p>
+<p>| <strong>Full MAC Address</strong> | <strong>OUI</strong> | <strong>Vendor/Company Name</strong> | <strong>Type of Vendor</strong> | Notes |
+| ---- | ---- | ---- | ---- |
+| F0:18:98:AA:BB:CC | Apple, Inc. | Physical | Likely identifies a Mac computer |
+| 3C:5A:B4:11:22:33 | Google, Inc. | Physical | Likely identifies a Google device (Android) |
+| 60:45:BD:12:34:56 | Microsoft | Physical | Likely identifies a Microsoft computer |
+| A4:BA:DB:22:33:44 | Dell Inc. | Physical | Likely identifies a Dell computer |
+| 04:1A:04:55:66:77 | WaveIP | Physical |  Possibly identifies a radio or wireless device |
+| 00:50:56:AA:BB:CC | VMWare Inc. | Virtual | Likely identifies a VMware virtual machine |
+| 52:54:00:12:34:56 | N/A | Virtual | Could identify a virtual NIC assigned to a VM |</p>
+<p>Most of the physical vendors were under large tech companies (Apple, Google, etc.), suggesting that the devices identified by those respective MAC addresses are commonly used personal devices. Many virtual NICs may also not have an associated vendor. Virtualization vendors also need registered OUIs because virtual NICs must still be identified by their respective network (depending on whether it is in Bridged or Shared mode). This activity contributed to a better understanding of MAC addressing at Layer 2 because it showed that Layer 2's transmission of data <strong>uniquely</strong> identifies each device based on its vendor and physically encoded information.</p>
+<h3 id="understanding-logical-addressing_1">Understanding Logical Addressing</h3>
+<p><code>ip addr show</code> was used to obtain both the IPv4 and IPv6 address of the Ubuntu VM. Note that the IPv4 address is in decimal, and the IPv6 address is in hexadecimal:</p>
+<p><img alt="Addresses" src="../../images/Assignment8/IPAddresses.jpg"></p>
+<p>IPv4 vs. IPv6 Comparison Table:</p>
+<p>| <strong>Feature</strong> | <strong>IPv4</strong> | <strong>IPv6</strong> |
+| Address Length | 32 bits | 128  bits |
+| Notation | Dotted Decimal | Hexadecimal w/ Colons |
+| Approximate Capacity | 4.3 Billion Addresses | Essentially Unlimited (for the next few decades) |
+| Example | 192.168.64.2 | fe80::ac0d:6dff:fea1:47ab |
+| Where it is used | The majority of the internet and older devices | Mobile devices and recently created devices |</p>
+<p>Logical/IP addresses are necessary in addition to physical MAC addresses because MAC addresses are only useful for local communication, as the physical identification of a device is necessary when communicating in a local network. However, physical addresses do not work for global communication since it requires the general location of a device. As such, an IP address is able to identify the broad location of a device, allowing communication on the internet as a whole. IP addresses allow communication beyond the local network because each router has a designated external IP address. Since the global internet cannot identify an individual device with respect to its physical MAC addresses, IP addresses assigned to routers provide general locations where data must be moved and facilitate data transfer. For example, when playing an online video game, data must be transferred between two different general locations using IP addressing: the local network of the player and the server in which the game is being hosted.</p>
+<h3 id="dynamic-vs-static-addressing-and-when-to-use-each">Dynamic vs Static Addressing and When to Use Each</h3>
+<p>This activity will examine whether each virtual machine (Ubuntu and general Linux) uses DHCP.</p>
+<p>When using <code>ip addr show</code> on the <strong>Ubuntu</strong> VM, these addresses were obtained:</p>
+<p><strong>IPv4:</strong> 192.168.64.2/24
+<strong>IPv6:</strong> fe80::ac0d:6dff:fea1:47ab/64</p>
+<p>These are the results from the <strong>Linux</strong> VM:</p>
+<p><strong>IPv4:</strong> 192.168.64.3/24
+<strong>IPv6:</strong> fe80::c47e::63ff::fe56::1b5e/64</p>
+<p>Next, each of the VM's config files were analyzed.</p>
+<p>On the <strong>Ubuntu</strong> VM, here is the config file:</p>
+<p><img alt="Ubuntu Config" src="../../images/Assignment8/UbuntuNetplan.jpg"></p>
+<p>As shown above, the exact filename of the config file is <em>00-installer-config.yaml</em>.</p>
+<p>The line <code>dhcp4: true</code> is also contained, thus implying that the Ubuntu VM <strong>uses DHCP</strong>, so an IP address is assigned automatically.</p>
+<p>Next, on the <strong>Linux</strong> VM, here is the config file:</p>
+<p><img alt="Linux Config" src="../../images/Assignment8/LinuxNetplan.jpg"></p>
+<p>Here is the output of <code>nmcli device show</code>:</p>
+<p><img alt="NMCLI" src="../../images/Assignment8/NMCLI.jpg"></p>
+<p>The Netplan yaml file does exist, and <strong>NetworkManager</strong> manages the virtual machine. Thus, both Netplan and NetworkManager are used. Moreover, when using <code>nmcli device show</code>, it is shown that Netplan and NetworkManager are both used, confirming the results.</p>
+<p>As shown above, both the lines <code>dhcp4: true</code> and <code>dhcp6: true</code> are listed. Thus, DHCP is enabled, so the IP address of the Linux VM is assigned dynamically. The use of NetworkManager shown before in nmcli also supports this.</p>
+<p><strong>Real-World Analysis</strong></p>
+<p>This activity determines whether a real-world scenario should use static or dynamic addressing and why.</p>
+<p>| <strong>Device</strong> | <strong>Static or Dynamic</strong> | <strong>Justification</strong> |
+| School web server | Static | A school web server must be reliable since it is accessed by many devices and often hosts its own websites. Thus, since this is a critical system, static addressing would be best. |
+| Classroom Printer | Static | A printer is a critical piece of hardware and is generally a permanent installment. A consistent address is best, so static addressing makes sense. |
+| Student Laptops | Dynamic | Student laptops are only used by students for a certain amount of  years, so they do not need the same IP addresses for a long time. Moreover, since they are widely distributed, dynamic addressing is much easier to implement. |
+| Security Cameras | Static | Security cameras must always be functional, and it would be problematic if its IP address expires. They are also generally a permanent installment |
+| Teacher Workstation | Dynamic | A teacher's workstation may have to change devices and is often temporary. There are also a large amount of teachers in a school, so dynamic addressing would allow for easier management. |</p>
+<h3 id="configuring-and-verifying-ip-addresses-on-a-linux-vm">Configuring and Verifying IP Addresses on a Linux VM</h3>
+<p>This assignment explored how the Netplan utility works. It is important to note these things about Netplan:</p>
+<ul>
+<li>Use spaces only</li>
+<li>Indentation matters, and it must be kept consistent</li>
+<li>List items should be properly aligned</li>
+<li>The YAML structure must match Netplan's format</li>
+</ul>
+<p>First, the active interface of the SECOND Linux VM was identified via <code>ip link show</code> to be <strong>enp0s1</strong>.</p>
+<p>Next, the respective YAML file was found via <code>ls /etc/netplan</code> and opened via <code>sudo nano /etc/netplan/50-cloud-init.yaml</code>:</p>
+<p><img alt="Nano Initial" src="../../images/Assignment8/NanoInitial.jpg"></p>
+<p>This was changed to have static rather than dynamic addressing:</p>
+<p><img alt="Nano Final" src="../../images/Assignment8/NanoFinal.jpg"></p>
+<p>To apply the Netplan, <code>sudo netplan apply was run</code>:</p>
+<p><img alt="Netplan" src="../../images/Assignment8/Netplan.jpg"></p>
+<p>This change was confirmed with <code>ip addr show</code>:</p>
+<p><img alt="IP Addr Show" src="../../images/Assignment8/LinuxIP.jpg"></p>
+<p>As seen above, the static IP address assigned in the changed YAML file (192.168.1.56/24) was shown by the interface.</p>
+<p>Next, <code>ip route show</code> was run:</p>
+<p><img alt="IP Route Show" src="../../images/Assignment8/IPRouteShow.jpg"></p>
+<p>The default gateway (gateway4) is shown to be 192.168.1.1, which was assigned in the YAML file. The active network interface was also confirmed to be enp0s1.</p>
+<p>Finally, to confirm successful connection to the network, Google (8.8.8.8) was pinged, but ping failed here because the virtual machine was in bridged mode. To access a working gateway, the broadcast address was changed to the actual router's address, <strong>192.168.64.1</strong>. </p>
+<p><img alt="Ping Success" src="../../images/Assignment8/PingSuccess.jpg"></p>
+<p>100% of the packets were received, so the connection was confirmed to be successful.</p>
+<h2 id="testing-and-evaluation">Testing and Evaluation</h2>
+<h3 id="understanding-physical-addressing-mac-addresses_2">Understanding Physical Addressing (MAC Addresses)</h3>
+<p><strong>Connecting the Physical and Digital: Interpreting MAC Address Structure</strong></p>
+<p>OUI: <strong>14:98:77</strong>
+Device Identifier: <strong>6F:8D:DC</strong></p>
+<p>The OUI represents the manufacturer of the NIC. The OUI connects the NIC to the manufacturer because each manufacturer is assigned a certain OUI. Manufacturers must use unique OUIs because otherwise, the identification of two devices made by different companies could appear to be the same, thus risking data being transferred to the incorrect device.</p>
+<p>A NIC needs its own unique second half because the second half allows for the device to be uniquely identified. Thus, this allows two devices of the same manufacturer to be uniquely identified on the same LAN because the router is able to assign different internal IP addresses to the respective devices (via the device identifier). This uniqueness is especially important for frame delivery because once in a LAN, frames require a physical address so that data can be routed to the correct place. Thus, if there is a conflict in MAC addresses, frames may be routed to different places accidentally or to an unintended device.</p>
+<p>Using the labeled NIC images, it was discovered that physical NICs store the MAC address internally in their hardware, with the MAC address usually being listed on a sticker on the NIC. Virtual machines generate MAC addresses, usually temporary ones, by taking from available addresses for that respective vendor. This allows data to be routed to the VMs in their network (either shared/virtual or bridged). Physical MACs and virtual MACs both contain 6 pairs of hex digits, with the first three identifying the manufacturer and the other three identifying the specific device. However, some virtual MACs do not have an associated vendor and company information or simply have a generic vendor. Layer 2 functions the same way regardless of physical or virtual hardware because VMs are intended to act as their own devices. Thus, to send and receive data from the VM, a MAC address must still be assigned such that frames are routed to the correct place.</p>
+<p>Ultimately, MAC addresses are involved in Layer 2 (Data Link) of the OSI Model. MAC addresses never leave the local network because for the data to exit the router or enter into the router, the external IP address of the device is used, thus moving onto Layer 3 of the OSI Model. The use of IP addresses allows for broader communication between different networks. When frames move to a different network, the respective source and receiver MAC addresses change because data must be routed between different devices.</p>
+<p>Every NIC, whether physical or virtual, must have a globally unique MAC address to ensure that their frames are always transmitted to the correct location on a LAN, as a MAC address specifies a certain physical location.</p>
+<h3 id="understanding-logical-addressing_2">Understanding Logical Addressing</h3>
+<p><a href="https://www.cisco.com/c/en/us/support/docs/ip/ip-version-6-ipv6/113328-ipv6-lla.html">This website</a> was used to obtain information regarding IPv6.</p>
+<p>An IPv6 link-local address is an IPv6 address which is only used for communication on a local network. Specifically, these addresses only apply to physical connections. IPv6 link-local addresses always start with 'fe80::' since the prefix 'fe80::' is specifically reserved for local addressing, ensuring that these addresses are not confused for other IP addresses. Link-local addresses only support local communication, and they do not require a DHCP server or external configuration because they are only assigned relative to a local network, and they are not accessible outside of the local network. Every IPv6-enabled device automatically generates a link-local address to allow for communication solely on the local network. Link-local addresses ultimately facilitate communication between devices connected to the same router or in the same network.</p>
+<h3 id="dynamic-vs-static-addressing-and-when-to-use-each_1">Dynamic vs Static Addressing and When to Use Each</h3>
+<p><strong>Comparison</strong></p>
+<p>The Ubuntu VM uses the Netplan configuration tool, while the second Linux VM uses both Netplan and NetworkManager. The Ubuntu VM is only using DHCP for IPv4, but the Linux VM is using DHCP for both IPv4 and IPv6. The configuration syntaxes are very similar for both VMs (colons and name fields), but the second Linux VM config file has much more information listed. Two different Linux systems may configure networking differently based on their needs, because a VM that manages something that must be reliable (i.e. a piece of hardware) should preferably have a static address, rather than a casual -se VM which would usually use a dynamic IP address.</p>
+<p><strong>Static vs. Dynamic Addressing</strong></p>
+<p>Dynamic addressing is when an IP address is assigned automatically to a device using DHCP. The DHCP protocol specifically the DORA method to find a server to assign an IP address and request one. Static addressing is when an IP address is manually assigned to a device by an administrator, and it is usually used for permanent fixtures or very important devices. Networks need both static and dynamic addressing because important devices should usually have static addresses, and if the network manages a large amount of smaller devices, they should use dynamic addressing for efficiency. In general, dynamic addressing should be used in large networks for less important devices (clients or individual people). On the other hand, static addresses should be used for permanently installed devices and important devices for management and administration.</p>
+<h3 id="configuring-and-verifying-ip-addresses-on-a-linux-vm_1">Configuring and Verifying IP Addresses on a Linux VM</h3>
+<p><code>ip addr show</code> determined that the static IP address assigned in the changed YAML file (192.168.1.56/24) was successfully implemented.</p>
+<p><code>ip route show</code> displayed how the default gateway (gateway4) was shown to be 192.168.1.1, which was assigned in the YAML file. The active network interface was also confirmed to be enp0s1.</p>
+<p>When initially checking successful connection to the network using ping, it failed because the virtual machine was in bridged mode. To access a working gateway, the broadcast address was changed to the actual router's address, <strong>192.168.64.1</strong>. </p>
+<p><img alt="Ping Success" src="../../images/Assignment8/PingSuccess.jpg"></p>
+<p>100% of the packets were received, so the connection was confirmed to be successful.</p>
+<p><strong>Differences Between Addressing Methods</strong></p>
+<p>Physical addressing (MAC) purely works on a local level within a network. A MAC address uniquely identifies each individual device such that when data is sent through the router to that device, the correct physical location is reached. Meanwhile, logical addressing (IP) works on a wider, usually global, level to define a general network relative to other networks. This allows for the correct global location of a device to be found when transmitting data over different networks. While logical addressing identifies networks, IP addresses can also refer to local devices, either dynamically or statically. Dynamic addressing is when the network automatically assigns an IP address to a device, usually for large networks. On the other hand, static addressing is when the administrator specifically assigns an IP address to a certain device, which is not changed regardless of network.</p>
+<p><strong>Reflection</strong></p>
+<p>In this activity, the most challenging part of IP configuration was trying to get the broadcast address to work. While the other steps worked correctly, this step happened to fail because the virtual machine was in bridged mode, requiring the broadcast address of the network's router to be found and inserted. This activity especially highlighted that YAML files are extremely sensitive, as tabs are not allowed, and a single space can completely invalidate a YAML file.</p>
+<h2 id="reflection">Reflection</h2>
+<p>Through the <em>Physical Addressing and Logical Addressing</em> activity, students learned in detail how devices are addressed on multiple levels of the OSI layers. The first part delved into MAC addresses and how they are able to identify a device locally, making up Layer 2 of the OSI model. MAC addresses were found to be unique to every device and contain manufacturer information, which is especially helpful when setting up a SOHO or another local network. MAC addressing is very important to know in real life because it is critical in identifying physical locations on any network. The other parts of this activity detailed layer 3 of the OSI model, specifically the role of IP addresses in identifying devices. While local IP addresses could be dynamically (DHCP) or statically assigned by a router, global IP addresses are generally static and simply identify the network of a device rather than the device itself. Two virtual machines (Ubuntu and another Linux VM) were also compared to see their config files and modified for static addressing, which displayed that different devices can be configured to have different configurations depending on the administrator's desire. Being able to change whether a device is dynamically or statically addressed is especially important in the real world since permanent or important devices should be assigned static addresses to prevent any disconnection and ensure reliability. IP addressing as a whole can also help a user debug if packets are not being successfully transmitted between devices, which can occur in everyday devices like laptops and iPads. A reasonable next step would be to examine the transport layer of the OSI model. Citations for this assignment include <a href="https://maclookup.app">maclookup.app</a>, <a href="https://www.cisco.com/c/en/us/support/docs/ip/ip-version-6-ipv6/113328-ipv6-lla.html">Cisco</a>, and the assignments provided by the Charlotte Latin School AP Networking Fundamentals class.</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/connorfcruz" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

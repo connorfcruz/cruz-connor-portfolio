@@ -1,0 +1,1388 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../assignment02/">
+      
+      
+        <link rel="next" href="../assignment04/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Determining Security Controls for Devices - Connor Cruz Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#determining-security-controls-for-devices" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Connor Cruz Portfolio" class="md-header__button md-logo" aria-label="Connor Cruz Portfolio" data-md-component="logo">
+      
+  <img src="../../assets/logo-light.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Connor Cruz Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Determining Security Controls for Devices
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="green"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Connor Cruz Portfolio" class="md-nav__button md-logo" aria-label="Connor Cruz Portfolio" data-md-component="logo">
+      
+  <img src="../../assets/logo-light.svg" alt="logo">
+
+    </a>
+    Connor Cruz Portfolio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ap-networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../personal-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Personal Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Personal Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Personal-Projects/emi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E.M.I. - A Memorization App for Those with Dementia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component Cards and Software Slips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Determining Security Controls for Devices
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Determining Security Controls for Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design &amp; Planning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design &amp; Planning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cybersecurity-basics-for-devices-guided-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cybersecurity Basics for Devices (Guided Notes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outdated-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outdated Software
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cybersecurity-basics-for-devices-defenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cybersecurity Basics for Devices (Defenses)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-engineering-attacksdefenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Social Engineering Attacks/Defenses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing &amp; Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing &amp; Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outdated-software_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outdated Software
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cybersecurity-basics-for-devices-interfacesports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cybersecurity Basics for Devices (Interfaces/Ports)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection &amp; Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementing Security for Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Movement and Types of Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types of Networks &amp; Connections and Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Can't These Two Computers Talk to Each Other?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physical Addressing and Logical Addressing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Determining Security Controls in a LAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design &amp; Planning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design &amp; Planning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cybersecurity-basics-for-devices-guided-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cybersecurity Basics for Devices (Guided Notes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outdated-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outdated Software
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cybersecurity-basics-for-devices-defenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cybersecurity Basics for Devices (Defenses)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#social-engineering-attacksdefenses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Social Engineering Attacks/Defenses
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing &amp; Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing &amp; Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outdated-software_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outdated Software
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cybersecurity-basics-for-devices-interfacesports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cybersecurity Basics for Devices (Interfaces/Ports)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection &amp; Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><h1 id="determining-security-controls-for-devices">Determining Security Controls for Devices</h1>
+<h2 id="project-overview">Project Overview</h2>
+<p><strong>Problem Statement:</strong></p>
+<p>Many people are unaware of how to secure their data, as well as possible threats which could pose a threat to their security and information. This activity provides an explanation of how the user can secure their devices effectively and the types of attacks to be aware of.</p>
+<p><strong>Objectives:</strong></p>
+<ul>
+<li>Learn the CIA triad and how to keep information safe</li>
+<li>Compare current software versions with their latest updates, and update them to their latest versions</li>
+<li>Know common device vulnerabilities to look out for</li>
+<li>Know common social engineering attacks which malicious actors use</li>
+<li>Know how to defend from both device vulnerabilities and social engineering attacks</li>
+</ul>
+<p><strong>Success Criteria:</strong></p>
+<p>Fill out a guided note document to retain the knowledge of cyberattacks and defenses, update outdated software, and manage security controls and possible vulnerabilities in an Ubuntu virtual machine.</p>
+<h2 id="design-planning">Design &amp; Planning</h2>
+<h3 id="cybersecurity-basics-for-devices-guided-notes">Cybersecurity Basics for Devices (Guided Notes)</h3>
+<p>These notes primarily cover three topics: the CIA triad, common device vulnerabilities, and social engineering attacks.</p>
+<p><strong>The CIA Triad</strong></p>
+<p>The CIA triad is an acronym which is defined as follows:</p>
+<ul>
+<li>Confidentiality - keeping information inaccessible to those who should not see it</li>
+<li>Integrity - keep information acurate and trustworthy</li>
+<li>Availability - allow information to be accessed when necessary</li>
+</ul>
+<p>Here are some examples of where each of these are expressed:</p>
+<ul>
+<li>Confidentiality is provided mainly through encryption of data, which prevents it from being interpreted without a key.</li>
+<li>Integrity is maintained via backup files and preventing users from tampering with them.</li>
+<li>Availability matters when specific people need access to data, suich as a test administered by the College Board.</li>
+</ul>
+<p>CIA is very important for assessing the security of a device or network, and it can help to ensure that data remains safe.</p>
+<p><strong>Common Device Vulnerabilities</strong></p>
+<p>These are some examples of common device vulnerabilities and why they matter:</p>
+<ul>
+<li>Outdated Operating System: If a vulnerability or incompatibility is discovered in an operating system, people may try to take advantage of that vulnerability and access one's device</li>
+<li>Unencrypted Data: If data is accessed, it is able to be interpreted without any trouble by those who shouldn't see it</li>
+<li>Weak Passwords: Easy-to-guess or leaked passwords allow for malicious parties to obtain access to one's data without many boundaries</li>
+<li>Open Ports: Ports allow a device to access the internet, so an open port can allow for someone to remotely access one's operating system</li>
+<li>Unpatched Software: Similarly to an outdated OS, pplications often release patches for security flaws, and failing to update them could result in a security breach</li>
+</ul>
+<p>Overall, the specific vulnerabilities which fall into these categories can be accessed via the public database known as <strong>CVE</strong> (Common Vulnerabilities and Exposures). This database is very useful for ensuring that vulnerabilities are assigned a unique identifier and are able to be tracked and fixed in an orderly fashion.</p>
+<p><strong>Social Engineering Attacks</strong></p>
+<p>Social engineering attacks are mostly a result of user error, and they can often be avoided by being careful of one's data and taking proper measures to check an unverified party's authentication.</p>
+<p>There are five primary social engineering attacks:</p>
+<ul>
+<li>Phishing: Targeting a large and general group of people by attempting to get them to click a malicious link or perform a malicious action</li>
+<li>Spear Phishing: A subset of phishing which targets a specific set of people (often businesses)</li>
+<li>Pretexting: Using communication with a user to create an image and gain trust, with the intended purpose of getting the user to allow access</li>
+<li>Baiting: Offering a reward, either physical or virtual, to a specific person but instead performing another action</li>
+<li>Tailgating: Entering an open door or insecure location to access a user's device (physical or virtual)</li>
+</ul>
+<p>Phishing and Spear Phishing can mostly be prevented by validating the identity of the party who is sending the link/attachment to be opened.</p>
+<p>Pretexting and tailgating are most effectively prevented by ensuring the identity and authoriztaion given to a person before trusting them with information.</p>
+<p>Baiting is best prevented by being aware of suspicious or unknown devices and avoiding allowing them to connect to one's own devices.</p>
+<h2 id="technical-development">Technical Development</h2>
+<h3 id="outdated-software">Outdated Software</h3>
+<p>In this activity, students checked software in an Ubuntu VM to determine whether they were: up to date, outdated, or not installed. Since outdated software can often provide vulnerabilities, it is best to update it to the latest available version.</p>
+<p>Before checking the versions of the various software, the following commands had to be run to allow the latest versions to be installed if they were not already:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span>-y
+sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+</code></pre></div>
+<p>To actually check the versions of software, the name of the software followed by <code>--version</code> or some variant is usually used:</p>
+<p><img alt="Version Checks 1" src="../../images/Assignment3/Versions1.jpg"></p>
+<p><img alt="Version Checks 2" src="../../images/Assignment3/Versions2.jpg"></p>
+<p>Below are the results obtained for different software, as well as the possible risks of leaving that software outdated:</p>
+<table>
+<thead>
+<tr>
+<th>Software</th>
+<th>Status</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenSSL</td>
+<td>Outdated</td>
+<td>OpenSSL controls encryption, which hides sensitive data</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>Up To Date</td>
+<td>The browser's cookies could be accessed, which store user information and passwords</td>
+</tr>
+<tr>
+<td>LibreOffice</td>
+<td>Outdated</td>
+<td>Documents can become corrupted or made public if vulnerable</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>Outdated</td>
+<td>Someone could execute remote commands to perform unwanted actions</td>
+</tr>
+<tr>
+<td>Apache HTTP Server</td>
+<td>Not Installed</td>
+<td>Content accessed on the internet could be redirected maliciously</td>
+</tr>
+<tr>
+<td>GIMP</td>
+<td>Not Installed</td>
+<td>Images could become corrupted or deleted</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>Not Installed</td>
+<td>Remote Java scripts could be executed to perform unwanted actions</td>
+</tr>
+<tr>
+<td>OpenSSH</td>
+<td>Outdated</td>
+<td>An unauthorized party could connect to the device remotely via SSH</td>
+</tr>
+</tbody>
+</table>
+<p>Note that a piece of software not being installed is more safe than installing it and leaving it out of date because the software's point of contact with the internet is not made until it is installed. Thus, too much unnecessary and unmanaged software could pose the risk of exposing one's device to the broader internet.</p>
+<p>As shown above, most of the software was outdated. Although this does not have much of an impact on a VM with in-school use, if these software were downloaded on a more important operating system, then these outdated versions could post various risks. Personal data could possibly be compromised, or the system could be corrupted and manipulated such that it could not be restored to a previous available version.</p>
+<p>To actually update this software, running the software's install command once again usually updates it.</p>
+<p>For example, Raaj found a method to install the latest version of Java on the virtual machines despite Ubuntu only natively supporting an earlier outdated version. This command is as follows:</p>
+<p><code>sudo apt install openjdk-21-jdk</code></p>
+<p>After updating, here is the displayed version, which correlates to the latest available version of the JDK:</p>
+<p><img alt="Java Updated" src="../../images/Assignment3/UpdatedVersion.jpg"></p>
+<h3 id="cybersecurity-basics-for-devices-defenses">Cybersecurity Basics for Devices (Defenses)</h3>
+<p><strong>Firewalls (UFW)</strong></p>
+<p>To protect against possible attacks and secure the device, multiple methods can be used. Two defense methods in particular will be shown below: firewalls and encryption (via LUKS).</p>
+<p>One prominent firewall available on Linux is the UFW (Uncomplicated Firewall), which automatically locks ports deemed unnecessary and allows transportation through open ports.</p>
+<p>To enable UFW, it must first be installed using <code>sudo apt install ufw -y</code>.</p>
+<p>Checking the status can be done with <code>sudo ufw status</code>, and the firewall can be enabled via <code>sudo ufw enable</code>.</p>
+<p>As shown below, the initial status of the firewall is inactive:</p>
+<p><img alt="Inactive UFW" src="../../images/Assignment3/FirewallInactive.jpg"></p>
+<p>However, after enabling it, the firewall is shown as active.</p>
+<p><img alt="Active UFW" src="../../images/Assignment3/FirewallActive.jpg"></p>
+<p>The user can then set up rules to block or open certain ports. In this case, the <strong>telnet</strong> port (23) is very insecure due to lack of encryption, so a rule is created to block it. This can be done using the <code>deny</code> command:</p>
+<p><img alt="Blocking Rule" src="../../images/Assignment3/FirewallDeny.jpg"></p>
+<p>Another defense, encryption, is covered in the <strong>Testing and Evaluation</strong> section for this task.</p>
+<h3 id="social-engineering-attacksdefenses">Social Engineering Attacks/Defenses</h3>
+<p>This is an activity done with a partner in which scenarios of breached security (red slips) must be paired with remedies to the respective problems (the green slips).</p>
+<p><img alt="Defense Cards" src="../../images/Assignment3/Cards.jpg"></p>
+<p>After reviewing the slips once again after learning about specific social engineering attacks, the obtained answers were exactly the same as those obtained previously.</p>
+<p>Interestingly, some attacks did not fall into social engineering, but were rather device vulnerabilities.</p>
+<h2 id="testing-evaluation">Testing &amp; Evaluation</h2>
+<h3 id="outdated-software_1">Outdated Software</h3>
+<p>While this section was contained in the technical development section, here is a summary of the evaluation of possible vulnerabilities in the virtual machine.</p>
+<table>
+<thead>
+<tr>
+<th>Software</th>
+<th>Status</th>
+<th>Risk</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OpenSSL</td>
+<td>Outdated</td>
+<td>OpenSSL controls encryption, which hides sensitive data</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td>Up To Date</td>
+<td>The browser's cookies could be accessed, which store user information and passwords</td>
+</tr>
+<tr>
+<td>LibreOffice</td>
+<td>Outdated</td>
+<td>Documents can become corrupted or made public if vulnerable</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>Outdated</td>
+<td>Someone could execute remote commands to perform unwanted actions</td>
+</tr>
+<tr>
+<td>Apache HTTP Server</td>
+<td>Not Installed</td>
+<td>Content accessed on the internet could be redirected maliciously</td>
+</tr>
+<tr>
+<td>GIMP</td>
+<td>Not Installed</td>
+<td>Images could become corrupted or deleted</td>
+</tr>
+<tr>
+<td>Java</td>
+<td>Not Installed</td>
+<td>Remote Java scripts could be executed to perform unwanted actions</td>
+</tr>
+<tr>
+<td>OpenSSH</td>
+<td>Outdated</td>
+<td>An unauthorized party could connect to the device remotely via SSH</td>
+</tr>
+</tbody>
+</table>
+<p>More specific information about dealing with outdated software can be found in <strong>Technical Development</strong>.</p>
+<h3 id="cybersecurity-basics-for-devices-interfacesports">Cybersecurity Basics for Devices (Interfaces/Ports)</h3>
+<p><strong>Network Interfaces</strong></p>
+<p>It is important to know that Linux has a predictable naming scheme in later versions, which specifies the type of connection, PCI bus, and slot of each interface. An <strong>interface</strong> is defined as a type of connection that the device makes.</p>
+<p>For example. <code>enp0s1</code> denotes an ethernet connection of PCI bus 0 at slot 1.</p>
+<p>The commands shown below obtain the interfaces of the Ubuntu VM and their specific informations:</p>
+<p><img alt="Ubuntu VM Interfaces" src="../../images/Assignment3/Interfaces.jpg"></p>
+<p>Knowing these connections can help the user understand the type of connection to the internet and offers certain solutions for if a vulnerability or problem arises.</p>
+<p><strong>Examining Ports</strong></p>
+<p>In bridged mode, the command <code>netstat -tuln</code> or <code>ss -tuln</code> is run to obtain the assigned ports of the Ubuntu virtual machine and their status. Here is the output of running <code>ss -tuln</code>:</p>
+<p><img alt="Active Ports" src="../../images/Assignment3/PortShow.jpg"></p>
+<p>Here are some important takeaways to note about these ports:</p>
+<ul>
+<li>Ports set to <strong>LISTEN</strong> are constantly open to receive and send outside traffic, while ports on <strong>UNCONN</strong> have a connection but are only opened when time-sensitive information is pushed.</li>
+<li>The assigning of <strong>LISTEN</strong> to tcp and <strong>UNCONN</strong> to udp is natural since tcp always listens for and is available to send data while udp is for quick communications.</li>
+<li>Certain port numbers are conventionally assigned to particular protocols, as listed below.</li>
+</ul>
+<p>Here are some protocols with conventional port numbers present in the VM:</p>
+<ul>
+<li>DNS (Port 53) - assigns text names to IP addresses</li>
+<li>DHCP (68) - obtains an IP from the router/network</li>
+<li>SSH (22) - allows secure remote connection</li>
+<li>CUPS (631) - allows printing</li>
+</ul>
+<p>Note that of these ports, SSH and CUPS are not entirely necessary for direct use of the VM (usually unused), as they control interactions with remote devices. Thus, they can lead to vulnerabilities if not managed correctly since they allow outside access to the contents of the virtual machine.</p>
+<p><strong>Encryption (LUKS)</strong></p>
+<p>Encryption ensures that even if a device is compromised or stolen, its data remains secure.</p>
+<p>In Linux, a type of encryption called <strong>LUKS Encryption</strong> is used. To check if it is enabled, the command <code>lsblk -f</code> can be run:</p>
+<p><img alt="Encryption Status" src="../../images/Assignment3/Encryption.jpg"></p>
+<p>In the output, the column to keep in mind is <strong>FSTYPE</strong>, as it shows the type of filesystem used for each disk. It is important to note that the <strong>vfat</strong> and <strong>ext4</strong> filesystems are <strong><em>NOT encrypted</em></strong>, so they leave the device unsecure in the case of it being compromised. For LUKS encryption, the filesystem is denoted <strong>crypto_LUKS</strong>, which is <strong>encrypted</strong>. However, as seen above, this filesystem is not present at all in the Ubuntu VM, implying that the disks are not encrypted.</p>
+<p>This does not pose much of a risk, especially on this classroom VM, since it does not store personal data. However, if one were to use their main computer, then encrypted filesystems like LUKS are essentially necessary, as personal computers often contain sensitive and private information.</p>
+<h2 id="reflection-analysis">Reflection &amp; Analysis</h2>
+<p>Through the <em>Determining Security Controls for Devices</em> activity, students learned possible device vulnerabilities, what those vulnerabilities can compromise, and how to fix them. The basic knowledge of the CIA triad (confidentiality, integrity, and availability) allows for introductory knowledge for classification of both vulnerabilities and what is required for an effective defense against them. Knowledge of social engineering attacks, which take advantage of user error, as well as attacks on software and open ports, defenses were also able to be set up on the Ubuntu virtual machine. The enabling of a firewall to block unused ports, updating outdated software, and checking for LUKS encryption are all various methods which were used to ensure the security and integrity of information. Outside of these examples, many casual device users can apply similar steps to ensure that their data is secure and have an alert mind for any possible attacks on their system. This security can generalize to both at-home users, as well as large corporations, who want to abide by the CIA triad for their data. Using knowledge of possible attacks and defenses, a fitting next step is learning how to compromise systems in order to get both perspectives in an attack. This thinking can be applied when setting up defenses, making it further certain that it is very difficult for attackers to compromise one's system.</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/connorfcruz" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
