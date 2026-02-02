@@ -1,0 +1,1450 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../assignment03/">
+      
+      
+        <link rel="next" href="../assignment05/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Implementing Security for Devices - Connor Cruz Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#implementing-security-for-devices" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Connor Cruz Portfolio" class="md-header__button md-logo" aria-label="Connor Cruz Portfolio" data-md-component="logo">
+      
+  <img src="../../assets/logo-light.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Connor Cruz Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Implementing Security for Devices
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="green"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Connor Cruz Portfolio" class="md-nav__button md-logo" aria-label="Connor Cruz Portfolio" data-md-component="logo">
+      
+  <img src="../../assets/logo-light.svg" alt="logo">
+
+    </a>
+    Connor Cruz Portfolio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ap-networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../personal-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Personal Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Personal Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Personal-Projects/emi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E.M.I. - A Memorization App for Those with Dementia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component Cards and Software Slips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Determining Security Controls for Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementing Security for Devices
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementing Security for Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design &amp; Planning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design &amp; Planning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guided-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guided Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password-algorithm-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Password Algorithm Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-default-password-in-the-ubuntu-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing the Default Password in the Ubuntu VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enabling-mfa-in-the-ubuntu-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enabling MFA in the Ubuntu VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patching-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patching Ubuntu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing &amp; Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing &amp; Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-default-password-in-the-ubuntu-vm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing the Default Password in the Ubuntu VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enabling-mfa-in-the-ubuntu-vm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enabling MFA in the Ubuntu VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patching-ubuntu_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patching Ubuntu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection &amp; Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Movement and Types of Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types of Networks &amp; Connections and Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Can't These Two Computers Talk to Each Other?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physical Addressing and Logical Addressing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Determining Security Controls in a LAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-planning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design &amp; Planning
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Design &amp; Planning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guided-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guided Notes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password-algorithm-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Password Algorithm Design
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-default-password-in-the-ubuntu-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing the Default Password in the Ubuntu VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enabling-mfa-in-the-ubuntu-vm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enabling MFA in the Ubuntu VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patching-ubuntu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patching Ubuntu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing &amp; Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing &amp; Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-default-password-in-the-ubuntu-vm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changing the Default Password in the Ubuntu VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enabling-mfa-in-the-ubuntu-vm_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enabling MFA in the Ubuntu VM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patching-ubuntu_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patching Ubuntu
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection &amp; Analysis
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><h1 id="implementing-security-for-devices">Implementing Security for Devices</h1>
+<h2 id="project-overview">Project Overview</h2>
+<p><strong>Problem Statement:</strong></p>
+<p>Oftentimes, people are unaware of what truly determines the security of a device and how to implement adequate security procedures. This activity details multiple methods which ensure security, such as how to make good passwords, multi-factor authentication, and patching software.</p>
+<p><strong>Objectives:</strong></p>
+<ul>
+<li>Learn how to create a password with large length and adequate complexity, as well as good memorability</li>
+<li>Learn how to change passwords and set up other means of authentication</li>
+<li>Know how to patch outdated software and check the specifics of patch history</li>
+</ul>
+<p><strong>Success Criteria:</strong></p>
+<p>In an Ubuntu VM, change the password to an algorithmically designed password, set up an authenticator for MFA, test the authentication requirements of SSH, and patch all software with available updates.</p>
+<h2 id="design-planning">Design &amp; Planning</h2>
+<h3 id="guided-notes">Guided Notes</h3>
+<p>These notes provide a general overview of the theory behind the activities performed later.</p>
+<p><strong>Password Management</strong></p>
+<p>The primary components of a strong password are as follows:</p>
+<ul>
+<li>Length - more characters; useful because there are more combinations that a hacker has to try</li>
+<li>Complexity - mixing character types (e.g. A-Z, 0-9, symbols); useful because there is a broader range of characters for hackers to try</li>
+<li>Unpredictability - avoiding anything attackers can guess or find (personal information, keyboard patterns, common passwords); can be implemented by using random words or a password manager</li>
+</ul>
+<p>To generate a pseudorandom (realistically random) password, the command <code>openssl rand -base64 24</code> can be used. Note that the final argument, <em>24</em> represents the amount of bytes to generate, so this can vary based on use case.</p>
+<ul>
+<li>12-16 bytes are good for API tokens or short-lived secrets</li>
+<li>24-32 bytes are good for strong passwords or session tokens</li>
+<li>43+ bytes are good for cryptographic keys</li>
+</ul>
+<p>Weak passwords are susceptible to common attacks, such as the following:</p>
+<ul>
+<li>Brute Force - attacker tries all possible combinations until one works; prevented by longer length</li>
+<li>Dictionary Attack - attacker tries all word lists of common passwords/variants; prevented by unpredictability</li>
+<li>Credential Stuffing - attacker reuses real username/password pairs stolen from other websites; prevented by having unique passwords for different services</li>
+</ul>
+<p>Note that MFA (multi-factor authentication) is always a good backup in the case that a password is compromised.</p>
+<p><strong>NIST/OWASP Guidelines</strong></p>
+<p>Below are the primary guidelines for NIST and OWASP, two accredited organizations.</p>
+<p>NIST (National Institute of Standards and Technology):</p>
+<ul>
+<li>Length over complexity</li>
+<li>Screen out bad passwords (done by the service)</li>
+<li>Reasonable limits (usually 64 characters)</li>
+<li>MFA</li>
+</ul>
+<p>OWASP (Open Worldwide Applications Security Projects):</p>
+<ul>
+<li>Authentication cheat sheet</li>
+<li>Password storage cheat sheet</li>
+<li>Recognize credential stuffing</li>
+</ul>
+<p>The most major difference between these two is that OWASP prioritizes very great security in cheat sheets/password managers (which usually follows complexity), while NIST is more focused on password length.</p>
+<p><strong>Multi-Factor Authentication (MFA)</strong></p>
+<p>There are three major types of authentication:</p>
+<ul>
+<li>Single-factor (e.g. password only); very weak</li>
+<li>Two-factor (e.g. password and email); stronger</li>
+<li>Multi-factor (any combination of authentication); strongest</li>
+</ul>
+<p>Note that in most cases of multi-factor authentication, deciding how many factors are reasonable is based on the user's individual <strong>security trade off</strong>. It must be decided how to balance convenience and security.</p>
+<p><strong>Software Patching and Updates</strong></p>
+<p>Patches are updates in software to fix bugs, which are very useful because they remove known 'holes' which attackers can breach.</p>
+<p>Below is some useful terminology when dealing with patches:</p>
+<ul>
+<li>Vulnerability - weakness in software/hardware</li>
+<li>Exploit - code/action that takes advantage of a vulnerability</li>
+<li>Zero-Day - a flaw which hackers discover before developers are aware of it</li>
+<li>In the Wild - an exploit actively being used by hackers in real life</li>
+</ul>
+<p>There are two major ways to update software, those being <em>automatic</em> and <em>manual</em>.</p>
+<p>| Type | Description | Pros | Cons|
+| ------ | ------ | ------ |
+| Automatic | Installs patches on its own | Easy and fast; keeps user protected | The user may not want to update the software |
+| Manual | User/IT installs patches | Can be done as often as necessary | Easy to forget |</p>
+<p><strong>End-to-End Thinking</strong></p>
+<p>End-to-end security entails protecting every step in the digital process, from account creation to every login, update, and communication. This is an ideal standard.</p>
+<p>Here is an example of end-to-end security in the context of a user's account:</p>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>What Happens</th>
+<th>Steps to Secure</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Account Creation</td>
+<td>User chooses username/password</td>
+<td>Require strong passwords and block weak ones; confirm identity</td>
+</tr>
+<tr>
+<td>Login Process</td>
+<td>System checks user credentials</td>
+<td>Use MFA</td>
+</tr>
+<tr>
+<td>During Use</td>
+<td>Data is transferred between the user and server</td>
+<td>Encryption (HTTPS, SSL)</td>
+</tr>
+<tr>
+<td>Software and Devices</td>
+<td>Apps, browsers, and OS continuously run</td>
+<td>Make sure apps are updated</td>
+</tr>
+<tr>
+<td>Recovery and Reset</td>
+<td>User forgets password or loses device</td>
+<td>Verify with backup email (or other authentication) codes</td>
+</tr>
+</tbody>
+</table>
+<h3 id="password-algorithm-design">Password Algorithm Design</h3>
+<p>Using the concepts of <strong>length, unpredictability, and uniqueness</strong>, a memorable password algorithm was created. Note that this password primarily focuses on <strong>length over complexity</strong>, as is heavily emphasized by NIST's password guidelines.</p>
+<p>Here is the algorithm:</p>
+<ol>
+<li>Add '!!' at the start of the password.</li>
+<li>Take the name of the service or website used and reverse it.<ol>
+<li>Take the reversed name and remove every other letter/character, starting with the second one (e.g. Amazon -&gt; nozamA -&gt; nzm).</li>
+<li>Set every letter to lowercase.</li>
+</ol>
+</li>
+<li>If the service name starts with a vowel, take the string "XaZ". Else, take the string 'CfC'.</li>
+<li>Take the strings obtained in (2) and (3). Starting with the one obtained in (2), interweave the letters of each string, alternating from (2) to (3). (e.g. 'nzm' + 'XaZ' = 'nXzamZ'). Append this to the password.</li>
+<li>Append the string 'LemonadeDollarSign$$' to the end of the password.</li>
+<li>Final output should look similar to '!!nXzamZLemonadeDollarSign$$'.</li>
+</ol>
+<p><strong>Pros and Cons of the Algorithm</strong></p>
+<p>Pros:</p>
+<ul>
+<li>This algorithm is very easily memorizable and applied, so it can work with a variety of services.</li>
+<li>The password produced is fairly long, which helps against brute force.</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>The strings like 'XaZ' can be changed to something more personal to the user. The same applies to other parts.</li>
+<li>If a hacker recognizes the pattern in a compromised password, then they can brute force the minimum 6 characters of the string generated from (2) and (3).</li>
+</ul>
+<p><strong>Algorithm Comparison</strong></p>
+<p>When comparing algorithms between peers, the agreed-upon best password showed both length and complexity. It obtained complexity through inserting the name of the user's favorite algae (which also provided length due to the long nature of scientific names). Overall, the password algorithm is very unpredictable and unlikely to be compromised.</p>
+<h2 id="technical-development">Technical Development</h2>
+<h3 id="changing-the-default-password-in-the-ubuntu-vm">Changing the Default Password in the Ubuntu VM</h3>
+<p>This segment involves:</p>
+<ol>
+<li>Setting a new password for the ubuntu superuser</li>
+<li>Creating a new account on the Ubuntu VM</li>
+<li>Changing the new account's password</li>
+<li>Locking the ubuntu account for security</li>
+</ol>
+<p><strong>Changing the Ubuntu Password</strong></p>
+<p>On a normal user's operating system, doing similar steps is very important because oftentimes, the superuser has a predictable or default password which is often unconfigured. Thus, setting one's own username and password allows for only specified users to obtain administrator privileges.</p>
+<p>When the Ubuntu VM was first created, the default credentials were the username <strong>ubuntu</strong>, and the password <strong>ubuntu</strong>, which is very unsecure.</p>
+<p>To change the password for <em>ubuntu</em>, the <code>passwd</code> command was used.</p>
+<p>After entering the current password, a new password was then set successfully (note that it cannot be seen for security reasons).</p>
+<p><img alt="Password Change" src="../../images/Assignment4/PasswordChange.jpg"></p>
+<p><strong>Configuring a New User</strong></p>
+<p>To create the new account on the VM, the command <code>sudo adduser \[USERNAME\]</code> was run.</p>
+<p>Afterwards, the command <code>sudo usermod -aG sudo [USERNAME]</code> was run to allow administrator privileges to the newly created account.</p>
+<p>Here is the result of running both commands:</p>
+<p><img alt="Created User" src="../../images/Assignment4/CreatedUser.jpg"></p>
+<p><strong>Locking Ubuntu for Security</strong></p>
+<p>It is helpful to lock the <em>ubuntu</em> account since its credentials are often predictable. Most of the time, when the administrator account is still accessible, it has a predictable password such as <em>ubuntu</em> or <em>admin</em>. To do so on Ubuntu, <code>sudo passwd -l ubuntu</code> is used:</p>
+<p><img alt="Password Locking" src="../../images/Assignment4/PasswordLocking.jpg"></p>
+<h3 id="enabling-mfa-in-the-ubuntu-vm">Enabling MFA in the Ubuntu VM</h3>
+<p>To confirm that the created user (connor) has superuser permissions, <code>sudo ls /</code> was run:</p>
+<p><img alt="Superuser Permissions" src="../../images/Assignment4/SuperuserPermissions.jpg"></p>
+<p>To download the tools for authentication (specifically Google), <code>sudo apt update</code> and <code>sudo apt install libpam-google-authenticator -y</code> were run.</p>
+<p>Then, to use the authenticator, the command <code>google-authenticator</code> was used, ultimately resulting in the generation of a secret key, as well as a QR code storing that secret key for the system.</p>
+<p><img alt="QR Code" src="../../images/Assignment4/QRCode.jpg"></p>
+<p>Note that the secret key is used to generate a 6-digit code which changes every 30 seconds, known as a <strong>time-based one-time password</strong> (TOTP). These are very difficult to guess because of rate limiting and the password resetting every 30 seconds.</p>
+<p>To simulate the TOTP, <a href="https://totp.danhersam.com">this website</a> was used. As shown below, a 6 digit code was generated:</p>
+<p><img alt="TOTP" src="../../images/Assignment4/TOTP.jpg"></p>
+<p><strong><em>NOTE: IN PRACTICE, DO NOT SHOW THE SECRET KEY TO ANYONE. THIS IS A CLASSROOM SIMULATION, AND THIS IS PURELY SHOWN FOR DOCUMENTATION PURPOSES.</em></strong></p>
+<p>When running <code>google-authenticator</code> once again, the 6 digit code was inserted, and MFA was successfully established:</p>
+<p><img alt="Working Code" src="../../images/Assignment4/WorkingCode.jpg"></p>
+<p>The authenticator's use in verifying user identity for SSH can be found in <strong>Testing &amp; Evaluation</strong>.</p>
+<h3 id="patching-ubuntu">Patching Ubuntu</h3>
+<p>This section details the process of patching software in the Ubuntu VM.</p>
+<p>To check for available software updates, it is recommended to run <code>sudo apt update</code> every time a Linux operating system is used.</p>
+<p>Next, to see what software has available updates, <code>sudo apt list --upgradable</code> is used. As shown below, there were very many packages (37) which could be updated.</p>
+<p><img alt="Upgradable Software" src="../../images/Assignment4/UpgradableSoftware.jpg"></p>
+<p>To actually perform the upgrades on the desired software, the command <code>sudo apt upgrade</code> is executed. Note that after performing the <em>upgrade</em> command, a record of the upgrade is appended to the <strong>history.log</strong> file, which can be found under <code>/var/log/apt/history.log</code>. However, this file has much content and is thus hard to navigate, so it is useful to search for important keywords using the <em>grep</em> command.</p>
+<p>This most recent upgrade was executed on October 13th, so it can be confirmed that an upgrade did happen on that day by using <code>grep "2025-10-13" /var/log/apt/history.log</code>:</p>
+<p><img alt="Grep Output" src="../../images/Assignment4/GrepOutput.jpg"></p>
+<p>Displayed above, the upgrade took approximately 1 minute.</p>
+<p>Similarly, updates on other dates can also be viewed:</p>
+<p><img alt="Other Dates" src="../../images/Assignment4/GrepOutput2.jpg"></p>
+<p>To interpret the data in the <em>history.log</em> file, see the respective section in <strong>Testing &amp; Evaluation</strong>.</p>
+<p><strong>Automatic Updates</strong></p>
+<p>To see the last couple of automatic updates performed, <code>ls -l /var/lib/apt/periodic</code> can be executed:</p>
+<p><img alt="Automatic Updates" src="../../images/Assignment4/AutomaticUpdates.jpg"></p>
+<p>It is generally nice to have automatic system updates in the background, but also allow the user to update them whenever they want. Specific packages that may function differently can be scheduled to be updated purely manually, while others can be on an automatic update schedule, with the user being allowed to perform additional updates.</p>
+<h2 id="testing-evaluation">Testing &amp; Evaluation</h2>
+<h3 id="changing-the-default-password-in-the-ubuntu-vm_1">Changing the Default Password in the Ubuntu VM</h3>
+<p>To test if the user's password was actually changed, a command requiring admin privileges (using <code>sudo</code>) was run. The new password worked successfully.</p>
+<p><img alt="Password Success" src="../../images/Assignment4/PasswordSuccess.jpg"></p>
+<p>Furthermore, to confirm that the <em>ubuntu</em> account was actually locked after the new user account was created, the user account simply had to be logged out.</p>
+<p>As shown below, the <em>ubuntu</em> account cannot be accessed:</p>
+<p><img alt="Locked Ubuntu" src="../../images/Assignment4/LockedUbuntu.jpg"></p>
+<h3 id="enabling-mfa-in-the-ubuntu-vm_1">Enabling MFA in the Ubuntu VM</h3>
+<p><strong>Enabling MFA for SSH</strong></p>
+<p>To enable MFA in establishing SSH connections, <code>sudo nano /etc/ssh/sshd_config</code> was run, and <em>KbdInteractiveAuthentication</em> was enabled. Note that for additional password verification, <em>PasswordAuthentication</em> must also be enabled.</p>
+<p><img alt="sshd_config Change" src="../../images/Assignment4/Nano1.jpg"></p>
+<p>Next, to add the authenticator to SSH verification, <code>sudo nano/etc/pam.d/sshd</code> was run, and authenticator verification was required by inserting <code>auth required pam_google_authenticator.so</code>.</p>
+<p><img alt="sshd Change" src="../../images/Assignment4/Nano2.jpg"></p>
+<p>Note that SSH has to be reset after this using <code>sudo systemctl restart ssh</code>.</p>
+<p>Finally, to test the password and authenticator MFA when using ssh, <code>ssh [USERNAME]@localhost</code> was used to establish a remote connection. As shown below, this first required a verification code, then the user's password, so the MFA was successful.</p>
+<p><img alt="SSH MFA Test" src="../../images/Assignment4/SSH-MFA.jpg"></p>
+<h3 id="patching-ubuntu_1">Patching Ubuntu</h3>
+<p><strong>Summarizing Information</strong></p>
+<p>Since there is very much information stored in <em>history.log</em>, it is best to filter or summarize this data.</p>
+<p>Every package which is newly installed or updated is listed in lines starting with "Install:". Hence, <code>grep "Install:" /var/log/apt/history.log</code> is used to list only the installs performed.</p>
+<p>Shown below are a couple of the updates performed, including package name and version:</p>
+<p><img alt="Package Installs" src="../../images/Assignment4/PackageInstalls.jpg"></p>
+<p>Using knowledge of the command line interface, adding <code>| wc -l</code> to the previous command finds how many installation events occurred (not necessary individual installs since there are dependencies as well).</p>
+<p><img alt="Line Count" src="../../images/Assignment4/LineCount.jpg"></p>
+<p>Another method to summarize the information is to view the most recent change and its contents. This can be done via <code>grep -A 2 "Start-Date" /var/log/apt/history.log | tail -n 10</code>.</p>
+<p>As shown below, the start date and command which was run are listed:</p>
+<p><img alt="Tail Summary" src="../../images/Assignment4/TailSummary.jpg"></p>
+<p>To summarize updates centered around a specific package, the <code>grep</code> command with the package as an argument is used.</p>
+<p>Here is the output when looking for <em>nano</em> and <em>firefox</em> respectively:</p>
+<p><img alt="Nano Install" src="../../images/Assignment4/NanoInstall.jpg"></p>
+<p><img alt="Firefox Install" src="../../images/Assignment4/FirefoxInstall.jpg"></p>
+<p>Note that firefox was very hard to find, as it was updated along with multiple other dependencies.</p>
+<p>Here is another example with the <code>google-authenticator</code> package, which was installed for the MFA activity:</p>
+<p><img alt="Google Authenticator Install" src="../../images/Assignment4/GoogleAuthInstall.jpg"></p>
+<p><strong>Checking the Latest Update Activity</strong></p>
+<p>Since the latest update activity usually appears in the last lines, the <code>tail</code> command for the last 20 lines should encapsulate most of the desired activity.</p>
+<p>This command displayed the start date, command run, end date, and all of the packages which were installed or upgraded.</p>
+<p><img alt="Most Recent Log" src="../../images/Assignment4/MostRecentLog.jpg"></p>
+<p><strong>Importance of Patching and Understanding Patches</strong></p>
+<p>Unpatched packages are a major risk because if there is a vulnerability or a deprecated portion of the package, then these components may be compromised. This can cause the package to act as a tool to perform malicious actions or function as a gateway into a user's operating system.</p>
+<p>If these packages are connected to the internet, then the user's system will be exposed whenever making a connection via that service.</p>
+<p>To show the relevance of patching, a specific package was chosen from the updates performed on October 13th, <em>curl</em>. Here are some important functionalities of this package:</p>
+<ul>
+<li>Transfers data both to and from servers</li>
+<li>Can download files</li>
+<li>Interacts with HTTP, HTTPS, and FTP</li>
+<li>Often used for testing APIs</li>
+<li>Works from almost any device</li>
+</ul>
+<p>Thus, if <em>curl</em> is compromised, then a hacker could easily send dangerous files to the operating system, as well as obtain a user's data by transferring the user's data to the server.</p>
+<p>Considering the scenario where an Ubuntu VM is connected to the internet and used as a real computer for a small business/hospital:</p>
+<p>If the VM is never patched or updated, then vulnerabilities documented to have been fixed in later patches could be used as vantage points for hackers to gain access to the Ubuntu OS. Thus, the sensitive business data (in the case of a business) or patient information (in the case of a hospital) can be obtained and possibly used as blackmail against the company, which is very problematic. Hackers can often use exploits in the wild to deal major harm to the company as a whole. Note that even if software is up-to-date, there is always the risk of a zero-day vulnerability, as the developers of the software themselves do not know the vulnerability exists while it is being utilized in the wild. To ensure maximum security, automatic updates are very useful, since people often forget to update packages manually. These often resolve known vulnerabilities.</p>
+<h2 id="reflection-analysis">Reflection &amp; Analysis</h2>
+<p>Through the <em>Implementing Security for Devices</em> activity, students learned the basics of authentication, how to develop effective passwords, the importance of MFA, how to patch, and applied those skills in an Ubuntu virtual machine. Starting with knowledge of password strength, primarily the tenets of length, complexity, and unpredictability, allowed for acquaintance with single-factor authentication. NIST's and OWASP's differing interpretations on password length also helped for a more specific understanding of what constitutes a good password. Extending this to multi-factor authentication using an authenticator and a respective secret key allowed for the security of a strong password to be further built upon, as a new layer of security was added. Strong password development and MFA are very useful to have in the real world, as so often, users have only one means of verification (password), and passwords are often weak and vulnerable to common exploits. In the context of large businesses, strong authentication procedures are especially necessary. The activity in which Ubuntu packages were patched highlights just how many packages can become outdated within a very short span of time, thus emphasizing the importance of regular updates to avoid vulnerabilities. Similarly to strong authentication, regular patches are also a necessity for both common users and businesses in the real world. Vulnerabilities in patches, especially those connecting to the internet, can provide easy access to a user's personal and sensitive data. A reasonable next step after implementing security controls is testing in a lab scenario how weak security can be compromised. Although claiming to be a false identity (through bypassing authentication) is unethical, it is still useful to understand how people may do this in order to fight against those who perform these exploits in the wild. Password and authentication standards are necessary to educate people on in any setting, and wide-spread means to secure users would be very effective at combatting exploits as a whole.</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/connorfcruz" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
