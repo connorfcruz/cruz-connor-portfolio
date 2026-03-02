@@ -50,7 +50,7 @@ The ping command was run again with the other VM's IP (10.12.27.165) to test com
 
 INSERT PING 10.12.27.165
 
-Ubuntu dd not send this traffic to the default gateway because the other VM should be on the same subnet, so no communication outside of the network is necessary. The routing table entry which allows direct delivery can be found through the entry with "scope link", which was found to be **10.12.16.0** in the routing table. This can be proven by running `ip route` and analyzing the output.
+Ubuntu dd not send this traffic to the default gateway because the other VM should be on the same subnet, so no communication outside of the network is necessary. The routing table entry which allows direct delivery can be found through the entry with "scope link", which was found to be **10.12.16.0** in the routing table. This can be proven by running `ip route` and analyzing the output. This is also supported by a slightly longer transmission time than loopback.
 
 Case 3: Send Traffic Off the Network
 
@@ -58,7 +58,17 @@ The Ubuntu VM then pinged Google's IP address (8.8.8.8.8) to simulate external t
 
 INSERT PING 8.8.8.8
 
-The routing table entry which made this possible is the default gateway, found under **default via**.
+The routing table entry which made this possible is the default gateway, found under **default via** in the routing table. Ubuntu cannot deliver this directly because the router sits as the only way for data to exit the network, so data must pass through it first. This is supported by the transmission times being significantly longer than the other cases. The router device handled the first step outside of the network.
+
+**Investigation 3: How the Decision is Made**
+
+Predictions:
+
+If traffic is sent to the other VM (Linux), the next hop would be direct since no external communication is required. If traffic is sent to 8.8.8.8 (Google), the next hop would be gateway since this does require external communication.
+
+**Reflection**
+
+The role of the routing table is to serve as a guide for where a device can communicate and what the best path of transmission is. The role of the default gateway is to provide a path for external communication, allowing access to devices outside of the current subnet. This was proven when communicating with *8.8.8.8*, as `traceroute` showed that the default gateway was one of the hops. For direct delivery, the devices communciating must be on the same network/subnet, as this can only be done if the devices know each other's MAC addresses (which can be found via a MAC address table). Communication with devices outside of the network requires router involvement because the default gateway must first be accessed to reach that device.
 
 ## Project Overview
 
