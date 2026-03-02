@@ -54,7 +54,11 @@ Ubuntu dd not send this traffic to the default gateway because the other VM shou
 
 Case 3: Send Traffic Off the Network
 
-Google 
+The Ubuntu VM then pinged Google's IP address (8.8.8.8.8) to simulate external transmission of data:
+
+INSERT PING 8.8.8.8
+
+The routing table entry which made this possible is the default gateway, found under **default via**.
 
 ## Project Overview
 
