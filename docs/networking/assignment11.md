@@ -143,7 +143,7 @@ INSERT CONFIGURATION
 
 Finally, the router activated the corresponding connections to PC0 and PC1, which caused all interfaces to turn green (connect successfully):
 
-INSERT GREEN CONNECTIONS
+INSERT TERMINAL THING
 
 **Observing Same-Network Communication**
 
@@ -202,6 +202,78 @@ Below is the information for the communication between PC0 and Switch0, and Swit
 INSERT STUFF
 
 The communication breaks exactly when data is attempted to be output from Switch0, as shown through there being no Layer 2 information present in the out header. Switches cannot solve this problem because they do not have a default gateway nor the ability to change the packet header to specify the MAC address of PC1. The router acts as a gateway between different networks, which no other device can do.
+
+### Determine the Path of Data Using a Routing Tool
+
+**Predict Before Testing**
+
+To start, `ip route` was run on the Ubuntu VM:
+
+INSERT IP ROUTE
+
+As shown above, the directly connected network is **enp0s1**, and the default route is shown in the first line of the output (designated by "default via"). The gateway IP is next to "default via," which is **10.12.16.1**.
+
+If traffic is sent to the other VM, it would go directly since it is not traveling outside of the network. The first hop would be the other device itself. One hop would be expected since the devices are connected under the same router.
+
+If traffic is sent to 8.8.8.8 (Google), the traffic would go through the gateway. Thus, the first hop would likely be the gateway/router IP. At least three hops would be expected since the router must be accessed, then some intermediary hops, then the final hop to 8.8.8.8.
+
+If traffic is sent to google.com (Google's DNS), the traffic would still go through the gateway. The first hop would be the gateway/router since that remains the same. At least one more hop than 8.8.8.8 would be expected to handle DNS resolution.
+
+**Run Traceroute**
+
+First, `traceroute 8.8.8.8` was run to analyze the route for Google (without DNS):
+
+INSERT TRACEROUTE 8.8.8.8
+
+The first hop was shown to be to the gateway, and private addresses stop appearing after hop 2. There are 10 hops in total.
+
+Next, `traceroute google.com` was run to analyze the route for Google (with DNS):
+
+INSERT TRACEROUTE GOOGLE
+
+THe first hop is the same as 8.8.8.8, but the total hop count is not the same. The paths diverge at INSERT HOP.
+
+**Interpreting What Was Seen**
+
+Consider the `traceroute` output for Google:
+
+- Hop 1: private IP address; likely the router because it is signified by "_gateway"; inside the LAN
+- Hop 2: private IP address; likely the Charlotte Latin School server due to the charlottelatin.org domain; inside the school's overall LAN but not the router's LAN
+- Hop 3: public IP address; likely the internet service provider due to the "spectrum.com" domain; inside the ISP
+- Hop 4: public IP address; likely a device for the ISP because Charter is a subsect of Spectrum; inside the ISP
+- Hop 5: public IP address; likely a device for the ISP because Charter is a subsect of Spectrum; inside the ISP
+
+**Validating with Routing Table**
+
+Next, `ip route get 8.8.8.8` was run to show the immediate routing decision:
+
+INSERT IP ROUTE GET 8.8.8.8
+
+The next hop was found to be the default gateway (10.12.16.1), and the interface is **enp0s1**. This matches the first hop of traceroute, though it does not explicitly mention 10.12.16.1 as a default via.
+
+This was then compared to `ip route get 10.12.27.177`:
+
+INSERT IP ROUTE 10.12.27.177
+
+The next hop was found to be **10.12.27.177**, which is the other VM's IP address, which differs from the gateway address. This is because the devices are communicating deirectly. The interface remains the same.
+
+In general, `ip route get` only shows one hop because it shows the immediate next hop in the route to a certain device. Meanwhile, `traceroute` shows the entire route.
+
+`ip route get` and `traceroute` both expose layer 3 of the OSI model, as they show how IP addresses interact with each other and send information.
+
+**TTL Experiment**
+
+In this experiment, the maximum hops were limited to 3 using `traceroute -m 3 8.8.8.8`:
+
+INSERT CUT OFF TRACEROUTE
+
+This stops at the ISP (Spectrum) hop because it is the third hop after the Charlotte Latin School servers.
+
+TTL is a setting which can be configured to set a limit to how long a packet is still valid for before being discarded. Routers must decrement TTL to prevent packets with unavailable routes or connection problems from infinitely looping. This allows traceroute to work because it keeps track of the time a certain path takes, allowing the most efficient network path to be found.
+
+**Final Synthesis**
+
+The path of data from a device can be determined using the **traceroute** command and analyzing each hop the data takes before it reaches the device. The first hop represents the immediate device which the current device communicates with when transmitting the data. Private IPs appear early in the path because they are exclusive to the interior of a network, and public IP addresses are used for outside of a network. Two different destinations can share the same first several hops because the same router and internet provider are used, which can route information to other places. A routing-table decision is different from a traceroute path in that a routing-table decision is made theoretically while a traceroute path is made by analyzing TTL. This is supported by `traceroute` having the amount of time of transmission, while `ip route` remains theoretical.
 
 ## Project Overview
 
