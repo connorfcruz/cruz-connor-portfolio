@@ -20,3 +20,12 @@ At this time, the HTTP status code 302 was returned. A status code of 301 signif
 
 **Observing Transport Behavior**
 
+`ss -tn` was then used to display the active TCP connections directly after a redirect:
+
+INSERT SS TN
+
+The ESTAB connections confirm that there is still a TCP connection to the remote server when redirecting. Thus, it is confirmed that the Transmission Control Protcol (TCP) carried out the HTTP request. Redirects are handled by HTTP because they only function at the Application layer, while TCP facilitates the actual transfer of redirect requests. TCP only ensures transport reliability and does not act on the Application layer. During this transaction, TLS encryption encrypts both the HTTP request and response during a redirect, ensuring that the request data is secured.
+
+**Reasoning About Server Behavior**
+
+A server does not simply send the new page content automatically because the application first needs to receive the new location URL in place of the incorrect URL used in the request. This is received via HTTP request redirect messages. The server instructs the client to make a new request since the server requires a request from the client to actually display a page's content. This provides the advantage of performing maintenance on a website's main URL while still keeping the website functional through the redirected URL. This can also help if a particular server is down, providing an alternate server to access the same service.
