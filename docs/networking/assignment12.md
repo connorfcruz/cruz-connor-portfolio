@@ -11,6 +11,16 @@ Before this activity, it is important to understand:
 - Specifcially, TCP guarantees transmission, while UDP does not and is designed for speed.
 - ICMP (Layer 3) determines if the desired device was reachable and is used for error reporting.
 
+### TCP vs. UDP - Comparing Transmission Types
+
+**Predict Before Testing**
+
+TCP is connection-oriented because it establishes a connection and confirms that is is reliable before data transmission, which ensures that data is delivered in order and fully. Meanwhile, UDP is connectionless because it sends packets in no particular order without the creation of a connection. If you send data using UDP and it never arrives, the packet is usually dropped and completely lost, with no notification that the packet failed to be transmitted. TCP likely consumes more overhead due to the resending of packets if they fail to transmit and the requirement that they be transmitted in order.
+
+## Technical Development
+
+## Transport Layer Reliability
+
 **Building and Verifying the Network**
 
 First, a network topology was created with two PCs and a switch, with the PCs being on the same subnet:
@@ -99,14 +109,6 @@ There is not a multi-step connection setup, as the packet starts transmitting im
 | Acknowledgement | Exist | Do not exist |
 | Retransmission | Retransmits when transmission fails | Does not have retransmission |
 | Header Complexity | Many different fields | Minimal fields to decrease size |
-
-### TCP vs. UDP - Comparing Transmission Types
-
-**Predict Before Testing**
-
-TCP is connection-oriented because it establishes a connection and confirms that is is reliable before data transmission, which ensures that data is delivered in order and fully. Meanwhile, UDP is connectionless because it sends packets in no particular order without the creation of a connection. If you send data using UDP and it never arrives, the packet is usually dropped and completely lost, with no notification that the packet failed to be transmitted. TCP likely consumes more overhead due to the resending of packets if they fail to transmit and the requirement that they be transmitted in order.
-
-## Technical Development
 
 ### TCP vs. UDP - Comparing Transmission Types
 
