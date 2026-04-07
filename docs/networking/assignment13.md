@@ -2,7 +2,39 @@
 
 ### Making Separate Networks Communicate
 
+**Physical Setup**
 
+First, two LANs were created, and a router was placed between the two switches:
+
+INSERT DIAGRAM 1
+
+**Configuration**
+
+As shown above, the connections to the router are DOWN. To fix this, the router's terminal was used to assign IP addresses (192.168.1.1 and 192.168.2.1) to the switches and to enable the connections:
+
+INSERT TERMINAL
+
+Shown below are the active connections:
+
+INSERT DIAGRAM 2
+
+Next, the PCs were configured to match the router settings.
+
+On each of the computers, an IPv4 address under the gateway of their respective switch and the gateway address assigned to the switch were assigned. Below are the IP configurations for computers on switches 1 and 2 respectively:
+
+INSERT COMP 1
+
+INSERT COMP 2
+
+**Testing**
+
+Next, a computer under switch 1 pinged a computer under switch 2, which both have different default gateways:
+
+INSERT PING
+
+The ping succeeds, implying successful communication across the router.
+
+The router connects networks by assigning a different gateway to each switch under it, and the devices under those switches are assigned IP addresses according to their respective gateway addresses. This is supported by the PC under switch 2 being assigned a different local IP address than the PC under switch 1 during the ping process. Router interfaces are used to specify which switches are able to connect and how local addressing should be handled under that router. The default gateway specifies what local IP addresses can communicate with a switch.
 
 ### When Networks Break: Diagnosing and Fixing Problems
 
