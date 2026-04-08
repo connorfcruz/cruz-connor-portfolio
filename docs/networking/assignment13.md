@@ -1,5 +1,7 @@
 # Subnetting and Maintaining Multiple LANs
 
+## Planning and Design
+
 ### Initial Subnet Consideration
 
 Questions were answered to examine how subnet masks affect network assignment.
@@ -29,6 +31,8 @@ In their binary representations, they have all 1s, then all 0s after a certain p
 **What do all valid subnet masks have in common?**
 
 In their binary representations, there must be all 1s to start, then all 0s after a certain point.
+
+## Technical Development
 
 ### Determining Networks Using IPv4 Addresses and Subnet Masks
 
@@ -131,10 +135,6 @@ INSERT PING ATTEMPT 7
 
 The ping succeeded. This happened because the subnet mask only specifies that the first segments of the IP addresses must be the same to be on the same network, so the devices are actually on the same network.
 
-**Explanation**
-
-A device determines whether another device is on the same network based on its subnet mask and the other device's subnet mask. The subnet mask determines how many of the first segments of the IPv4 addresses of two devices must be the same for them to be in the same network, with a *255* in the subnet mask corresponding to that segment identifying the respective subnet. A notable case where two IP addresses look similar but are not on the same network is scenario C-1, where the PCs have the same first three segments in their IP address, but their subnet mask specifies that part of the fourth segment must also be identical. A case where two IP addresses look different but are on the same network is scenario C-2, where the PCs only have the same first segment, but the subnet mask only specifies that the first segment must be identical for devices to be on the same subnet. A router is required when devices are on different network since a router is designed to facilitate communication between networks via global IP addresses. Since switches are restricted to local IP addresses, a router is required to bridge different subnets.
-
 ### Designing a Real Network
 
 In this activity, a network for a small business workspace was designed with the following features:
@@ -159,10 +159,6 @@ A router was required since the employees must connect to the internet, and a ro
 The only devices which should be connected wirelessly are the laptops to the access point. Thus, the following connections were made:
 
 INSERT COMPLETE NETWORK CONFIG
-
-**Explanation**
-
-The router was selected as the central device because it allows communication between switches and internet access. The router was connected via a wired connection to the switch, which allows the devices to communicate. From there, the PCs were connected with wires to the switch to allow the front-desk employees to communicate with each other. The server device was also connected to the switch to allow access to it from all employee devices. An access point was connected with wires to the switch to allow for wireless devices to connect, and the laptops were connected wirelessly to the access point since they are able to be moved around. Overall, a client-server model was chosen since it is helpful for businesses to have a centralized way to store and access information.
 
 ### Making Separate Networks Communicate
 
@@ -189,16 +185,6 @@ On each of the computers, an IPv4 address under the gateway of their respective 
 INSERT COMP 1
 
 INSERT COMP 2
-
-**Testing**
-
-Next, a computer under switch 1 pinged a computer under switch 2, which both have different default gateways:
-
-INSERT PING
-
-The ping succeeds, implying successful communication across the router.
-
-The router connects networks by assigning a different gateway to each switch under it, and the devices under those switches are assigned IP addresses according to their respective gateway addresses. This is supported by the PC under switch 2 being assigned a different local IP address than the PC under switch 1 during the ping process. Router interfaces are used to specify which switches are able to connect and how local addressing should be handled under that router. The default gateway specifies what local IP addresses can communicate with a switch.
 
 ### When Networks Break: Diagnosing and Fixing Problems
 
@@ -243,6 +229,36 @@ To fix this, the router's CLI was opened, and GigabitEthernet0/0/1 was opened. N
 
 INSERT TERMINAL STUFF
 
+Checking the status can be found in **Testing and Evaluation**.
+
+## Testing and Evaluation
+
+### Determining Networks Using IPv4 Addresses and Subnet Masks
+
+**Explanation**
+
+A device determines whether another device is on the same network based on its subnet mask and the other device's subnet mask. The subnet mask determines how many of the first segments of the IPv4 addresses of two devices must be the same for them to be in the same network, with a *255* in the subnet mask corresponding to that segment identifying the respective subnet. A notable case where two IP addresses look similar but are not on the same network is scenario C-1, where the PCs have the same first three segments in their IP address, but their subnet mask specifies that part of the fourth segment must also be identical. A case where two IP addresses look different but are on the same network is scenario C-2, where the PCs only have the same first segment, but the subnet mask only specifies that the first segment must be identical for devices to be on the same subnet. A router is required when devices are on different network since a router is designed to facilitate communication between networks via global IP addresses. Since switches are restricted to local IP addresses, a router is required to bridge different subnets.
+
+### Designing a Real Network
+
+**Explanation**
+
+The router was selected as the central device because it allows communication between switches and internet access. The router was connected via a wired connection to the switch, which allows the devices to communicate. From there, the PCs were connected with wires to the switch to allow the front-desk employees to communicate with each other. The server device was also connected to the switch to allow access to it from all employee devices. An access point was connected with wires to the switch to allow for wireless devices to connect, and the laptops were connected wirelessly to the access point since they are able to be moved around. Overall, a client-server model was chosen since it is helpful for businesses to have a centralized way to store and access information.
+
+### Making Separate Networks Communicate
+
+**Testing**
+
+Next, a computer under switch 1 pinged a computer under switch 2, which both have different default gateways:
+
+INSERT PING
+
+The ping succeeds, implying successful communication across the router.
+
+The router connects networks by assigning a different gateway to each switch under it, and the devices under those switches are assigned IP addresses according to their respective gateway addresses. This is supported by the PC under switch 2 being assigned a different local IP address than the PC under switch 1 during the ping process. Router interfaces are used to specify which switches are able to connect and how local addressing should be handled under that router. The default gateway specifies what local IP addresses can communicate with a switch.
+
+### When Networks Break: Diagnosing and Fixing Problems
+
 **Checking Status Afterwards**
 
 When checking the config of GigabitEthernet0/0/1, the port status was set to **On**, implying that the problem was fixed:
@@ -262,3 +278,5 @@ Since these pings were successful, the network was successfully fixed.
 **Solution Explanation**
 
 Through checking ping, router configurations, and the network topology visualization, the problem was diagnosed to be between the router and Switch1. `ping` especially supported this, as communication was only possible up to the point between the router and Switch1 from a device on Switch0. To look for a solution, differences in switch configuration were checked, since Switch0 was successfully connected and was a good benchmark to compare to. The problem was found to be that the status of the port connected to Switch1 was **OFF**. To fix this, the CLI of the router was used to run the `no shutdown` command, which activates a port. After this fix, any ping run successfully worked, and the network topology showed a green connection between the router and Switch1, confirming that the problem was fixed.
+
+## Reflection

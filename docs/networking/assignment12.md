@@ -19,7 +19,7 @@ TCP is connection-oriented because it establishes a connection and confirms that
 
 ## Technical Development
 
-## Transport Layer Reliability
+### Transport Layer Reliability
 
 **Building and Verifying the Network**
 
