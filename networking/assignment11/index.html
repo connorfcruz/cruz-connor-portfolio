@@ -1,0 +1,1580 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../assignment10/">
+      
+      
+        <link rel="next" href="../assignment12/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Routing - Connor Cruz Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#routing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Connor Cruz Portfolio" class="md-header__button md-logo" aria-label="Connor Cruz Portfolio" data-md-component="logo">
+      
+  <img src="../../assets/logo-light.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Connor Cruz Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Routing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="green"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Connor Cruz Portfolio" class="md-nav__button md-logo" aria-label="Connor Cruz Portfolio" data-md-component="logo">
+      
+  <img src="../../assets/logo-light.svg" alt="logo">
+
+    </a>
+    Connor Cruz Portfolio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ap-networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../personal-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Personal Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Personal Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Personal-Projects/emi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E.M.I. - A Memorization App for Those with Dementia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component Cards and Software Slips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Determining Security Controls for Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementing Security for Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Movement and Types of Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types of Networks &amp; Connections and Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Can't These Two Computers Talk to Each Other?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physical Addressing and Logical Addressing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Determining Security Controls in a LAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Routing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Routing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-and-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning and Design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning and Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-machines-layer-3-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Machine's Layer 3 Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-can-see-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who Can See You?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#following-a-packet-across-a-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Following a Packet Across a Router
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determine-the-path-of-data-using-a-routing-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determine the Path of Data Using a Routing Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-machines-layer-3-identity_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Machine's Layer 3 Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-can-see-you_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who Can See You?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#following-a-packet-across-a-router_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Following a Packet Across a Router
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determine-the-path-of-data-using-a-routing-tool_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determine the Path of Data Using a Routing Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-and-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing and Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing and Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-machines-layer-3-identity_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Machine's Layer 3 Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-can-see-you_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who Can See You?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#following-a-packet-across-a-router_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Following a Packet Across a Router
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determine-the-path-of-data-using-a-routing-tool_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determine the Path of Data Using a Routing Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ports &amp; Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting and Maintaining Multiple LANs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-and-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning and Design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning and Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-machines-layer-3-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Machine's Layer 3 Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-can-see-you" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who Can See You?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#following-a-packet-across-a-router" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Following a Packet Across a Router
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determine-the-path-of-data-using-a-routing-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determine the Path of Data Using a Routing Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-machines-layer-3-identity_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Machine's Layer 3 Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-can-see-you_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who Can See You?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#following-a-packet-across-a-router_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Following a Packet Across a Router
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determine-the-path-of-data-using-a-routing-tool_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determine the Path of Data Using a Routing Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-and-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing and Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing and Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#your-machines-layer-3-identity_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Machine's Layer 3 Identity
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#who-can-see-you_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who Can See You?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#following-a-packet-across-a-router_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Following a Packet Across a Router
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#determine-the-path-of-data-using-a-routing-tool_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determine the Path of Data Using a Routing Tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><h1 id="routing">Routing</h1>
+<h2 id="project-overview">Project Overview</h2>
+<p><strong>Problem Statement:</strong></p>
+<p>While LANs can communicate internally, external communication requires separate configurations.</p>
+<p><strong>Objectives:</strong></p>
+<ul>
+<li>Understand the difference between a private and public IP address</li>
+<li>Understand the purpose of a router and how it converts IP address</li>
+<li>Understand how destination MAC addresses vary depending on the point of transmission</li>
+<li>Know the difference between direct transmission and transmission through the gateway (and loopback)</li>
+</ul>
+<p><strong>Success Criteria:</strong></p>
+<p>Through observation of VM behavior, interaction with external servers, and Cisco Packet Tracer, learn how data is transferred throughout different LANs and within the same LAN.</p>
+<h2 id="planning-and-design">Planning and Design</h2>
+<h3 id="your-machines-layer-3-identity">Your Machine's Layer 3 Identity</h3>
+<p><strong>Investigation 1: The Layer 3 Identity</strong></p>
+<p>The following information was gathered for each VM (Ubuntu and Linux): IP address, interface names, and routing table entries.</p>
+<p>These were gained via the <code>ip addr</code> and <code>ip route</code> commands, as shown below:</p>
+<p>Ubuntu:</p>
+<p><img alt="Ubuntu Addr and Route" src="../../images/Assignment11/UbuntuAddrRoute.PNG"></p>
+<p>Linux:</p>
+<p><img alt="Linux Addr" src="../../images/Assignment11/LinuxAddr.PNG"></p>
+<p><img alt="Linux Addr" src="../../images/Assignment11/LinuxRoute.PNG"></p>
+<p>In the above commands, IP address could be found in <code>ip addr</code> under <em>enp0s1</em>, and interface names were also listed. Routing table entries are listed in order under <code>ip route</code>.</p>
+<p>Ubuntu:</p>
+<ul>
+<li>IPv4 Address: <strong>10.12.26.143</strong></li>
+<li>Interface Names: <strong>lo, enp0s1</strong></li>
+<li>Routing Table Entries: <strong>default (10.12.16.1), 10.0.1.28, 10.0.1.34, 10.0.1.38, 10.12.16.0</strong></li>
+</ul>
+<p>Linux:</p>
+<ul>
+<li>IPv4 Address: <strong>10.12.27.165</strong></li>
+<li>Interface Names: <strong>lo, enp0s1</strong></li>
+<li>Routing Table Entries: <strong>default (10.12.16.1), 10.12.16.0</strong></li>
+</ul>
+<p>The IPv4 addresses for these VMs are listed above. They are also both on the <strong>enp0s1</strong> network. A default route is present in both VMs, as shown in the output of <code>ip route</code> under <em>default via</em>. The gateway device for both is <strong>10.12.16.1</strong>.</p>
+<p>In general, the information for a device to send information to itself, devices on its subnet, and devices outside of its subnet is present in the <strong>routing table</strong> (obtained through <code>ip route</code>). The default gateway allows connection to other devices outside the subnet, and the other entries provide information to connect to devices on the subnet. The <em>lo</em> interface in <code>ip addr</code> also allows for a device's connection to itself via the IP address 127.0.0.1. If the default gateway disappeared, then the VM would not be able to communicate with any devices outside of its subnet.</p>
+<h3 id="who-can-see-you">Who Can See You?</h3>
+<p><strong>Your Inside Identity</strong></p>
+<p>First, <code>ip addr</code> was run to obtain the IPv4 address of the Ubuntu VM:</p>
+<p><img alt="IP Addr" src="../../images/Assignment11/UbuntuAddr.PNG"></p>
+<p>As shown above, under the enp0s1 interface, the IPv4 address is <strong>10.12.27.133</strong>. This address is not globally unique since it is assigned by the router, so another router could assign to another device the same IP address. Another network somewhere else in the world could use the same address because private IP addresses are only used within the network. In general, a difference between public and private IP addresses could help determine this.</p>
+<p>Below are the three private IPv4 ranges (RFC1918):</p>
+<ul>
+<li><strong>10.0.0.0 - 10.255.255.255</strong></li>
+<li><strong>172.16.0.0 - 172.31.255.255</strong></li>
+<li><strong>192.168.0.0 - 192.168.255.255</strong></li>
+</ul>
+<p>The IP address of the Ubuntu VM, 10.12.27.133, follows under the range with the 10/8 prefix, so it is a <strong>private</strong> IP address.</p>
+<p><strong>Your Outside Identity</strong></p>
+<p>To view the public IP address of the Ubuntu VM, <code>curl icanhazip.com</code> was run:</p>
+<p><img alt="Public IP" src="../../images/Assignment11/CurlPublicIP.PNG"></p>
+<p>Thus, the public IP address of the Ubuntu VM is <strong>173.95.44.210</strong>.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Question</strong></th>
+<th><strong>Private Address</strong></th>
+<th><strong>Public Address</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Are they the same?</td>
+<td>10.12.27.133</td>
+<td>173.95.44.210</td>
+</tr>
+<tr>
+<td>Why or why not?</td>
+<td>This is for identification by devices inside of the network.</td>
+<td>This is for identification of the network by devices outside of it.</td>
+</tr>
+</tbody>
+</table>
+<p>The machine appears to have two different IP addresses because the private address is used for identification within the network while the public address is used for identification outside of the network. a router/NAT is responsible for the translation of these addresses, since when moving inside or outside of a network, the destination changes from the router to another device. The router/NAT is located at the highest level of the network and is necessary to interact with to reach the internet.</p>
+<h3 id="following-a-packet-across-a-router">Following a Packet Across a Router</h3>
+<p>In this activity, <em>Cisco Packet Tracer</em> was used to examine how a packet travels across a router.</p>
+<p><strong>Building the Network</strong></p>
+<p>First, a topology was built with 2 PCs, 2 switches, and 1 router. They were arranged linearly in this order: PC, Switch, Router, Switch, PC. Each device was connected with a copper-straight-through wire:</p>
+<p><img alt="Network Topology" src="../../images/Assignment11/NetworkConnectionsUp.PNG"></p>
+<p>Next, the IP addresses of each device were configured, with PC0 having an IP address of <strong>192.168.1.10</strong> and a default gateway of <strong>192.168.1.1</strong>, while PC1 had an IP address of <strong>192.168.2.10</strong> and a default gateway of <strong>192.168.2.1</strong>. This simulates the two PCs being on different networks:</p>
+<p><img alt="Network Configuration" src="../../images/Assignment11/ConfigIP.PNG"></p>
+<p>Finally, the router activated the corresponding connections to PC0 and PC1, which caused all interfaces to turn green (connect successfully):</p>
+<p><img alt="Network Configuration" src="../../images/Assignment11/ConfigTerminal.PNG"></p>
+<h3 id="determine-the-path-of-data-using-a-routing-tool">Determine the Path of Data Using a Routing Tool</h3>
+<p><strong>Predict Before Testing</strong></p>
+<p>To start, <code>ip route</code> was run on the Ubuntu VM:</p>
+<p><img alt="IP Route" src="../../images/Assignment11/IpRoute.PNG"></p>
+<p>As shown above, the directly connected network is <strong>enp0s1</strong>, and the default route is shown in the first line of the output (designated by "default via"). The gateway IP is next to "default via," which is <strong>10.12.16.1</strong>.</p>
+<p>If traffic is sent to the other VM, it would go directly since it is not traveling outside of the network. The first hop would be the other device itself. One hop would be expected since the devices are connected under the same router.</p>
+<p>If traffic is sent to 8.8.8.8 (Google), the traffic would go through the gateway. Thus, the first hop would likely be the gateway/router IP. At least three hops would be expected since the router must be accessed, then some intermediary hops, then the final hop to 8.8.8.8.</p>
+<p>If traffic is sent to google.com (Google's DNS), the traffic would still go through the gateway. The first hop would be the gateway/router since that remains the same. At least one more hop than 8.8.8.8 would be expected to handle DNS resolution.</p>
+<h2 id="technical-development">Technical Development</h2>
+<h3 id="your-machines-layer-3-identity_1">Your Machine's Layer 3 Identity</h3>
+<p><strong>Investigation 2: Sending Traffic</strong></p>
+<p>Case 1: Send Traffic to Itself (Loopback)</p>
+<p>The command <code>ping -c 3 127.0.0.1</code> was run to ping the device itself via loopback:</p>
+<p><img alt="Ping Loopback" src="../../images/Assignment11/PingLoopback.PNG"></p>
+<p>The traffic does not leave the machine because the loopback interface is handled internally and contained in the respective device's hardware. The routing table does not need a gateway entry for this to work because a gateway entry only facilitates communication outside of the subnet.</p>
+<p>Case 2: Send Traffic to the Other VM (Same Network)</p>
+<p>The ping command was run again with the other VM's IP (10.12.27.165) to test communication:</p>
+<p><img alt="Ping Other VM" src="../../images/Assignment11/PingOtherVM.PNG"></p>
+<p>Ubuntu dd not send this traffic to the default gateway because the other VM should be on the same subnet, so no communication outside of the network is necessary. The routing table entry which allows direct delivery can be found through the entry with "scope link", which was found to be <strong>10.12.16.0</strong> in the routing table. This can be proven by running <code>ip route</code> and analyzing the output. This is also supported by a slightly longer transmission time than loopback.</p>
+<p>Case 3: Send Traffic Off the Network</p>
+<p>The Ubuntu VM then pinged Google's IP address (8.8.8.8.8) to simulate external transmission of data:</p>
+<p><img alt="Ping 8.8.8.8" src="../../images/Assignment11/Ping8.PNG"></p>
+<p>The routing table entry which made this possible is the default gateway, found under <strong>default via</strong> in the routing table. Ubuntu cannot deliver this directly because the router sits as the only way for data to exit the network, so data must pass through it first. This is supported by the transmission times being significantly longer than the other cases. The router device handled the first step outside of the network.</p>
+<p><strong>Investigation 3: How the Decision is Made</strong></p>
+<p>Predictions:</p>
+<p>If traffic is sent to the other VM (Linux), the next hop would be direct since no external communication is required. If traffic is sent to 8.8.8.8 (Google), the next hop would be gateway since this does require external communication.</p>
+<p>This prediction can be confirmed by <code>ip route get</code>, as it shows the direct next hop to reach the device. Below, the first hop of communication with the other VM is shown:</p>
+<p><img alt="Other VM" src="../../images/Assignment11/IpRouteGetOtherVM.PNG"></p>
+<p>This displays that the first hop is the other VM itself, implying a direct conneciton. Thus, the prediction was correct.</p>
+<p>Below is the first hop of communication with <em>8.8.8.8</em>:</p>
+<p><img alt="8.8.8.8" src="../../images/Assignment11/IpRouteGet8.PNG"></p>
+<p>This displays that the first hop is the router (the IP matches), so the next hop matches the prediction.</p>
+<h3 id="who-can-see-you_1">Who Can See You?</h3>
+<p><strong>The "Can I Reach You?" Investigation</strong></p>
+<p>The private IP address of a partner gained from <code>ip addr</code> was pinged in this segment:</p>
+<p><img alt="IP Addr" src="../../images/Assignment11/PingPartnerPrivate.PNG"></p>
+<p>As shown above, all the packets were successfully transmitted, so this communication <strong>succeeded</strong>.</p>
+<p>Next, the public IP address of the partner was pinged:</p>
+<p><img alt="IP Addr" src="../../images/Assignment11/PingPartnerPublic.PNG"></p>
+<p>There was a packet loss of 100%, so this transmission failed.</p>
+<p>Both the partner's and the local VM share the same public IP because they both belong to the same router. Multiple devices might appear to share one public IP because devices outside of a network identify specific devices within the network by the public IP address of the router and the MAC address. If pinging a partner's public IP fails, the router itself might have a protocol which blocks it. The failure does not mean that the address does not exist, but rather that there is filtering. This is because routers usually prevent interaction with a WAN without permission.</p>
+<h3 id="following-a-packet-across-a-router_1">Following a Packet Across a Router</h3>
+<p><strong>Observing Same-Network Communication</strong></p>
+<p>Simulation mode was used for this step. A PDU was first sent from PC0 to the router:</p>
+<p><img alt="Same-Network Communication" src="../../images/Assignment11/NetworkComm1.PNG"></p>
+<p>The following is the first transmission step, from PC0 to Switch0:</p>
+<p><img alt="Same-Network Communication" src="../../images/Assignment11/NetworkComm1-1.PNG"></p>
+<p>The packet does not go through the router, but instead stays on the left side. This is because to reach it, no communication outside of the network is necessary. Before the first ICMP packet is sent, a header is created with MAC address information for the sender and recipient, as shown above. ARP does not appear during this interaction. The MAC address being used is <strong>00D0.BC1B.2301</strong> (as the recipient).</p>
+<p>Below are the in and out layers for the transmission to Switch0 and to the router respectively:</p>
+<p><img alt="Same-Network Communication" src="../../images/Assignment11/NetworkComm1-2.PNG"></p>
+<p><img alt="Same-Network Communication" src="../../images/Assignment11/NetworkComm1-3.PNG"></p>
+<p>These show that the MAC addresses in the header remain consistent, and that layer 3 is only used at the start and end of transmission to the desire device.</p>
+<p><strong>Observing Inter-Network Communication</strong></p>
+<p>A PCU was then sent from PC0 to PC1:</p>
+<p><img alt="Inter-Network Communication" src="../../images/Assignment11/NetworkComm2.PNG"></p>
+<p>Here is the information when the packet leaves PC0:</p>
+<p><img alt="Inter-Network Communication" src="../../images/Assignment11/NetworkComm2-1.PNG"></p>
+<p>As shown above, the destination IP address is <strong>192.168.2.10</strong>, and the destination MAC address is <strong>00D0.BC1B.2301</strong>.</p>
+<p>This is the information when the router is reached:</p>
+<p><img alt="Inter-Network Communication" src="../../images/Assignment11/NetworkComm2-2.PNG"></p>
+<p>The Ethernet frame changes, with the sender MAC address being changed to the router's MAC address. The destination MAC address is also changed to PC1's MAC address. The router does not keep the same MAC, yet the destination and sender IP addresses remain the same.</p>
+<p>Here is the information when it leaves the router to Switch1:</p>
+<p><img alt="Inter-Network Communication" src="../../images/Assignment11/NetworkComm2-3.PNG"></p>
+<p>There is no longer any Layer 3 information, but the Ethernet information remains constant, as it is the same as when the router was reached.</p>
+<p>In summary, the layer 1 connections travelled and the layer 2 MAC addresses communicating change at each hop, but the layer 3 source and destination IP addresses are preserved from start to finish.</p>
+<h3 id="determine-the-path-of-data-using-a-routing-tool_1">Determine the Path of Data Using a Routing Tool</h3>
+<p><strong>Run Traceroute</strong></p>
+<p>First, <code>traceroute 8.8.8.8</code> was run to analyze the route for Google (without DNS):</p>
+<p><img alt="Traceroute 8.8.8.8" src="../../images/Assignment11/Traceroute8.PNG"></p>
+<p>The first hop was shown to be to the gateway, and private addresses stop appearing after hop 2. There are 10 hops in total.</p>
+<p>Next, <code>traceroute google.com</code> was run to analyze the route for Google (with DNS):</p>
+<p><img alt="Traceroute Google" src="../../images/Assignment11/TracerouteGoogle.PNG"></p>
+<p>THe first hop is the same as 8.8.8.8, but the total hop count is not the same. The paths diverge at hop 6.</p>
+<p><strong>Interpreting What Was Seen</strong></p>
+<p>Consider the <code>traceroute</code> output for Google:</p>
+<ul>
+<li>Hop 1: private IP address; likely the router because it is signified by "_gateway"; inside the LAN</li>
+<li>Hop 2: private IP address; likely the Charlotte Latin School server due to the charlottelatin.org domain; inside the school's overall LAN but not the router's LAN</li>
+<li>Hop 3: public IP address; likely the internet service provider due to the "spectrum.com" domain; inside the ISP</li>
+<li>Hop 4: public IP address; likely a device for the ISP because Charter is a subsect of Spectrum; inside the ISP</li>
+<li>Hop 5: public IP address; likely a device for the ISP because Charter is a subsect of Spectrum; inside the ISP</li>
+</ul>
+<h2 id="testing-and-evaluation">Testing and Evaluation</h2>
+<h3 id="your-machines-layer-3-identity_2">Your Machine's Layer 3 Identity</h3>
+<p><strong>Reflection</strong></p>
+<p>The role of the routing table is to serve as a guide for where a device can communicate and what the best path of transmission is. The role of the default gateway is to provide a path for external communication, allowing access to devices outside of the current subnet. This was proven when communicating with <em>8.8.8.8</em>, as <code>traceroute</code> showed that the default gateway was one of the hops. For direct delivery, the devices communciating must be on the same network/subnet, as this can only be done if the devices know each other's MAC addresses (which can be found via a MAC address table). Communication with devices outside of the network requires router involvement because the default gateway must first be accessed to reach that device.</p>
+<h3 id="who-can-see-you_2">Who Can See You?</h3>
+<p><strong>NAT Reasoning</strong></p>
+<p>Private IPv4 addresses are reused in millions of different network because they are limited to specific ranges, and overlap does not matter due to their containment within a network. Private addresses are not routed on the public internet because devices with the same private address cannot be distinguished. If every internal device required its own public IP, then the amount of possible IP addresses, and therefore the length of IP addresses, must be increased, which is very inefficient. A business typically has one public IP but many internal devices so that all outgoing and incoming traffic can be filtered and adhere to company standards. This affects WAN design in that WANs must refer to devices with respect to the network that they are on, using the public IP address.</p>
+<p>In a business, when traffic leaves the LAN, the internal VLAN IP addresses are converted into the public IP address of the router/NAT. Segmentation does not eliminate the need for public addressing because a public IP address must still be used for communication outside of the LAN. Segmentation instead increases the importance of controlled translation because the existence of multiple subnets requires the IP addresses within each subnet to be converted to a singular public IP address.</p>
+<p>Private IPv4 addresses must exist for scalability because if every device were to have a unique public IPv4 address, then the length of the address must be much longer. This is due to there being much more required public addresses available. Public IPv4 addresses are necessary for global routing because external data is routed given the public IP address of a device, which is then converted to a private IP address once inside a LAN. One device can appear to have two different identities because devices are identified differently within and outside of their respective LANs. Overall, the designation of private and public IP addresses supports WAN architecture because they are easily scalable to large amounts of LANs and devices.</p>
+<h3 id="following-a-packet-across-a-router_2">Following a Packet Across a Router</h3>
+<p><strong>Analysis</strong></p>
+<p>The switch never modifies the IP address because IP addresses are used for communication between LANs and dictate where data should generally go. The router must modify the MAC address because the data must first be sent to the MAC address of the router, then outside of the network to the MAC address of PC1. The source IP remains the same from PC0 to PC1 to ensure clarity on what device has sent the packet. In this situation, the "next hop" means the transfer from one device/switch/router to the next one in line. The default gateway is necessary to allow communication across the router because otherwise, data would be stuck on one side of it.</p>
+<p><strong>Failure Thought Experiment</strong></p>
+<p>The router was then deleted, and a packet was attempted to be sent from PC0 to PC1.</p>
+<p>Below is the information for the communication between PC0 and Switch0, and Switch0 and the router respectively:</p>
+<p><img alt="Failure Thought Experiment" src="../../images/Assignment11/NetworkComm3-1.PNG"></p>
+<p><img alt="Failure Thought Experiment" src="../../images/Assignment11/NetworkComm3-2.PNG"></p>
+<p>The communication breaks exactly when data is attempted to be output from Switch0, as shown through there being no Layer 2 information present in the out header. Switches cannot solve this problem because they do not have a default gateway nor the ability to change the packet header to specify the MAC address of PC1. The router acts as a gateway between different networks, which no other device can do.</p>
+<h3 id="determine-the-path-of-data-using-a-routing-tool_2">Determine the Path of Data Using a Routing Tool</h3>
+<p><strong>Validating with Routing Table</strong></p>
+<p>Next, <code>ip route get 8.8.8.8</code> was run to show the immediate routing decision:</p>
+<p><img alt="IP Route Get 8.8.8.8" src="../../images/Assignment11/IpRouteGet8.PNG"></p>
+<p>The next hop was found to be the default gateway (10.12.16.1), and the interface is <strong>enp0s1</strong>. This matches the first hop of traceroute, though it does not explicitly mention 10.12.16.1 as a default via.</p>
+<p>This was then compared to <code>ip route get 10.12.27.177</code>:</p>
+<p><img alt="IP Route Get 10.12.27.177" src="../../images/Assignment11/IpRouteGetOtherVM.PNG"></p>
+<p>The next hop was found to be <strong>10.12.27.177</strong>, which is the other VM's IP address, which differs from the gateway address. This is because the devices are communicating deirectly. The interface remains the same.</p>
+<p>In general, <code>ip route get</code> only shows one hop because it shows the immediate next hop in the route to a certain device. Meanwhile, <code>traceroute</code> shows the entire route.</p>
+<p><code>ip route get</code> and <code>traceroute</code> both expose layer 3 of the OSI model, as they show how IP addresses interact with each other and send information.</p>
+<p><strong>TTL Experiment</strong></p>
+<p>In this experiment, the maximum hops were limited to 3 using <code>traceroute -m 3 8.8.8.8</code>:</p>
+<p><img alt="IP Route Get 10.12.27.177" src="../../images/Assignment11/Traceroute3.PNG"></p>
+<p>This stops at the ISP (Spectrum) hop because it is the third hop after the Charlotte Latin School servers.</p>
+<p>TTL is a setting which can be configured to set a limit to how long a packet is still valid for before being discarded. Routers must decrement TTL to prevent packets with unavailable routes or connection problems from infinitely looping. This allows traceroute to work because it keeps track of the time a certain path takes, allowing the most efficient network path to be found.</p>
+<p><strong>Final Synthesis</strong></p>
+<p>The path of data from a device can be determined using the <strong>traceroute</strong> command and analyzing each hop the data takes before it reaches the device. The first hop represents the immediate device which the current device communicates with when transmitting the data. Private IPs appear early in the path because they are exclusive to the interior of a network, and public IP addresses are used for outside of a network. Two different destinations can share the same first several hops because the same router and internet provider are used, which can route information to other places. A routing-table decision is different from a traceroute path in that a routing-table decision is made theoretically while a traceroute path is made by analyzing TTL. This is supported by <code>traceroute</code> having the amount of time of transmission, while <code>ip route</code> remains theoretical.</p>
+<h2 id="reflection">Reflection</h2>
+<p>Through the <em>Routing</em> activity, the role of routers as means to convert private to public IP addresses was explored in detail, displaying how conversion between private and public IP addresses is necessary for communication between separate LANs. The identification of where different devices are relative to the host device, an Ubuntu VM, displayed how devices within a LAN can be communicated with directly while those outside of the network must first have data transmit through the router. The difference between one's private and public IP addresses wa also examined, and it was found that private IP addresses can be used within a local context, while public IP addresses can only be used globally due to router restrictions and NAT policies. This applies very much in real WANs, as data is transmitted externally and received from outside networks in many networks, whether they be for business, homes, or other scenarios. The exploration of how a packet is transmitted through analyzing hops highlighted how packets will always try to find the most efficient route using TTL, selecting between hops found in the device's routing table. This is especially useful in the real world when large amounts of data are being sent externally, such as in big manufacturing companies. The efficiency of data transmission for large companies, as well as smaller networks, allows for much time to be saved and fewer resources to be used. Thus, these skills translate to configuration of WANs by internet service providers, as well as give knowledge to LAN owners on how to configure routers to handle traffic. A logical next step would be examining how different WANs communicate with each other to send data. Citations for this assignment include the materials provided by the Charlotte Latin School AP Networking Fundamentals class, Cisco Packet Tracer, and Ubuntu.</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/connorfcruz" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

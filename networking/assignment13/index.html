@@ -1,0 +1,1453 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../assignment12/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Subnetting and Maintaining Multiple LANs - Connor Cruz Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#subnetting-and-maintaining-multiple-lans" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Connor Cruz Portfolio" class="md-header__button md-logo" aria-label="Connor Cruz Portfolio" data-md-component="logo">
+      
+  <img src="../../assets/logo-light.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Connor Cruz Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Subnetting and Maintaining Multiple LANs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="green"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Connor Cruz Portfolio" class="md-nav__button md-logo" aria-label="Connor Cruz Portfolio" data-md-component="logo">
+      
+  <img src="../../assets/logo-light.svg" alt="logo">
+
+    </a>
+    Connor Cruz Portfolio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ap-networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../personal-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Personal Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Personal Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Personal-Projects/emi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E.M.I. - A Memorization App for Those with Dementia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component Cards and Software Slips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Determining Security Controls for Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementing Security for Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Movement and Types of Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types of Networks &amp; Connections and Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Can't These Two Computers Talk to Each Other?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physical Addressing and Logical Addressing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Determining Security Controls in a LAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Routing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ports &amp; Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting and Maintaining Multiple LANs
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting and Maintaining Multiple LANs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#planning-and-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning and Design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning and Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-subnet-consideration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Subnet Consideration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determining-networks-using-ipv4-addresses-and-subnet-masks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determining Networks Using IPv4 Addresses and Subnet Masks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#designing-a-real-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Designing a Real Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-separate-networks-communicate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Separate Networks Communicate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-networks-break-diagnosing-and-fixing-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Networks Break: Diagnosing and Fixing Problems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-and-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing and Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing and Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determining-networks-using-ipv4-addresses-and-subnet-masks_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determining Networks Using IPv4 Addresses and Subnet Masks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#designing-a-real-network_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Designing a Real Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-separate-networks-communicate_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Separate Networks Communicate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-networks-break-diagnosing-and-fixing-problems_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Networks Break: Diagnosing and Fixing Problems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#planning-and-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning and Design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning and Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-subnet-consideration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Subnet Consideration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determining-networks-using-ipv4-addresses-and-subnet-masks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determining Networks Using IPv4 Addresses and Subnet Masks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#designing-a-real-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Designing a Real Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-separate-networks-communicate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Separate Networks Communicate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-networks-break-diagnosing-and-fixing-problems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Networks Break: Diagnosing and Fixing Problems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-and-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing and Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing and Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#determining-networks-using-ipv4-addresses-and-subnet-masks_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Determining Networks Using IPv4 Addresses and Subnet Masks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#designing-a-real-network_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Designing a Real Network
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#making-separate-networks-communicate_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Separate Networks Communicate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-networks-break-diagnosing-and-fixing-problems_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Networks Break: Diagnosing and Fixing Problems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><h1 id="subnetting-and-maintaining-multiple-lans">Subnetting and Maintaining Multiple LANs</h1>
+<h2 id="planning-and-design">Planning and Design</h2>
+<h3 id="initial-subnet-consideration">Initial Subnet Consideration</h3>
+<p>Questions were answered to examine how subnet masks affect network assignment.</p>
+<p><strong>What must be true for two IP addresses with the subnet mask 255.0.0.0 to be on the same network?</strong></p>
+<p>They have the same first part of their IP addresses.</p>
+<p><strong>What must be true for two IP addresses with the subnet mask 255.255.0.0 to be on the same network?</strong></p>
+<p>They have the same first two parts of their IP addresses.</p>
+<p><strong>Given the IP address 210.58.24.55 and subnet mask 255.255.255.0, what is the structure of the other IP addresses on the network?</strong></p>
+<p>210.58.24.X</p>
+<p><strong>Not all subnet masks use 0s and 255s (e.g. 240, 128, 224, 252, 254). What is the pattern in these numbers?</strong></p>
+<p>In their binary representations, they have all 1s, then all 0s after a certain point.</p>
+<ul>
+<li>240 = 11110000</li>
+<li>128 = 10000000</li>
+<li>224 = 11100000</li>
+<li>252 = 11111100</li>
+<li>254 = 11111110</li>
+</ul>
+<p><strong>What do all valid subnet masks have in common?</strong></p>
+<p>In their binary representations, there must be all 1s to start, then all 0s after a certain point.</p>
+<h2 id="technical-development">Technical Development</h2>
+<h3 id="determining-networks-using-ipv4-addresses-and-subnet-masks">Determining Networks Using IPv4 Addresses and Subnet Masks</h3>
+<p>In this activity, subnet masks were varied on different computers to test communication between devices.</p>
+<p><strong>Building the Network</strong></p>
+<p>A basic network was created with three PCs under one switch, with all connections being wired. Next, the three PCs were assigned the following IP addresses under the same subnet mask (255.255.255.0):</p>
+<ul>
+<li>PC0 -&gt; 192.168.1.10</li>
+<li>PC1 -&gt; 192.168.1.25</li>
+<li>PC2 -&gt; 192.168.2.10</li>
+</ul>
+<p><strong>Investigating Communication</strong></p>
+<p>Using the command prompt on PC0, PC0 attempted to ping PC1 (192.168.1.25):</p>
+<p><img alt="Ping 1" src="../../images/Assignment13/Ping1.PNG"></p>
+<p>As shown above, this ping was successful.</p>
+<p>Next, PC0 attempted to ping PC2 (192,168.2.10):</p>
+<p><img alt="Ping 2" src="../../images/Assignment13/Ping2.PNG"></p>
+<p>This ping failed, as none of the packets went through.</p>
+<p>The determining factor of whether the ping worked was the subnet mask. Since the subnet mask is 255.255.255.0, the first three segments of the IP address determine whether devices are on the same subnet. Since the third segment of PC2 differs from that of PC1 and PC2, it is on a different subnet, so direct communication fails.</p>
+<p><strong>Modifying and Testing Again</strong></p>
+<p>PC2's subnet mask was changed from 255.255.255.0 to 255.255.0.0. Then, 192.168.2.10 (PC2) was pinged again from PC0:</p>
+<p><img alt="Ping 3" src="../../images/Assignment13/Ping3.PNG"></p>
+<p>This ping attempt still failed. This is because while PC2's subnet mask classifies it and PC0 being on the same subnet, PC0's subnet mask is still 255.255.255.0. Thus, from PC0, PC2 is on a different subnet, so communication is still expected to fail.</p>
+<p><strong>Structured Investigation</strong></p>
+<p>Scenario A: </p>
+<ul>
+<li>All subnet masks are changed to 255.0.0.0.</li>
+</ul>
+<p>After the subnet masks were changed, PC0 pinged both PC1 and PC2:</p>
+<p><img alt="Ping 4" src="../../images/Assignment13/Ping4.PNG"></p>
+<p>Both of the ping attempts succeeded. This happened because the subnet mask only specifies that the first segment of the devices' IPv4 addresses must be the same to be on the same subnet. Since all PCs have a first segment of <em>1</em>, communication is expected to succeed.</p>
+<p>Scenario B:</p>
+<ul>
+<li>PC0 -&gt; 172.16.1.10 / 255.255.0.0</li>
+<li>PC1 -&gt; 172.16.2.20 / 255.255.0.0</li>
+</ul>
+<p>Communication from PC0 to PC1 was tested by PC0 pinging PC1:</p>
+<p><img alt="Ping 5" src="../../images/Assignment13/Ping5.PNG"></p>
+<p>The ping attempt succeeded.</p>
+<p>These devices are on the same network because their subnet masks are both 255.255.0.0, so their subnet is defined by the first two segments of their IPv4 addresses. Since both PCs have first segments of <strong>172.16</strong>, they are on the same network and should communicate correctly.</p>
+<p>Scenario C-1:</p>
+<ul>
+<li>Two PCs look "similar" but are not on the same network</li>
+</ul>
+<p>The following assignments were chosen:</p>
+<ul>
+<li>PC0 -&gt; 172.16.1.10 / 255.255.255.192</li>
+<li>PC1 -&gt; 172.16.1.120 / 255.255.255.192</li>
+</ul>
+<p><img alt="Config 1" src="../../images/Assignment13/Config1-1.PNG"></p>
+<p><img alt="Config 2" src="../../images/Assignment13/Config1-2.PNG"></p>
+<p>Next, PC0 attempted to ping PC1 (172.16.1.120):</p>
+<p><img alt="Ping 6" src="../../images/Assignment13/Ping6.PNG"></p>
+<p>The ping failed.</p>
+<p>Although both PCs have the same first three segments, the subnet mask makes it so that parts of the fourth segment also matter for the devices to be on the same subnet. Thus, they are actually on different subnets.</p>
+<p>Scenario C-2:</p>
+<ul>
+<li>Two PCs look "different" but are on the same network</li>
+</ul>
+<p>The following assignments were chosen:</p>
+<ul>
+<li>PC0 -&gt; 172.45.13.132 / 255.0.0.0</li>
+<li>PC1 -&gt; 172.16.1.120 / 255.0.0.0</li>
+</ul>
+<p><img alt="Config 1" src="../../images/Assignment13/Config2-1.PNG"></p>
+<p><img alt="Config 2" src="../../images/Assignment13/Config2-2.PNG"></p>
+<p>Next, PC0 attempted to ping PC1 (172.16.1.120):</p>
+<p><img alt="Ping 7" src="../../images/Assignment13/Ping7.PNG"></p>
+<p>The ping succeeded. This happened because the subnet mask only specifies that the first segments of the IP addresses must be the same to be on the same network, so the devices are actually on the same network.</p>
+<h3 id="designing-a-real-network">Designing a Real Network</h3>
+<p>In this activity, a network for a small business workspace was designed with the following features:</p>
+<ul>
+<li>Front Office Staff (wired desktop computers)</li>
+<li>Remote/Moving Staff (wireless laptops)</li>
+<li>Central File Storage System</li>
+<li>Internet Access</li>
+</ul>
+<p><strong>Physical Design</strong></p>
+<p>Cisco Packet Tracer was used to design this network. The devices were named accordingly, and the devices were placed based on their function:</p>
+<p><img alt="Network Config" src="../../images/Assignment13/NetworkC-Config.PNG"></p>
+<p><strong>Required Devices</strong></p>
+<p>A router was required since the employees must connect to the internet, and a router allows local information to be transmitted globally. A switch is also necessary to connect the wired devices. For the wireless devices, such as laptops, an access point is also required. A server device is also helpful to store the company's shared files.</p>
+<p><strong>Final Network Configuration</strong></p>
+<p>The only devices which should be connected wirelessly are the laptops to the access point. Thus, the following connections were made:</p>
+<p><img alt="Network Config" src="../../images/Assignment13/NetworkC-Config.PNG"></p>
+<h3 id="making-separate-networks-communicate">Making Separate Networks Communicate</h3>
+<p><strong>Physical Setup</strong></p>
+<p>First, two LANs were created, and a router was placed between the two switches:</p>
+<p><img alt="Diagram 1" src="../../images/Assignment13/Diagram1.PNG"></p>
+<p><strong>Configuration</strong></p>
+<p>As shown above, the connections to the router are DOWN. To fix this, the router's terminal was used to assign IP addresses (192.168.1.1 and 192.168.2.1) to the switches and to enable the connections:</p>
+<p><img alt="Terminal" src="../../images/Assignment13/TerminalConfig.PNG"></p>
+<p>Shown below are the active connections:</p>
+<p><img alt="Diagram 2" src="../../images/Assignment13/Diagram2.PNG"></p>
+<p>Next, the PCs were configured to match the router settings.</p>
+<p>On each of the computers, an IPv4 address under the gateway of their respective switch and the gateway address assigned to the switch were assigned. Below are the IP configurations for computers on switches 1 and 2 respectively:</p>
+<p><img alt="Computer 1" src="../../images/Assignment13/Comp1.PNG"></p>
+<p><img alt="Computer 2" src="../../images/Assignment13/Comp2.PNG"></p>
+<h3 id="when-networks-break-diagnosing-and-fixing-problems">When Networks Break: Diagnosing and Fixing Problems</h3>
+<p>In this activity, a broken network was examined, the problem was diagnosed, and a solution was made.</p>
+<p><strong>Initial Observations</strong></p>
+<p>To start, the network topology was examined:</p>
+<p><img alt="Topology" src="../../images/Assignment13/Topology.PNG"></p>
+<p>As seen above, the connection between the router and Switch1 seemed to be down, but there may also be hidden connection failures. To check for these, <strong>ping</strong> was used.</p>
+<p>To confirm that ping was working, PC0 pinged PC1 (on the same switch), which was expected to work:</p>
+<p><img alt="Ping PC1" src="../../images/Assignment13/Ping11.PNG"></p>
+<p>Since this worked, there is not a problem with the ping command.</p>
+<p>Next, a PC under the other router and the other router itself were pinged to check for problems communicating with that subnet:</p>
+<p><img alt="Ping Others" src="../../images/Assignment13/Ping-210-21.PNG"></p>
+<p>Both of these failed, implying that there is likely a connection failure connected to Switch1, which supports what was deduced from the topology.</p>
+<p>Finally, pings were made from PC2 on the other subnet to diagnose exactly where the problem is:</p>
+<p><img alt="Ping Others 2" src="../../images/Assignment13/Ping-211-21.PNG"></p>
+<p>Communication with the other device on the same subnet worked, meaning that Switch1 is configured correctly. However, the ping to the switch itself failed, suggesting that there is a problem with the IP address assigned by the router. Thus, there must be a problem between the router and Switch1.</p>
+<p>The configs of the GigabitEthernet ports of the router were then checked to see any disparity between the switch configurations:</p>
+<p><img alt="Giga0" src="../../images/Assignment13/Giga0.PNG"></p>
+<p><img alt="Giga1" src="../../images/Assignment13/Giga1.PNG"></p>
+<p>The only notable difference is that the port status for GigabitEthernet0/0/1 (Switch1) is off. This is the problem in the network.</p>
+<p><strong>Fixing the Problem</strong></p>
+<p>To fix this, the router's CLI was opened, and GigabitEthernet0/0/1 was opened. Next, the command <code>no shutdown</code> was entered to activate the connection:</p>
+<p><img alt="Terminal Activation" src="../../images/Assignment13/TerminalActivate.PNG"></p>
+<p>Checking the status can be found in <strong>Testing and Evaluation</strong>.</p>
+<h2 id="testing-and-evaluation">Testing and Evaluation</h2>
+<h3 id="determining-networks-using-ipv4-addresses-and-subnet-masks_1">Determining Networks Using IPv4 Addresses and Subnet Masks</h3>
+<p><strong>Explanation</strong></p>
+<p>A device determines whether another device is on the same network based on its subnet mask and the other device's subnet mask. The subnet mask determines how many of the first segments of the IPv4 addresses of two devices must be the same for them to be in the same network, with a <em>255</em> in the subnet mask corresponding to that segment identifying the respective subnet. A notable case where two IP addresses look similar but are not on the same network is scenario C-1, where the PCs have the same first three segments in their IP address, but their subnet mask specifies that part of the fourth segment must also be identical. A case where two IP addresses look different but are on the same network is scenario C-2, where the PCs only have the same first segment, but the subnet mask only specifies that the first segment must be identical for devices to be on the same subnet. A router is required when devices are on different network since a router is designed to facilitate communication between networks via global IP addresses. Since switches are restricted to local IP addresses, a router is required to bridge different subnets.</p>
+<h3 id="designing-a-real-network_1">Designing a Real Network</h3>
+<p><strong>Explanation</strong></p>
+<p>The router was selected as the central device because it allows communication between switches and internet access. The router was connected via a wired connection to the switch, which allows the devices to communicate. From there, the PCs were connected with wires to the switch to allow the front-desk employees to communicate with each other. The server device was also connected to the switch to allow access to it from all employee devices. An access point was connected with wires to the switch to allow for wireless devices to connect, and the laptops were connected wirelessly to the access point since they are able to be moved around. Overall, a client-server model was chosen since it is helpful for businesses to have a centralized way to store and access information.</p>
+<h3 id="making-separate-networks-communicate_1">Making Separate Networks Communicate</h3>
+<p><strong>Testing</strong></p>
+<p>Next, a computer under switch 1 pinged a computer under switch 2, which both have different default gateways:</p>
+<p><img alt="Ping 2.10" src="../../images/Assignment13/Ping210.PNG"></p>
+<p>The ping succeeds, implying successful communication across the router.</p>
+<p>The router connects networks by assigning a different gateway to each switch under it, and the devices under those switches are assigned IP addresses according to their respective gateway addresses. This is supported by the PC under switch 2 being assigned a different local IP address than the PC under switch 1 during the ping process. Router interfaces are used to specify which switches are able to connect and how local addressing should be handled under that router. The default gateway specifies what local IP addresses can communicate with a switch.</p>
+<h3 id="when-networks-break-diagnosing-and-fixing-problems_1">When Networks Break: Diagnosing and Fixing Problems</h3>
+<p><strong>Checking Status Afterwards</strong></p>
+<p>When checking the config of GigabitEthernet0/0/1, the port status was set to <strong>On</strong>, implying that the problem was fixed:</p>
+<p><img alt="ON Connection" src="../../images/Assignment13/OnConnection.PNG"></p>
+<p>The part of the topology which was previously red also turned green, showing that the connection is UP:</p>
+<p><img alt="Fixed Topology" src="../../images/Assignment13/TopologyFixed.PNG"></p>
+<p>Finally, <code>ping</code> was run again from PC0 to the other subnet's switch and PC3:</p>
+<p><img alt="Ping Test" src="../../images/Assignment13/FinalPing.PNG"></p>
+<p>Since these pings were successful, the network was successfully fixed.</p>
+<p><strong>Solution Explanation</strong></p>
+<p>Through checking ping, router configurations, and the network topology visualization, the problem was diagnosed to be between the router and Switch1. <code>ping</code> especially supported this, as communication was only possible up to the point between the router and Switch1 from a device on Switch0. To look for a solution, differences in switch configuration were checked, since Switch0 was successfully connected and was a good benchmark to compare to. The problem was found to be that the status of the port connected to Switch1 was <strong>OFF</strong>. To fix this, the CLI of the router was used to run the <code>no shutdown</code> command, which activates a port. After this fix, any ping run successfully worked, and the network topology showed a green connection between the router and Switch1, confirming that the problem was fixed.</p>
+<h2 id="reflection">Reflection</h2>
+<p>Through the <em>Subnetting and Maintaining Multiple LANs</em> activity, the interaction between IPv4 addressing, subnet masks, and network communication was explored, showing how logical segmentation determines whether devices can communicate. Subnet masks were examined in both decimal and binary forms, revealing that valid masks consist of contiguous 1s followed by 0s, which define the boundary between network and host portions of an address. Testing with ping commands demonstrated that successful communication depends on devices sharing consistent subnet interpretations, as mismatched masks can prevent connectivity even when IP addresses appear similar. Multiple scenarios highlighted how expanding or narrowing subnet masks changes network scope, reinforcing subnetting as a tool for efficient IP management and traffic control. Designing a small business network further illustrated how routers, switches, access points, and servers each serve distinct roles in enabling both wired and wireless communication within a structured environment. The importance of routers was emphasized when connecting separate LANs, as default gateways and router interfaces allowed devices on different subnets to exchange data reliably. Troubleshooting exercises showed how systematic testing with ping and configuration checks can isolate issues, such as identifying a disabled router interface. Fixing this issue using the no shutdown command demonstrated how minor misconfigurations can disrupt entire networks and how they can be resolved through careful analysis. Overall, the activity reinforced the importance of consistent configuration, thoughtful network design, and effective troubleshooting in maintaining reliable communication. Citations include the <em>Charlotte Latin School</em> AP Networking Class assignments.</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/connorfcruz" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

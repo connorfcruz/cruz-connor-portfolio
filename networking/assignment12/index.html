@@ -1,0 +1,1656 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../assignment11/">
+      
+      
+        <link rel="next" href="../assignment13/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Ports & Protocols - Connor Cruz Portfolio</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ports-protocols" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Connor Cruz Portfolio" class="md-header__button md-logo" aria-label="Connor Cruz Portfolio" data-md-component="logo">
+      
+  <img src="../../assets/logo-light.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Connor Cruz Portfolio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ports &amp; Protocols
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="blue"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="green"  aria-label="Light Mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light Mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Connor Cruz Portfolio" class="md-nav__button md-logo" aria-label="Connor Cruz Portfolio" data-md-component="logo">
+      
+  <img src="../../assets/logo-light.svg" alt="logo">
+
+    </a>
+    Connor Cruz Portfolio
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ap-networking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AP Networking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../personal-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Personal Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Personal Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Personal-Projects/emi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    E.M.I. - A Memorization App for Those with Dementia
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Component Cards and Software Slips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Determining Security Controls for Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Implementing Security for Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Movement and Types of Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types of Networks &amp; Connections and Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Can't These Two Computers Talk to Each Other?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physical Addressing and Logical Addressing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Determining Security Controls in a LAN
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Switch Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Routing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ports &amp; Protocols
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ports &amp; Protocols
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#planning-and-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning and Design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning and Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transport-layer-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transport Layer Reliability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp-vs-udp-comparing-transmission-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TCP vs. UDP - Comparing Transmission Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transport-layer-reliability_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transport Layer Reliability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp-vs-udp-comparing-transmission-types_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TCP vs. UDP - Comparing Transmission Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigating-osi-layers-5-7-in-a-live-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigating OSI Layers 5-7 in a Live System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applying-application-and-remote-access-protocols-across-the-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applying Application and Remote Access Protocols Across the Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigating-http-status-codes-and-redirect-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigating HTTP Status Codes and Redirect Behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-and-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing and Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing and Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tcp-vs-udp-comparing-transmission-types_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TCP vs. UDP - Comparing Transmission Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigating-osi-layers-5-7-in-a-live-system_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigating OSI Layers 5-7 in a Live System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigating-osi-layers-5-7-in-a-live-system_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigating OSI Layers 5-7 in a Live System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigating-http-status-codes-and-redirect-behavior_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigating HTTP Status Codes and Redirect Behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../assignment13/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting and Maintaining Multiple LANs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#planning-and-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning and Design
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning and Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transport-layer-reliability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transport Layer Reliability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp-vs-udp-comparing-transmission-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TCP vs. UDP - Comparing Transmission Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#technical-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technical Development
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Technical Development">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#transport-layer-reliability_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transport Layer Reliability
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp-vs-udp-comparing-transmission-types_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TCP vs. UDP - Comparing Transmission Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigating-osi-layers-5-7-in-a-live-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigating OSI Layers 5-7 in a Live System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applying-application-and-remote-access-protocols-across-the-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applying Application and Remote Access Protocols Across the Stack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigating-http-status-codes-and-redirect-behavior" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigating HTTP Status Codes and Redirect Behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#testing-and-evaluation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing and Evaluation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Testing and Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tcp-vs-udp-comparing-transmission-types_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TCP vs. UDP - Comparing Transmission Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigating-osi-layers-5-7-in-a-live-system_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigating OSI Layers 5-7 in a Live System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigating-osi-layers-5-7-in-a-live-system_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigating OSI Layers 5-7 in a Live System
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#investigating-http-status-codes-and-redirect-behavior_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Investigating HTTP Status Codes and Redirect Behavior
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflection
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div><h1 id="ports-protocols">Ports &amp; Protocols</h1>
+<h2 id="planning-and-design">Planning and Design</h2>
+<h3 id="transport-layer-reliability">Transport Layer Reliability</h3>
+<p>Before this activity, it is important to understand:</p>
+<ul>
+<li>IP (Layer 3) is responsible for delivering packets between devices.</li>
+<li>TCP and UDP (Layer 4) determine how data is handled once it is being delivered.</li>
+<li>Specifcially, TCP guarantees transmission, while UDP does not and is designed for speed.</li>
+<li>ICMP (Layer 3) determines if the desired device was reachable and is used for error reporting.</li>
+</ul>
+<h3 id="tcp-vs-udp-comparing-transmission-types">TCP vs. UDP - Comparing Transmission Types</h3>
+<p><strong>Predict Before Testing</strong></p>
+<p>TCP is connection-oriented because it establishes a connection and confirms that is is reliable before data transmission, which ensures that data is delivered in order and fully. Meanwhile, UDP is connectionless because it sends packets in no particular order without the creation of a connection. If you send data using UDP and it never arrives, the packet is usually dropped and completely lost, with no notification that the packet failed to be transmitted. TCP likely consumes more overhead due to the resending of packets if they fail to transmit and the requirement that they be transmitted in order.</p>
+<h2 id="technical-development">Technical Development</h2>
+<h3 id="transport-layer-reliability_1">Transport Layer Reliability</h3>
+<p><strong>Building and Verifying the Network</strong></p>
+<p>First, a network topology was created with two PCs and a switch, with the PCs being on the same subnet:</p>
+<p><img alt="Topology" src="../../images/Assignment12/Topology.PNG"></p>
+<p>To ensure connectivity, PC1 pings PC2:</p>
+<p><img alt="Ping" src="../../images/Assignment12/Ping.PNG"></p>
+<p>All packets were successfully transmitted, so the connection was successful.</p>
+<p><strong>Observing TCP Behavior (Normal Conditions)</strong></p>
+<p>In simulation mode, TCP traffic was generated by visiting PC2 from PC1's web broswer:</p>
+<p><img alt="Web Browser" src="../../images/Assignment12/WebBrowser.PNG"></p>
+<p>Then, packets were filtered to only show TCP, and the data transmission was simulated.</p>
+<p>Observing Connection Establishment:</p>
+<p>The first packet sent is shown below:</p>
+<p><img alt="First Packet" src="../../images/Assignment12/Packet-TCP-1.PNG"></p>
+<p>As shown above, the flag appearing in the first packet is 0b0000010, which corresponds to the <strong>SYN</strong> flag. This is used to initiate the connection.</p>
+<p>The second packet is shown here:</p>
+<p><img alt="Second Packet" src="../../images/Assignment12/Packet-TCP-2.PNG"></p>
+<p>The second packet which appears has the flags 0b00010100 and 0b0000010, which correspond to the <strong>ACK</strong> and <strong>SYN</strong> flags respectively. This shows that the packet was acknowledged, and the connection to PC2 is starting.</p>
+<p>The third packet is here:</p>
+<p><img alt="Third Packet" src="../../images/Assignment12/Packet-TCP-3.PNG"></p>
+<p>The third packet only has the flag 0b00010100, which corresponds to the <strong>ACK</strong> flag. Thus, the server has successfully received the request, and the connection is made.</p>
+<p>In total, data begins to be transmitted after the third packet, since that is the time where data begins to be transmitted from PC2 to PC1.</p>
+<p>When analyzing consecutive TCP data segments afterwards, the following sequence and acknowledgement numbers were found:</p>
+<p><em>For the first packet:</em></p>
+<p>SEQ: 1293906975
+ACK: 1293906976</p>
+<p><em>For the second packet:</em></p>
+<p>SEQ: 2587813950
+ACK: 2587813951</p>
+<p>Both sequence numbers and acknowledgement increase for each subsequent TCP data segment. Since these numbers incraese, the sender does transmit additional data before receiving acknowledgement. This implies that TCP ensures delivery through a constant flow of data back to the sender whenever a packet is sent. If the link were interrupted, the sender would expect to receive a notification and no acknowledgement.</p>
+<p>A TCP segment was opened, and the header length and checksum were checked:</p>
+<p><img alt="TCP Packet" src="../../images/Assignment12/Packet-TCP-3.PNG"></p>
+<p>The following values were determined:</p>
+<ul>
+<li>Header Length: 32</li>
+<li>Checksum: 0x0000</li>
+</ul>
+<p>Checksum is used to detect errors during data transmission by comparing it with the original checksum. If the checksum failed, the receiver would not accept the data since it has been tampered with. If the data were rejected, it would logically be sent again.</p>
+<p><strong>Observing UDP Behavior</strong></p>
+<p>Next, UDP traffic was generated by pinging the other computer (192.168.10.20). The traffic was then observed:</p>
+<p>Here is a segment of UDP data:</p>
+<p><img alt="UDP Short" src="../../images/Assignment12/Packet-UDP-Short.PNG"></p>
+<p>Here are all of the steps of transmission:</p>
+<p><img alt="UDP" src="../../images/Assignment12/Packet-UDP.PNG"></p>
+<p>There is not a multi-step connection setup, as the packet starts transmitting immediately after the start of the transaction. Sequence numbers are not visible, and acknowledgement numbers are also not visible. Retransmission is also not visible, showing that there is no handshake in UDP.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>TCP</th>
+<th>UDP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Connection Setup</td>
+<td>Three-Way Handshake</td>
+<td>Immediate Transmission</td>
+</tr>
+<tr>
+<td>Sequence Numbers</td>
+<td>Exist and increase</td>
+<td>Do not exist</td>
+</tr>
+<tr>
+<td>Acknowledgement</td>
+<td>Exist</td>
+<td>Do not exist</td>
+</tr>
+<tr>
+<td>Retransmission</td>
+<td>Retransmits when transmission fails</td>
+<td>Does not have retransmission</td>
+</tr>
+<tr>
+<td>Header Complexity</td>
+<td>Many different fields</td>
+<td>Minimal fields to decrease size</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tcp-vs-udp-comparing-transmission-types_1">TCP vs. UDP - Comparing Transmission Types</h3>
+<p><strong>Observing Listening Sockets</strong></p>
+<p>The command <code>ss -tln</code> was run to check the listening sockets of TCP:</p>
+<p><img alt="SS TLN" src="../../images/Assignment12/SS-Tln.PNG"></p>
+<p>There were 6 listening connections found.</p>
+<p>Next, <code>sudo ss -tlpn</code> was used to display ports:</p>
+<p><img alt="SS TLPN" src="../../images/Assignment12/SS-TLPN.PNG"></p>
+<p>If it were visible, port 22 would be using SSH. However, this does not appear, suggesting that SSH is not being used. This makes sense because SSH involves remotely accessing another device, which was not happening at that time. A port existing means that it has the ability to send or listen data, but it does not guarantee that it is able to be used at that moment. Meanwhile, a listening port guarantees that it is able to accept data at that moment.</p>
+<p>Finally, <code>ss -uln</code> was run to check for UDP sockets:</p>
+<p><img alt="SS ULN" src="../../images/Assignment12/SS-Uln.PNG"></p>
+<p>As shown above, the UDP sockets do not show <em>LISTEN</em> or <em>ESTAB</em>. Instead, the State column shows <em>UNCONN</em>, implying that none of the UDP ports are active.</p>
+<p><strong>Live TCP vs. UDP Experiment</strong></p>
+<p>TCP Experiment:</p>
+<p>Three terminals were opened. <code>nc -l 5000</code> was used on the first terminal to establish a listening connection on port 5000. On the third terminal, <code>ss -tln</code> was run to show the active connection. The 3rd socket confirms that port 5000 is open for listening. <code>nc 127.0.0.1 5000</code> was used on the second terminal to establish the TCP connection and allow message transfer. Finally, <code>ss -tn</code> was run on the 3rd terminal to track the established connections:</p>
+<p><img alt="NC TN" src="../../images/Assignment12/NC-TN.PNG"></p>
+<p>When running <code>ss</code>, port 5000 is visible, implying that the connection to port 5000 was successfully active at that time. The evidence found through <code>ss -tln</code> shows that there are several listening TCP ports. However, the output of <code>ss -tn</code> after the connnection confirms that the connection to port 5000 has passed the listening stage and has been successfully established. Between <code>ss -tln</code> and <code>ss -tn</code>, the state of port 5000 changed from LISTEN to ESTAB. This proves that TCP is connection-oriented because the connection using netcat changed the state of the connection to port 5000.</p>
+<p>Next, the session was closed, and <code>ss -tn</code> was run again:</p>
+<p><img alt="NC TN 2" src="../../images/Assignment12/NC-TN-2.PNG"></p>
+<p>The ESTAB was changed to <em>FIN-WAIT-2</em>, showing that the connection was terminated after TCP was ended.</p>
+<p>UDP Experiment:</p>
+<p>Using the same terminals, a UDP listener was started on port 6000 using <code>nc -u -l 6000</code>, and traffic was send using <code>nc -u 127.0.0.1 6000</code>. The UDP states of the ports were then found using <code>ss -uln</code>:</p>
+<p><img alt="NC ULN" src="../../images/Assignment12/NC-ULN.PNG"></p>
+<p>All of the states are unconnected, implying that the socket is open and that no connection was established. This supports the idea of UDP being connectionless.</p>
+<p>UDP never shows ESTAB because it is connectionless, so it never establishes a connection to the server. UNCONN implies that, while the port is open, it does not have a connection. UDP does not create a persistent connection state, but rather sends packets individually. If one terminal closes abruptly, then the connection state remains the same due to no connection being established in the first place. There is no formal handshake and no formal teardown. Thus, UDP is structurally different from TCP in that UDP does not establish a connection before transmission and does not require authentication from both sides.</p>
+<p><strong>Port and Ephemeral Port Analysis</strong></p>
+<p>The TCP session was recreated, and <code>ss -tn</code> was run again:</p>
+<p><img alt="NC TN 3" src="../../images/Assignment12/NC-TN-3.PNG"></p>
+<p>In the output of <code>ss -tn</code>, along with port 5000, there is another port with a very large number (37456), which is an ephemeral port. </p>
+<p>The operating sytem assigns an ephemeral port to the client side of a TCP connection so that the connection specifically to the client can be uniquely identified. Thus, if multiple devices are connected, the communication will be with only the intended connection. A listening port remains constant in port number and is where the server listens for connections. Meanwhile, an ephemeral port is assigned to each client of that listening port. UDP does use ports to transfer data, but it does not establish a connection on those ports. Even though we have IP addresses, ports exist to specify what service to send data to or receive data from in a device.</p>
+<h3 id="investigating-osi-layers-5-7-in-a-live-system">Investigating OSI Layers 5-7 in a Live System</h3>
+<p>In this activity, the activity of layers 5-7 of the OSI model were examined in a Linux virtual machine.</p>
+<p><strong>Application Layer Investigation</strong></p>
+<p>First, an HTTP redirect was performed an observed using curl, via the command <code>curl -I http://example.com</code>:</p>
+<p><img alt="Curl HTTP" src="../../images/Assignment12/CurlHTTP.PNG"></p>
+<p>From this output, the following are determined:</p>
+<ul>
+<li>Status Code: 200</li>
+<li>Server: http://example.com</li>
+<li>Content-Type: text/html</li>
+<li>Date: Mon, 09 Mar 2026</li>
+</ul>
+<p>When executing this, the HTTP protocol is being used. This is supported by the output of an HTTP status code, implying that it worked in the background. Underneath HTTP is the TCP protocol, which allows for reliable data transmission and access to the website's contents. This is known because HTTP is generally stored on a TCP port due to the importance of reliability. The Application Layer is responsible for interpreting "200 OK", since the application layer must determine the appropriate action to take (in this case continuing to the website).</p>
+<p>Next, an HTTPS transaction was analyzed:</p>
+<p><img alt="Curl HTTPS" src="../../images/Assignment12/CurlHTTPS.PNG"></p>
+<p>In this output, the interpretation of the status code 200 (OK) is missing, and the connection type is also missing. This is due to the necessary involvement of the TLS protocol, which ensures that the communication and its data are encrypted. HTTP itself does not provide encryption since it strictly acts on the Application Layer (Layer 7), while encryption is primarily executed on layers 6. Encryption logically occurs on this layer (Presentation) since its objective is to format data and ensure adequate encryption.</p>
+<h3 id="applying-application-and-remote-access-protocols-across-the-stack">Applying Application and Remote Access Protocols Across the Stack</h3>
+<p>In this activity, multiple protocols were analyzed across different layers.</p>
+<p><strong>Full Stack Analysis: HTTP vs. HTTPS</strong></p>
+<p>The command <code>curl -I http://example.com</code> was run to communicate with an HTTP server:</p>
+<p><img alt="CURL HTTP" src="../../images/Assignment12/CurlHTTP.PNG"></p>
+<p><code>ss -tn</code> was used next to check active connections at the time of the curl request:</p>
+<p><img alt="SS TN HTTP" src="../../images/Assignment12/SS-Tn-HTTP.PNG"></p>
+<p>Below is the relevant information from the curl request:</p>
+<ul>
+<li>Destination Port: 104.18.27.120:80 (from <code>ss -tn</code>)</li>
+<li>Connection State: ESTAB/Established (from <code>ss -tn</code>)</li>
+<li>Transport Protocol: HTTP</li>
+</ul>
+<p>The destination port matches what is expected, since HTTP generally runs on port 80.</p>
+<p>Next, <code>curl -I https://example.com</code> was run to communicate using HTTPS:</p>
+<p><img alt="CURL HTTPS" src="../../images/Assignment12/CurlHTTPS.PNG"></p>
+<p><code>ss -tn</code> was used again for this URL:</p>
+<p><img alt="SS TN HTTPS" src="../../images/Assignment12/SS-Tn-HTTPS.PNG"></p>
+<p>When switching to HTTPS, the application layer changes by TLS, ensuring security. This will cause packet data to be encrypted on the application layer. On the transport layer, the destination port changed to 443, as shown by the output of <code>ss -tn</code> displaying <strong>172.66.47.170:443</strong>. This acts as an additional destination before port 80. In HTTP, the port number 80 is involved, while in HTTPS, the port number 443 is involved. Between HTTP and TCP, TLS (Transport Layer Security) appears, ensuring secure communication. TLS does not replace TCP, but rather operates above it, since TCP is still required to facilitate data transmission.</p>
+<h3 id="investigating-http-status-codes-and-redirect-behavior">Investigating HTTP Status Codes and Redirect Behavior</h3>
+<p><strong>Observing an HTTP Redirect</strong></p>
+<p>A redirect was analyzed by using <em>https://slides.google.com</em>, which should redirect to <em>https://docs.google.com/presentation</em>. To view the HTTP response headers, <code>curl -I https://slides.google.com</code> was run:</p>
+<p><img alt="Status Code 1" src="../../images/Assignment12/StatusCode1.PNG"></p>
+<p>As shown above, the HTTP status code 301 was returned. This code signifies that the requested URL has been permanently moved to the URL listed under the <em>location</em> field. The Application Layer (Layer 7) of the OSI model is responsible for interpreting this message, since it determines how the application running the curl command should handle the result of the request.</p>
+<p><strong>Investigating the Redirect Target</strong></p>
+<p>Since the listed URL in <em>location</em> was <em>https://docs.google.com/presentation</em>, the curl command was next used with this URL:</p>
+<p><img alt="Status Code 2" src="../../images/Assignment12/StatusCode2.PNG"></p>
+<p>At this time, the HTTP status code 302 was returned. A status code of 301 signifies a permanent redirect to a new URL while a status code of 302 signifies a temporary redirect to another URL. A server may temporarily redirect a request if the request cannot be processed fast enough or if there is maintenance in the server. A web browser would respond to a 301 code by automatically redirecting to the <em>location</em> field and notifying the user that the URL they attempted to use is deprecated. Meanwhile, a browser would respond to a 302 code by automatically redirecting the user but telling the user to continue using the requested URL.</p>
+<p><strong>Observing Transport Behavior</strong></p>
+<p><code>ss -tn</code> was then used to display the active TCP connections directly after a redirect:</p>
+<p><img alt="Redirect SS" src="../../images/Assignment12/StatusCode-SS.PNG"></p>
+<p>The ESTAB connections confirm that there is still a TCP connection to the remote server when redirecting. Thus, it is confirmed that the Transmission Control Protcol (TCP) carried out the HTTP request. Redirects are handled by HTTP because they only function at the Application layer, while TCP facilitates the actual transfer of redirect requests. TCP only ensures transport reliability and does not act on the Application layer. During this transaction, TLS encryption encrypts both the HTTP request and response during a redirect, ensuring that the request data is secured.</p>
+<h2 id="testing-and-evaluation">Testing and Evaluation</h2>
+<h3 id="tcp-vs-udp-comparing-transmission-types_2">TCP vs. UDP - Comparing Transmission Types</h3>
+<p><strong>Reflections</strong></p>
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Protocol</th>
+<th>Why?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Online Banking</td>
+<td>TCP</td>
+<td>Banking must always be reliable and stateful</td>
+</tr>
+<tr>
+<td>Zoom Call</td>
+<td>UDP</td>
+<td>Low latency is desired when calling</td>
+</tr>
+<tr>
+<td>Netflix Streaming</td>
+<td>UDP</td>
+<td>Smooth streaming with little lag is often desired</td>
+</tr>
+<tr>
+<td>File Download</td>
+<td>TCP</td>
+<td>TCP ensures that all of the file's contents are transferred</td>
+</tr>
+<tr>
+<td>DNS Query</td>
+<td>UDP</td>
+<td>DNS is a simple request, so UDP handles it efficiently with minimal overhead</td>
+</tr>
+</tbody>
+</table>
+<p>The structural difference between TCP and UDP is that TCP establishes a connection while UDP does not. This was shown through the different ss outputs, with <code>ss -tn</code> displaying established connections while <code>ss -uln</code> displayed that the UDP ports were unconnected. TCP is reliable because it uses a handshake to confirm device identities. TCP also uses sequence numbers to ensure that data is transferred in order, and acknowledgements are made to confirm that data was completely transferred. UDP avoids reliability to minimize overhead and provide fast transmission. Ports enable multiplexing by allowing for multiple connections to be made at once through the use of ephemeral ports. Protocol overhead matters since larger overhead correlates with longer transmission and more information having to be sent.</p>
+<h3 id="investigating-osi-layers-5-7-in-a-live-system_1">Investigating OSI Layers 5-7 in a Live System</h3>
+<p><strong>Presentation Layer Investigation</strong></p>
+<p>A TLS handshake was examined via the command <code>openssl s_client -connect example.com:443</code>:</p>
+<p><img alt="OpenSSL" src="../../images/Assignment12/OpenSSL.PNG"></p>
+<p>The certificate exchange can be sseen under <em>Certificate chain</em>, and the server public key is given at the bottom. The handshape messages are likewise in the certificate chain.</p>
+<p>Before data transfer, the public keys of the server and the host are exchanged, as shown in the certificate chain with the fields labeled <strong>PKEY</strong>. TLS does not operate on layer 4 since layer 4 primarily provides the ability of data transfer through protocols such as TCP. However, TLS is usually on layers 5 or 6 due to it providing security in the exchange. A TLS handshake solves the problem of verifying the identity of the server and the host before communication is made. This must occur before application data is sent because once it is sent, the data can be intercepted and used maliciously.</p>
+<p>If TLS encrypts data, it does not replace TCP because TLS still does not actually facilitate the communication of the encrypted data. Rather, TLS uses TCP to guarantee the transmission of data, and it works on top of TCP to encrypt the data which is transmitted. TLS needs a transport protocol to function due to its only functions being verification and encryption.</p>
+<p><strong>Session Layer Investigation</strong></p>
+<p>Immediately after running the prior HTTPS curl command, <code>ss -tn</code> was run to display active connections:</p>
+<p><img alt="SS TN HTTPS" src="../../images/Assignment12/HTTPS-Curl-SS.PNG"></p>
+<p>The connection is still active because there is an active state listed under the active connections. It is in the state <strong>FIN-WAIT-1</strong>. The session ends once all of the data in the send queue has been received, which is ultimately decided by the user when they choose to close the connection. If you log into a website with a username and password, that is not handled by TCP, but rather the Application Layer (layer 7). This is because TCP only facilitates transmission, but does not handle the authentication of such transmission. A username and password are passed down from the application as confirmation to lower layers.</p>
+<p><strong>Protocol Identification and Layer Mapping</strong></p>
+<table>
+<thead>
+<tr>
+<th>Protocol</th>
+<th>Layer</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTTP</td>
+<td>Application (7)</td>
+<td>Send data between hosts and servers</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>Application (7)</td>
+<td>Send data between hosts and servers securely</td>
+</tr>
+<tr>
+<td>TLS</td>
+<td>Presentation (6)</td>
+<td>Encrypt data and ensure proper authentication</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>Application (7)</td>
+<td>Converts string domain names into IP addresses</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>Transport (4)</td>
+<td>Allows for reliable delivery of data between devices</td>
+</tr>
+</tbody>
+</table>
+<p>Encryption does not occur at Layer 3 because Layer 3 determines the actual routing of data between devices via IP addresses. This is supported by the function of TLS, which must function between transport and application due to the requirement of securing the data itself. TCP does not handle user authentication because it is only used to ensure the transfer of data between devices, regardless of whether it is secured. Instead, this is done through services such as TLS. Transport reliability, encryption, and application logic are separated so that these policies can be easily changed and debugged independently of each other. If all of these were collapsed into one layer, then a small error in any one of these fields would cause the rest to not function, effectively stopping data communication.</p>
+<p>In managing communication state, Layer 5 plays the role of controlling what ports data are transferred to, determining whether TCP-specific or UDP-specific ports should be used. Layer 6 allows for the encryption of sent data, often through the use of a TLS handshake, which was found to confirm the identity of all devices in a transaction. Layer 7 plays the role of relaying data between the client and the server, as seen through the use of the HTTP protocol when using <code>curl</code> to access domains. Layer 4 alone is insufficent because there will be no way to diplay the data in a readable format or provide any security in the data transferred.</p>
+<h3 id="investigating-osi-layers-5-7-in-a-live-system_2">Investigating OSI Layers 5-7 in a Live System</h3>
+<p><strong>DNS as a Supporting Application Protocol</strong></p>
+<p>To analyze DNS, <code>nslookup example.com</code> was run:</p>
+<p><img alt="NSLOOKUP" src="../../images/Assignment12/Nslookup.PNG"></p>
+<p>As shown above, the sever and address fields suggest that DNS typically uses port 53. Since DNS is designed to allow efficient access to an IP address via a string, DNS generally uses UDP for efficiency, rather than TCP. DNS does not guarantee delivery in most cases because of its use of UDP. While TCP would ensure delivery, UDP is primarily focused on speed of transmission. DNS might switch to TCP if it is very important that the desired IP address can always be accessed, such as in large businesses.</p>
+<p><strong>Remote Access Using SSH</strong></p>
+<p>Using <code>ip addr</code>, the IPv4 address of the host is 10.12.26.25.</p>
+<p>Next, <code>ssh ubuntu@localhost</code> was used to connect back to the same host device using loopback:</p>
+<p><img alt="SSH" src="../../images/Assignment12/SSH.PNG"></p>
+<p>Immediately after, <code>ss -tn</code> was run to capture active connections:</p>
+<p><img alt="SSH SS" src="../../images/Assignment12/SSH-SS.PNG"></p>
+<p>As shown above, port <strong>22</strong> is used by SSH. Using a table, port 22 was found to be a TCP port, so SSH usually acts under TCP. This connection is encrypted because SSH always encrypts the session, regardless of the destination. Although this is a loopback connection, the presence on port 22 and the function of SSH confirm that this connection is encrypted. All OSI layers except for layer 1 (physical) are involved in this SSH request because the user facilitates the request at the application level, and it works down to transmission via MAC addresses. However, since the device is communicating with itself, there is no physical transmission necessary.</p>
+<p><strong>Secure File Transfer</strong></p>
+<p>A dummy file was created under the name <em>stacktest.txt</em> using the following command: <code>echo "Layered Networking Test" &gt; stacktest.txt</code>.</p>
+<p>Next, the SCP protocol was used to transfer the file via loopback with the command <code>scp stacktest.txt ubuntu@localhost:/home/ubuntu/</code>:</p>
+<p><img alt="SCP" src="../../images/Assignment12/SCP.PNG"></p>
+<p>SCP relies on the SSH protocol because SCP transfers files between two hosts. SSH must be used for this since SSH is generally used for data transfer. Since SSH requires TCP, SCP must also require TCP. Since the SSH protocol also encrypts all data transferred through it, SCP also automatically encrypts files transferred. If TCP reliability were removed, then the risk of the failure of file transmission would be posed since it would no longer be guaranteed that all data packets reach the destination. Similarly to SSH, all OSI layers except for layer 1 are involved in this SCP request due to loopback because of its reliance on SSH.</p>
+<p><strong>Stack Mapping</strong></p>
+<p>Below is a stack mapping for an HTTPS request.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Layer</strong></th>
+<th><strong>Protocol</strong></th>
+<th><strong>Purpose</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application</td>
+<td>HTTP</td>
+<td>Requesting the content and displaying it to the user</td>
+</tr>
+<tr>
+<td>Presentation</td>
+<td>TLS</td>
+<td>Ensures that the requested data is encrypted</td>
+</tr>
+<tr>
+<td>Session</td>
+<td>TLS</td>
+<td>TLS also maintains the connection and works with TCP</td>
+</tr>
+<tr>
+<td>Transport</td>
+<td>TCP</td>
+<td>Provides the means for data to be transferred</td>
+</tr>
+<tr>
+<td>Network</td>
+<td>IP</td>
+<td>Determines the routing of packets to different addresses</td>
+</tr>
+</tbody>
+</table>
+<p>SSH requires TCP because it is used to securely login, thus requiring much security and reliability. TCP ensures transmission due to its resending of packets if they fail to transmit, making it the best protocol to use. Encryption is not handled at Layer 3 because Layer 3 is primarily focused on the routing of data, while the securing of that data is typically done at the Presentation or Session layer. HTTP does not provide its own reliability since it already relies on TCP, which automatically ensures reliability. If port numbers did not exist, devices would not be able to distinguish between the different applications and protocols running, which would cause confusion in the Application layer. Remote access should be separated from file transfer protocols since remote access is mainly used to manage another device without copying its contents. File transfer protocols are mainly used for data movement, which is not necessary during a remote access session.</p>
+<p>In a single transaction, Application logic can be performed by various user-level tools, such as curl and SSH. Curl (port 443) obtains web data while SSH (port 22) allows remote access, and they both request data from another device. Next, services such as TLS are used in Layer 6 to ecnrypt the data being transferred to and from the host device. The TCP protocol in Layer 4 is designed to guarantee data transmission, with lost or corrupted data packets being retransmitted. Finally, the IP protocol in Layer 3 routes data between devices, ensuring that data reaches the correct host.</p>
+<h3 id="investigating-http-status-codes-and-redirect-behavior_1">Investigating HTTP Status Codes and Redirect Behavior</h3>
+<p><strong>Reasoning About Server Behavior</strong></p>
+<p>A server does not simply send the new page content automatically because the application first needs to receive the new location URL in place of the incorrect URL used in the request. This is received via HTTP request redirect messages. The server instructs the client to make a new request since the server requires a request from the client to actually display a page's content. This provides the advantage of performing maintenance on a website's main URL while still keeping the website functional through the redirected URL. This can also help if a particular server is down, providing an alternate server to access the same service.</p>
+<h2 id="reflection">Reflection</h2>
+<p>Through the <em>Ports &amp; Protocols</em> activity, the interaction between transport-layer protocols, ports, and higher OSI layers was explored, showing how reliable and efficient communication occurs. TCP and UDP were compared through simulations and live tests, revealing that TCP establishes a connection, uses sequence numbers and acknowledgments for reliability, and transitions ports from LISTEN to ESTAB, while UDP remains connectionless with unconnected ports. Port numbers, including ephemeral ports, were shown to allow multiple applications to communicate simultaneously, with services like HTTP on port 80 and SSH on port 22 clearly distinguished. Using curl, HTTP and HTTPS transactions demonstrated how the application layer interprets responses while TLS at the presentation layer encrypts data without replacing TCP’s reliability functions. DNS queries highlighted the use of UDP for fast resolution, while SSH and SCP showed how TCP ensures secure, reliable remote access and file transfers. Observing these protocols emphasized how layered design separates transport reliability, encryption, and application logic, enabling flexible and secure communication. Protocol overhead was recognized as a trade-off, with TCP adding extra control information while UDP minimizes delays. These skills translate to real-world networking by helping configure LANs, WANs, and secure connections. Layered interactions were further validated by watching ephemeral ports manage client connections and TLS handshakes confirm identities before data transfer. Overall, the activity reinforced the importance of selecting the appropriate protocol for a given application while understanding how ports and OSI layers work together to maintain reliable and secure data exchange. Citations include the <em>Charlotte Latin School</em> AP Networking Class assignments.</p></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/connorfcruz" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
