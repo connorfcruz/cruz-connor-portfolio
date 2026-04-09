@@ -40,11 +40,7 @@ In this activity, subnet masks were varied on different computers to test commun
 
 **Building the Network**
 
-A basic network was created with three PCs under one switch, with all connections being wired:
-
-INSERT NETWORK CONFIG
-
-Next, the three PCs were assigned the following IP addresses under the same subnet mask (255.255.255.0):
+A basic network was created with three PCs under one switch, with all connections being wired. Next, the three PCs were assigned the following IP addresses under the same subnet mask (255.255.255.0):
 
 - PC0 -> 192.168.1.10
 - PC1 -> 192.168.1.25
@@ -54,13 +50,13 @@ Next, the three PCs were assigned the following IP addresses under the same subn
 
 Using the command prompt on PC0, PC0 attempted to ping PC1 (192.168.1.25):
 
-INSERT PING ATTEMPT
+![Ping 1](../images/Assignment13/Ping1.PNG)
 
 As shown above, this ping was successful.
 
 Next, PC0 attempted to ping PC2 (192,168.2.10):
 
-INSERT PING ATTEMPT 2
+![Ping 2](../images/Assignment13/Ping2.PNG)
 
 This ping failed, as none of the packets went through.
 
@@ -70,7 +66,7 @@ The determining factor of whether the ping worked was the subnet mask. Since the
 
 PC2's subnet mask was changed from 255.255.255.0 to 255.255.0.0. Then, 192.168.2.10 (PC2) was pinged again from PC0:
 
-INSERT PING ATTEMPT 3
+![Ping 3](../images/Assignment13/Ping3.PNG)
 
 This ping attempt still failed. This is because while PC2's subnet mask classifies it and PC0 being on the same subnet, PC0's subnet mask is still 255.255.255.0. Thus, from PC0, PC2 is on a different subnet, so communication is still expected to fail.
 
@@ -82,7 +78,7 @@ Scenario A:
 
 After the subnet masks were changed, PC0 pinged both PC1 and PC2:
 
-INSERT PING ATTEMPT 4
+![Ping 4](../images/Assignment13/Ping4.PNG)
 
 Both of the ping attempts succeeded. This happened because the subnet mask only specifies that the first segment of the devices' IPv4 addresses must be the same to be on the same subnet. Since all PCs have a first segment of *1*, communication is expected to succeed.
 
@@ -93,7 +89,7 @@ Scenario B:
 
 Communication from PC0 to PC1 was tested by PC0 pinging PC1:
 
-INSERT PING ATTEMPT 5
+![Ping 5](../images/Assignment13/Ping5.PNG)
 
 The ping attempt succeeded.
 
@@ -108,11 +104,13 @@ The following assignments were chosen:
 - PC0 -> 172.16.1.10 / 255.255.255.192
 - PC1 -> 172.16.1.120 / 255.255.255.192
 
-INSERT CONFIG SCREENS
+![Config 1](../images/Assignment13/Config1-1.PNG)
+
+![Config 2](../images/Assignment13/Config1-2.PNG)
 
 Next, PC0 attempted to ping PC1 (172.16.1.120):
 
-INSERT PING ATTEMPT 6
+![Ping 6](../images/Assignment13/Ping6.PNG)
 
 The ping failed.
 
@@ -127,11 +125,13 @@ The following assignments were chosen:
 - PC0 -> 172.45.13.132 / 255.0.0.0
 - PC1 -> 172.16.1.120 / 255.0.0.0
 
-INSERT CONFIG SCREENS
+![Config 1](../images/Assignment13/Config2-1.PNG)
+
+![Config 2](../images/Assignment13/Config2-2.PNG)
 
 Next, PC0 attempted to ping PC1 (172.16.1.120):
 
-INSERT PING ATTEMPT 7
+![Ping 7](../images/Assignment13/Ping7.PNG)
 
 The ping succeeded. This happened because the subnet mask only specifies that the first segments of the IP addresses must be the same to be on the same network, so the devices are actually on the same network.
 
@@ -148,7 +148,7 @@ In this activity, a network for a small business workspace was designed with the
 
 Cisco Packet Tracer was used to design this network. The devices were named accordingly, and the devices were placed based on their function:
 
-INSERT NETWORK CONFIG
+![Network Config](../images/Assignment13/NetworkC-Config.PNG)
 
 **Required Devices**
 
@@ -158,7 +158,7 @@ A router was required since the employees must connect to the internet, and a ro
 
 The only devices which should be connected wirelessly are the laptops to the access point. Thus, the following connections were made:
 
-INSERT COMPLETE NETWORK CONFIG
+![Network Config](../images/Assignment13/NetworkC-Config.PNG)
 
 ### Making Separate Networks Communicate
 
@@ -166,25 +166,25 @@ INSERT COMPLETE NETWORK CONFIG
 
 First, two LANs were created, and a router was placed between the two switches:
 
-INSERT DIAGRAM 1
+![Diagram 1](../images/Assignment13/Diagram1.PNG)
 
 **Configuration**
 
 As shown above, the connections to the router are DOWN. To fix this, the router's terminal was used to assign IP addresses (192.168.1.1 and 192.168.2.1) to the switches and to enable the connections:
 
-INSERT TERMINAL
+![Terminal](../images/Assignment13/TerminalConfig.PNG)
 
 Shown below are the active connections:
 
-INSERT DIAGRAM 2
+![Diagram 2](../images/Assignment13/Diagram2.PNG)
 
 Next, the PCs were configured to match the router settings.
 
 On each of the computers, an IPv4 address under the gateway of their respective switch and the gateway address assigned to the switch were assigned. Below are the IP configurations for computers on switches 1 and 2 respectively:
 
-INSERT COMP 1
+![Computer 1](../images/Assignment13/Comp1.PNG)
 
-INSERT COMP 2
+![Computer 2](../images/Assignment13/Comp2.PNG)
 
 ### When Networks Break: Diagnosing and Fixing Problems
 
@@ -194,32 +194,33 @@ In this activity, a broken network was examined, the problem was diagnosed, and 
 
 To start, the network topology was examined:
 
-INSERT TOPOLOGY
+![Topology](../images/Assignment13/Topology.PNG)
 
 As seen above, the connection between the router and Switch1 seemed to be down, but there may also be hidden connection failures. To check for these, **ping** was used.
 
 To confirm that ping was working, PC0 pinged PC1 (on the same switch), which was expected to work:
 
-INSERT PING 11
+![Ping PC1](../images/Assignment13/Ping11.PNG)
 
 Since this worked, there is not a problem with the ping command.
 
 Next, a PC under the other router and the other router itself were pinged to check for problems communicating with that subnet:
 
-INSERT PING 2.10 2.1
+![Ping Others](../images/Assignment13/Ping-210-21.PNG)
 
 Both of these failed, implying that there is likely a connection failure connected to Switch1, which supports what was deduced from the topology.
 
 Finally, pings were made from PC2 on the other subnet to diagnose exactly where the problem is:
 
-INSERT PING 2.11 2.1
+![Ping Others 2](../images/Assignment13/Ping-211-21.PNG)
 
 Communication with the other device on the same subnet worked, meaning that Switch1 is configured correctly. However, the ping to the switch itself failed, suggesting that there is a problem with the IP address assigned by the router. Thus, there must be a problem between the router and Switch1.
 
 The configs of the GigabitEthernet ports of the router were then checked to see any disparity between the switch configurations:
 
-INSERT GIGA0
-INSERT GIGA1
+![Giga0](../images/Assignment13/Giga0.PNG)
+
+![Giga1](../images/Assignment13/Giga1.PNG)
 
 The only notable difference is that the port status for GigabitEthernet0/0/1 (Switch1) is off. This is the problem in the network.
 
@@ -227,7 +228,7 @@ The only notable difference is that the port status for GigabitEthernet0/0/1 (Sw
 
 To fix this, the router's CLI was opened, and GigabitEthernet0/0/1 was opened. Next, the command `no shutdown` was entered to activate the connection:
 
-INSERT TERMINAL STUFF
+![Terminal Activation](../images/Assignment13/TerminalActivate.PNG)
 
 Checking the status can be found in **Testing and Evaluation**.
 
@@ -251,7 +252,7 @@ The router was selected as the central device because it allows communication be
 
 Next, a computer under switch 1 pinged a computer under switch 2, which both have different default gateways:
 
-INSERT PING
+![Ping 2.10](../images/Assignment13/Ping210.PNG)
 
 The ping succeeds, implying successful communication across the router.
 
@@ -263,15 +264,15 @@ The router connects networks by assigning a different gateway to each switch und
 
 When checking the config of GigabitEthernet0/0/1, the port status was set to **On**, implying that the problem was fixed:
 
-INSERT ON CONNECTION
+![ON Connection](../images/Assignment13/OnConnection.PNG)
 
 The part of the topology which was previously red also turned green, showing that the connection is UP:
 
-INSERT TOPOLOGY FIXED
+![Fixed Topology](../images/Assignment13/TopologyFixed.PNG)
 
 Finally, `ping` was run again from PC0 to the other subnet's switch and PC3:
 
-INSERT FINAL PING
+![Ping Test](../images/Assignment13/FinalPing.PNG)
 
 Since these pings were successful, the network was successfully fixed.
 
@@ -280,3 +281,5 @@ Since these pings were successful, the network was successfully fixed.
 Through checking ping, router configurations, and the network topology visualization, the problem was diagnosed to be between the router and Switch1. `ping` especially supported this, as communication was only possible up to the point between the router and Switch1 from a device on Switch0. To look for a solution, differences in switch configuration were checked, since Switch0 was successfully connected and was a good benchmark to compare to. The problem was found to be that the status of the port connected to Switch1 was **OFF**. To fix this, the CLI of the router was used to run the `no shutdown` command, which activates a port. After this fix, any ping run successfully worked, and the network topology showed a green connection between the router and Switch1, confirming that the problem was fixed.
 
 ## Reflection
+
+Through the *Subnetting and Maintaining Multiple LANs* activity, the interaction between IPv4 addressing, subnet masks, and network communication was explored, showing how logical segmentation determines whether devices can communicate. Subnet masks were examined in both decimal and binary forms, revealing that valid masks consist of contiguous 1s followed by 0s, which define the boundary between network and host portions of an address. Testing with ping commands demonstrated that successful communication depends on devices sharing consistent subnet interpretations, as mismatched masks can prevent connectivity even when IP addresses appear similar. Multiple scenarios highlighted how expanding or narrowing subnet masks changes network scope, reinforcing subnetting as a tool for efficient IP management and traffic control. Designing a small business network further illustrated how routers, switches, access points, and servers each serve distinct roles in enabling both wired and wireless communication within a structured environment. The importance of routers was emphasized when connecting separate LANs, as default gateways and router interfaces allowed devices on different subnets to exchange data reliably. Troubleshooting exercises showed how systematic testing with ping and configuration checks can isolate issues, such as identifying a disabled router interface. Fixing this issue using the no shutdown command demonstrated how minor misconfigurations can disrupt entire networks and how they can be resolved through careful analysis. Overall, the activity reinforced the importance of consistent configuration, thoughtful network design, and effective troubleshooting in maintaining reliable communication. Citations include the *Charlotte Latin School* AP Networking Class assignments.
